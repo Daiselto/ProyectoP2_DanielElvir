@@ -31,6 +31,20 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JD_CrearFlujo = new javax.swing.JDialog();
+        JP_Flujo = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextPane4 = new javax.swing.JTextPane();
+        jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        JD_CrearUML = new javax.swing.JDialog();
+        JP_UML = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextPane5 = new javax.swing.JTextPane();
+        NuevoBttn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         JD_Flujo = new javax.swing.JDialog();
         JD_UML = new javax.swing.JDialog();
         bg = new javax.swing.JPanel();
@@ -73,12 +87,165 @@ public class Menu extends javax.swing.JFrame {
         jTree1 = new javax.swing.JTree();
         MenuPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        NuevoMenu = new javax.swing.JMenu();
+        FlujoMenu = new javax.swing.JMenuItem();
+        UMLMenu = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+
+        JP_Flujo.setBackground(new java.awt.Color(0, 51, 51));
+
+        jLabel6.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Diagrama de Flujo");
+
+        jScrollPane5.setBorder(null);
+
+        jTextPane4.setEditable(false);
+        jTextPane4.setBackground(new java.awt.Color(0, 51, 51));
+        jTextPane4.setBorder(null);
+        jTextPane4.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jTextPane4.setForeground(new java.awt.Color(255, 255, 255));
+        jTextPane4.setText("Un diagrama de flujo para Python es una representación gráfica de la lógica de programación en un proceso de codificación. Utiliza símbolos como cajas y flechas para ilustrar la secuencia de pasos en un programa Python. Cada símbolo representa una acción o decisión, y las flechas indican el flujo de control entre ellos. Ayuda a planificar y visualizar cómo se ejecutará el código, lo que simplifica el diseño y la comprensión de algoritmos y estructuras de programas en Python.");
+        jScrollPane5.setViewportView(jTextPane4);
+
+        jButton1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boligrafo.png"))); // NOI18N
+        jButton1.setText("Crear nuevo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/uml1.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+
+        javax.swing.GroupLayout JP_FlujoLayout = new javax.swing.GroupLayout(JP_Flujo);
+        JP_Flujo.setLayout(JP_FlujoLayout);
+        JP_FlujoLayout.setHorizontalGroup(
+            JP_FlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_FlujoLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(66, 66, 66))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_FlujoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JP_FlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_FlujoLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_FlujoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))))
+        );
+        JP_FlujoLayout.setVerticalGroup(
+            JP_FlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_FlujoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel6)
+                .addGroup(JP_FlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JP_FlujoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JP_FlujoLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout JD_CrearFlujoLayout = new javax.swing.GroupLayout(JD_CrearFlujo.getContentPane());
+        JD_CrearFlujo.getContentPane().setLayout(JD_CrearFlujoLayout);
+        JD_CrearFlujoLayout.setHorizontalGroup(
+            JD_CrearFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JP_Flujo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        JD_CrearFlujoLayout.setVerticalGroup(
+            JD_CrearFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JP_Flujo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        JP_UML.setBackground(new java.awt.Color(0, 51, 51));
+
+        jLabel8.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Diagrama UML");
+
+        jScrollPane6.setBorder(null);
+
+        jTextPane5.setEditable(false);
+        jTextPane5.setBackground(new java.awt.Color(0, 51, 51));
+        jTextPane5.setBorder(null);
+        jTextPane5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jTextPane5.setForeground(new java.awt.Color(255, 255, 255));
+        jTextPane5.setText("Un diagrama UML para Python es como un dibujo que te ayuda a entender cómo funciona un programa. En lugar de código, usa imágenes para mostrar cómo las diferentes partes del programa se conectan y trabajan juntas. Puedes ver las clases, objetos y relaciones de tu código Python de manera más clara y fácil de entender, lo que te ayuda a planificar y construir programas de manera más organizada y eficiente.");
+        jScrollPane6.setViewportView(jTextPane5);
+
+        NuevoBttn.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        NuevoBttn.setForeground(new java.awt.Color(0, 0, 0));
+        NuevoBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boligrafo.png"))); // NOI18N
+        NuevoBttn.setText("Crear nuevo");
+        NuevoBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NuevoBttnActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flujo-de-trabajo.png"))); // NOI18N
+
+        javax.swing.GroupLayout JP_UMLLayout = new javax.swing.GroupLayout(JP_UML);
+        JP_UML.setLayout(JP_UMLLayout);
+        JP_UMLLayout.setHorizontalGroup(
+            JP_UMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_UMLLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(NuevoBttn)
+                .addGap(66, 66, 66))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_UMLLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(JP_UMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_UMLLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_UMLLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(73, 73, 73))))
+        );
+        JP_UMLLayout.setVerticalGroup(
+            JP_UMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JP_UMLLayout.createSequentialGroup()
+                .addGroup(JP_UMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JP_UMLLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NuevoBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JP_UMLLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout JD_CrearUMLLayout = new javax.swing.GroupLayout(JD_CrearUML.getContentPane());
+        JD_CrearUML.getContentPane().setLayout(JD_CrearUMLLayout);
+        JD_CrearUMLLayout.setHorizontalGroup(
+            JD_CrearUMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JP_UML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        JD_CrearUMLLayout.setVerticalGroup(
+            JD_CrearUMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JP_UML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout JD_FlujoLayout = new javax.swing.GroupLayout(JD_Flujo.getContentPane());
         JD_Flujo.getContentPane().setLayout(JD_FlujoLayout);
@@ -419,6 +586,11 @@ public class Menu extends javax.swing.JFrame {
 
         DFlujoImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DFlujoImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/uml.png"))); // NOI18N
+        DFlujoImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DFlujoImgMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout DFlujoBttnLayout = new javax.swing.GroupLayout(DFlujoBttn);
         DFlujoBttn.setLayout(DFlujoBttnLayout);
@@ -439,6 +611,11 @@ public class Menu extends javax.swing.JFrame {
 
         DUMLImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DUMLImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diagrama-de-flujo.png"))); // NOI18N
+        DUMLImg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DUMLImgMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout DUMLBttnLayout = new javax.swing.GroupLayout(DUMLBttn);
         DUMLBttn.setLayout(DUMLBttnLayout);
@@ -532,21 +709,31 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setText("Archivos");
 
-        jMenu7.setText("Nuevo");
+        NuevoMenu.setText("Nuevo");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Diagrama de Flujo");
-        jMenu7.add(jMenuItem1);
+        FlujoMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        FlujoMenu.setText("Diagrama de Flujo");
+        FlujoMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FlujoMenuActionPerformed(evt);
+            }
+        });
+        NuevoMenu.add(FlujoMenu);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Diagrama UML");
-        jMenu7.add(jMenuItem2);
+        UMLMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        UMLMenu.setText("Diagrama UML");
+        UMLMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UMLMenuActionPerformed(evt);
+            }
+        });
+        NuevoMenu.add(UMLMenu);
 
-        jMenu1.add(jMenu7);
+        jMenu1.add(NuevoMenu);
+        jMenu1.add(jSeparator1);
 
         jMenu6.setText("Abrir");
         jMenu1.add(jMenu6);
-        jMenu1.add(jSeparator1);
 
         MenuPrincipal.add(jMenu1);
 
@@ -643,6 +830,50 @@ public class Menu extends javax.swing.JFrame {
         OpenTXT1.setForeground(Color.black);
     }//GEN-LAST:event_OpenTXT1MouseExited
 
+    private void DFlujoImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DFlujoImgMouseClicked
+        JD_CrearFlujo.pack();
+        JD_CrearFlujo.setModal(true);
+        JD_CrearFlujo.setLocationRelativeTo(this);
+        JD_CrearFlujo.setVisible(true);
+    }//GEN-LAST:event_DFlujoImgMouseClicked
+
+    private void DUMLImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DUMLImgMouseClicked
+        JD_CrearUML.pack();
+        JD_CrearUML.setModal(true);
+        JD_CrearUML.setLocationRelativeTo(this);
+        JD_CrearUML.setVisible(true);
+    }//GEN-LAST:event_DUMLImgMouseClicked
+
+    private void FlujoMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FlujoMenuActionPerformed
+        JD_CrearFlujo.pack();
+        JD_CrearFlujo.setModal(true);
+        JD_CrearFlujo.setLocationRelativeTo(this);
+        JD_CrearFlujo.setVisible(true);
+    }//GEN-LAST:event_FlujoMenuActionPerformed
+
+    private void UMLMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UMLMenuActionPerformed
+        JD_CrearFlujo.pack();
+        JD_CrearFlujo.setModal(true);
+        JD_CrearFlujo.setLocationRelativeTo(this);
+        JD_CrearFlujo.setVisible(true);
+    }//GEN-LAST:event_UMLMenuActionPerformed
+
+    private void NuevoBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoBttnActionPerformed
+        JD_CrearUML.setVisible(false);
+        JD_UML.pack();
+        JD_UML.setModal(true);
+        JD_UML.setLocationRelativeTo(this);
+        JD_UML.setVisible(true);
+    }//GEN-LAST:event_NuevoBttnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JD_CrearFlujo.setVisible(false);
+        JD_Flujo.pack();
+        JD_Flujo.setModal(true);
+        JD_Flujo.setLocationRelativeTo(this);
+        JD_Flujo.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -687,37 +918,49 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel DUMLBttn;
     private javax.swing.JLabel DUMLImg;
     private javax.swing.JLabel DUMLTXT;
+    private javax.swing.JMenuItem FlujoMenu;
     private javax.swing.JPanel HomeBttn;
     private javax.swing.JLabel HomeTXT1;
     private javax.swing.JLabel HomeTXT2;
     private javax.swing.JPanel Inicio;
+    private javax.swing.JDialog JD_CrearFlujo;
+    private javax.swing.JDialog JD_CrearUML;
     private javax.swing.JDialog JD_Flujo;
     private javax.swing.JDialog JD_UML;
+    private javax.swing.JPanel JP_Flujo;
+    private javax.swing.JPanel JP_UML;
     private javax.swing.JMenuBar MenuPrincipal;
     private javax.swing.JPanel NewBttn;
     private javax.swing.JLabel NewTXT1;
     private javax.swing.JLabel NewTXT2;
+    private javax.swing.JButton NuevoBttn;
+    private javax.swing.JMenu NuevoMenu;
     private javax.swing.JPanel OpenBttn;
     private javax.swing.JLabel OpenTXT1;
     private javax.swing.JLabel OpenTXT2;
+    private javax.swing.JMenuItem UMLMenu;
     private javax.swing.JPanel bg;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -725,6 +968,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
+    private javax.swing.JTextPane jTextPane4;
+    private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTree jTree1;
     private javax.swing.JPanel sideMenu;
     // End of variables declaration//GEN-END:variables
