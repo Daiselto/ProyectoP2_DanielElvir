@@ -17,6 +17,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        
         Inicio.setVisible(true);
         CrearNuevo.setVisible(false);
         Abrir.setVisible(false);
@@ -47,6 +48,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         JD_Flujo = new javax.swing.JDialog();
         JD_UML = new javax.swing.JDialog();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         bg = new javax.swing.JPanel();
         sideMenu = new javax.swing.JPanel();
         HomeBttn = new javax.swing.JPanel();
@@ -91,7 +95,7 @@ public class Menu extends javax.swing.JFrame {
         FlujoMenu = new javax.swing.JMenuItem();
         UMLMenu = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenu6 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         JP_Flujo.setBackground(new java.awt.Color(0, 51, 51));
@@ -258,15 +262,23 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jMenu3.setText("Archivos ");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Ayuda");
+        jMenuBar1.add(jMenu4);
+
+        JD_UML.setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout JD_UMLLayout = new javax.swing.GroupLayout(JD_UML.getContentPane());
         JD_UML.getContentPane().setLayout(JD_UMLLayout);
         JD_UMLLayout.setHorizontalGroup(
             JD_UMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 1043, Short.MAX_VALUE)
         );
         JD_UMLLayout.setVerticalGroup(
             JD_UMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 638, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -274,7 +286,6 @@ public class Menu extends javax.swing.JFrame {
         setResizable(false);
 
         bg.setBackground(new java.awt.Color(0, 51, 51));
-        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sideMenu.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -319,19 +330,19 @@ public class Menu extends javax.swing.JFrame {
         HomeBttnLayout.setHorizontalGroup(
             HomeBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeBttnLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(HomeTXT2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(HomeTXT2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HomeTXT1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(HomeTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         HomeBttnLayout.setVerticalGroup(
             HomeBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeBttnLayout.createSequentialGroup()
-                .addGroup(HomeBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(HomeBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(HomeTXT2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(HomeTXT1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         NewBttn.setBackground(new java.awt.Color(204, 204, 255));
@@ -366,19 +377,18 @@ public class Menu extends javax.swing.JFrame {
         NewBttnLayout.setHorizontalGroup(
             NewBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NewBttnLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(NewTXT2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(NewTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NewTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         NewBttnLayout.setVerticalGroup(
             NewBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NewBttnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(NewBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(NewTXT2, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addComponent(NewTXT1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, 0)
+                .addGroup(NewBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NewTXT2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NewTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         OpenBttn.setBackground(new java.awt.Color(204, 204, 255));
@@ -416,8 +426,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(OpenTXT2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OpenTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(OpenTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         OpenBttnLayout.setVerticalGroup(
             OpenBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,32 +442,28 @@ public class Menu extends javax.swing.JFrame {
         sideMenuLayout.setHorizontalGroup(
             sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideMenuLayout.createSequentialGroup()
-                .addGroup(sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(NewBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(sideMenuLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideMenuLayout.createSequentialGroup()
-                .addComponent(OpenBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(NewBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(HomeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(OpenBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
         );
         sideMenuLayout.setVerticalGroup(
             sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideMenuLayout.createSequentialGroup()
-                .addComponent(HomeBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(HomeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NewBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NewBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OpenBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
+                .addComponent(OpenBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(217, 217, 217)
                 .addComponent(jLabel9)
                 .addGap(169, 169, 169))
         );
-
-        bg.add(sideMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 670));
 
         Inicio.setBackground(new java.awt.Color(0, 51, 51));
         Inicio.setForeground(new java.awt.Color(255, 255, 255));
@@ -555,8 +560,6 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(134, Short.MAX_VALUE))
         );
 
-        bg.add(Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 730, 670));
-
         CrearNuevo.setBackground(new java.awt.Color(0, 51, 51));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
@@ -577,6 +580,7 @@ public class Menu extends javax.swing.JFrame {
         DFlujoTXT.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         DFlujoTXT.setForeground(new java.awt.Color(255, 255, 255));
         DFlujoTXT.setText("Diagrama de Flujo");
+        DFlujoTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         DUMLTXT.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         DUMLTXT.setForeground(new java.awt.Color(255, 255, 255));
@@ -586,6 +590,7 @@ public class Menu extends javax.swing.JFrame {
 
         DFlujoImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DFlujoImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/uml.png"))); // NOI18N
+        DFlujoImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DFlujoImg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DFlujoImgMouseClicked(evt);
@@ -609,8 +614,11 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        DUMLBttn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         DUMLImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DUMLImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diagrama-de-flujo.png"))); // NOI18N
+        DUMLImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         DUMLImg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DUMLImgMouseClicked(evt);
@@ -651,7 +659,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(CrearNuevoLayout.createSequentialGroup()
                 .addGap(109, 109, 109)
                 .addComponent(DFlujoTXT)
@@ -679,10 +687,8 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(CrearNuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DFlujoTXT)
                     .addComponent(DUMLTXT))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        bg.add(CrearNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 730, 670));
 
         Abrir.setBackground(new java.awt.Color(0, 51, 51));
 
@@ -695,17 +701,34 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(AbrirLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AbrirLayout.setVerticalGroup(
             AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AbrirLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        bg.add(Abrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 730, 670));
+        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
+        bg.setLayout(bgLayout);
+        bgLayout.setHorizontalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CrearNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Abrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        bgLayout.setVerticalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sideMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(CrearNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Abrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         jMenu1.setText("Archivos");
 
@@ -732,8 +755,8 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.add(NuevoMenu);
         jMenu1.add(jSeparator1);
 
-        jMenu6.setText("Abrir");
-        jMenu1.add(jMenu6);
+        jMenuItem1.setText("Abrir");
+        jMenu1.add(jMenuItem1);
 
         MenuPrincipal.add(jMenu1);
 
@@ -852,10 +875,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_FlujoMenuActionPerformed
 
     private void UMLMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UMLMenuActionPerformed
-        JD_CrearFlujo.pack();
-        JD_CrearFlujo.setModal(true);
-        JD_CrearFlujo.setLocationRelativeTo(this);
-        JD_CrearFlujo.setVisible(true);
+        JD_CrearUML.pack();
+        JD_CrearUML.setModal(true);
+        JD_CrearUML.setLocationRelativeTo(this);
+        JD_CrearUML.setVisible(true);
     }//GEN-LAST:event_UMLMenuActionPerformed
 
     private void NuevoBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoBttnActionPerformed
@@ -872,6 +895,7 @@ public class Menu extends javax.swing.JFrame {
         JD_Flujo.setModal(true);
         JD_Flujo.setLocationRelativeTo(this);
         JD_Flujo.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -954,7 +978,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
