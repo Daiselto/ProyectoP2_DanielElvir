@@ -4,6 +4,7 @@
  */
 package ProyectoP2_DanielElvir;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
@@ -18,7 +19,7 @@ import javax.swing.text.StyledDocument;
  *
  * @author HP
  */
-public class Menu extends javax.swing.JFrame implements MouseInputListener, MouseMotionListener{
+public class Menu extends javax.swing.JFrame{
 
     /**
      * Creates new form Menu
@@ -145,8 +146,12 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
         jButton21 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jButton44 = new javax.swing.JButton();
+        jButton45 = new javax.swing.JButton();
+        jButton46 = new javax.swing.JButton();
+        jButton47 = new javax.swing.JButton();
+        MesaUMLBG = new javax.swing.JPanel();
+        MesaUML = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -486,10 +491,11 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
                     .addComponent(jLabel17)
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_FuenteFlujo)
-                    .addComponent(jComboBox5)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cb_FuenteFlujo)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46))
             .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -584,7 +590,7 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
         BttnData.setBackground(new java.awt.Color(235, 235, 235));
         BttnData.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         BttnData.setForeground(new java.awt.Color(0, 0, 0));
-        BttnData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Documento.jpg"))); // NOI18N
+        BttnData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Data.jpg"))); // NOI18N
         BttnData.setText("Data");
         BttnData.setBorder(null);
         BttnData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -715,6 +721,7 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
         );
 
         bg1.setBackground(new java.awt.Color(204, 204, 255));
+        bg1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -836,7 +843,7 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
                         .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -847,10 +854,11 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
                     .addComponent(jLabel12)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_FuenteUML)
-                    .addComponent(jComboBox3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cb_FuenteUML)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -897,42 +905,96 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Figuras Basicas de un UML");
 
+        jButton44.setBackground(new java.awt.Color(235, 235, 235));
+        jButton44.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton44.setForeground(new java.awt.Color(0, 0, 0));
+        jButton44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clase.jpg"))); // NOI18N
+        jButton44.setText("Clase Normal");
+        jButton44.setBorder(null);
+        jButton44.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton44ActionPerformed(evt);
+            }
+        });
+
+        jButton45.setBackground(new java.awt.Color(235, 235, 235));
+        jButton45.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton45.setForeground(new java.awt.Color(0, 0, 0));
+        jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clase.jpg"))); // NOI18N
+        jButton45.setText("Clase Abstracta");
+        jButton45.setBorder(null);
+
+        jButton46.setBackground(new java.awt.Color(235, 235, 235));
+        jButton46.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton46.setForeground(new java.awt.Color(0, 0, 0));
+        jButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clase.jpg"))); // NOI18N
+        jButton46.setText("Clase Heredada");
+        jButton46.setBorder(null);
+        jButton46.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButton47.setBackground(new java.awt.Color(235, 235, 235));
+        jButton47.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton47.setForeground(new java.awt.Color(0, 0, 0));
+        jButton47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Interfaz.jpg"))); // NOI18N
+        jButton47.setText("Interfaz");
+        jButton47.setBorder(null);
+        jButton47.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel14)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel14)
+                            .addGap(49, 49, 49))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton46, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton47, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
-                .addContainerGap(472, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton44)
+                .addGap(18, 18, 18)
+                .addComponent(jButton46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton45)
+                .addGap(18, 18, 18)
+                .addComponent(jButton47)
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        MesaUMLBG.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MesaUML.setBackground(new java.awt.Color(255, 255, 255));
+        MesaUML.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        MesaUML.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout MesaUMLBGLayout = new javax.swing.GroupLayout(MesaUMLBG);
+        MesaUMLBG.setLayout(MesaUMLBGLayout);
+        MesaUMLBGLayout.setHorizontalGroup(
+            MesaUMLBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MesaUMLBGLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
+                .addComponent(MesaUML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        MesaUMLBGLayout.setVerticalGroup(
+            MesaUMLBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MesaUMLBGLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                .addComponent(MesaUML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -944,8 +1006,8 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
             .addGroup(bg1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(MesaUMLBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
         bg1Layout.setVerticalGroup(
@@ -954,9 +1016,9 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(bg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(MesaUMLBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jMenu3.setText("Archivos ");
@@ -987,14 +1049,14 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
             .addGroup(ProcesoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         ProcesoLayout.setVerticalGroup(
             ProcesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProcesoLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1622,6 +1684,14 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
         
     }//GEN-LAST:event_BttnProcesoActionPerformed
 
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        //FiguraClase miPanel = new FiguraClase(MesaUML.getX(), MesaUML.getY(), MesaUML.get(), MesaUML.getLocation(), "Arial");
+        
+       // MesaUML.add(miPanel, BorderLayout.CENTER);
+        MesaUML.revalidate();
+        MesaUML.repaint();
+    }//GEN-LAST:event_jButton44ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1688,6 +1758,8 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
     private javax.swing.JMenuBar MenuPrincipal;
     private javax.swing.JPanel MesaTrabajo;
     private javax.swing.JPanel MesaTrabajoBG;
+    private javax.swing.JPanel MesaUML;
+    private javax.swing.JPanel MesaUMLBG;
     private javax.swing.JPanel NewBttn;
     private javax.swing.JLabel NewTXT1;
     private javax.swing.JLabel NewTXT2;
@@ -1741,6 +1813,10 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1781,8 +1857,6 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1805,38 +1879,5 @@ public class Menu extends javax.swing.JFrame implements MouseInputListener, Mous
     StyledDocument doc;
     Style estilo;
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 }
