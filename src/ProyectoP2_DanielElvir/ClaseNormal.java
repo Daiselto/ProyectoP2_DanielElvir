@@ -4,10 +4,12 @@
  */
 package ProyectoP2_DanielElvir;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author HP
  */
 public class ClaseNormal extends FiguraClase{
-    
+    private JPanel atributo;
 }

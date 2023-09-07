@@ -8,6 +8,6 @@ package ProyectoP2_DanielElvir;
  *
  * @author HP
  */
-public class ClaseHeredada extends FiguraClase {
+public class ClaseHeredada extends ClaseNormal {
     
 }

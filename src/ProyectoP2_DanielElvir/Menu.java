@@ -6,10 +6,13 @@ package ProyectoP2_DanielElvir;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 import javax.swing.text.Style;
@@ -1685,9 +1688,13 @@ public class Menu extends javax.swing.JFrame{
     }//GEN-LAST:event_BttnProcesoActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-        //FiguraClase miPanel = new FiguraClase(MesaUML.getX(), MesaUML.getY(), MesaUML.get(), MesaUML.getLocation(), "Arial");
-        
-       // MesaUML.add(miPanel, BorderLayout.CENTER);
+        String nom = JOptionPane.showInputDialog("Ingrese el nombre de la clase");
+        JLabel newLabel = new JLabel();
+        newLabel.setText(nom);
+        FiguraClase miPanel = new FiguraClase(jButton44.getFont(), MesaUML.getWidth(), MesaUML.getHeight(), newLabel);
+        miPanel.addMouseListener(miPanel);
+        miPanel.addMouseMotionListener(miPanel);
+        MesaUML.add(miPanel);       
         MesaUML.revalidate();
         MesaUML.repaint();
     }//GEN-LAST:event_jButton44ActionPerformed
