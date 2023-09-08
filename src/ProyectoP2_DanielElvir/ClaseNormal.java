@@ -4,12 +4,193 @@
  */
 package ProyectoP2_DanielElvir;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Point;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 /**
  *
  * @author HP
  */
-public class ClaseNormal extends FiguraClase{
-    private JPanel atributo;
+public class ClaseNormal extends FiguraClase {    
+    protected int sizex, sizey, locx, locy;
+    protected JLabel newLabel = new JLabel();
+    protected JLabel nomAtributo = new JLabel();
+    protected JLabel nomMetodo = new JLabel();  
+    protected Font fuente;
+    protected JPanel titulo = new JPanel();
+    protected JPanel atributo = new JPanel();
+    protected JPanel metodo = new JPanel();
+    protected JTextPane textPane = new JTextPane();
+    protected JTextPane textPane1 = new JTextPane();
+    protected JScrollPane scroll = new JScrollPane();
+
+    public ClaseNormal(Font fuente, int locx, int locy, String label) {
+        this.locx = locx;
+        this.locy = locy;
+
+        setBackground(new Color(100, 149, 237));
+        setSize(200, 200);
+        setLocation(locx / 2, locy / 2);
+
+        titulo.setBackground(new Color(100, 149, 237));
+        titulo.setPreferredSize(new Dimension(getWidth(), 40));
+        
+
+        newLabel.setText(label);
+        titulo.add(newLabel);
+        add(titulo);
+        
+        atributo.setBackground(new Color(100, 149, 237));
+        atributo.setPreferredSize(new Dimension(getWidth(), 25));
+        
+        nomAtributo.setText("Atributos");
+        atributo.add(nomAtributo);
+        add(atributo);
+        
+        textPane.setPreferredSize(new Dimension(getWidth()-10, 20));
+        //scroll.setPreferredSize(new Dimension(getWidth(), 20));       
+        //scroll.add(textPane);
+        add(textPane);
+        
+        metodo.setBackground(new Color(100, 149, 237));
+        metodo.setPreferredSize(new Dimension(getWidth(), 25));
+        
+        nomMetodo.setText("Metodos");
+        metodo.add(nomMetodo);
+        add(metodo);
+        
+        textPane1.setPreferredSize(new Dimension(getWidth()-10, 20));
+        //scroll.setPreferredSize(new Dimension(getWidth(), 20));       
+        //scroll.add(textPane);
+        add(textPane1);
+        
+        
+    }
+
+    public ClaseNormal() {
+        super();
+    }
+
+    public int getSizex() {
+        return sizex;
+    }
+
+    public void setSizex(int sizex) {
+        this.sizex = sizex;
+    }
+
+    public int getSizey() {
+        return sizey;
+    }
+
+    public void setSizey(int sizey) {
+        this.sizey = sizey;
+    }
+
+    public int getLocx() {
+        return locx;
+    }
+
+    public void setLocx(int locx) {
+        this.locx = locx;
+    }
+
+    public int getLocy() {
+        return locy;
+    }
+
+    public void setLocy(int locy) {
+        this.locy = locy;
+    }
+
+    public JLabel getNewLabel() {
+        return newLabel;
+    }
+
+    public void setNewLabel(JLabel newLabel) {
+        this.newLabel = newLabel;
+    }
+
+    public JLabel getNomAtributo() {
+        return nomAtributo;
+    }
+
+    public void setNomAtributo(JLabel nomAtributo) {
+        this.nomAtributo = nomAtributo;
+    }
+
+    public JLabel getNomMetodo() {
+        return nomMetodo;
+    }
+
+    public void setNomMetodo(JLabel nomMetodo) {
+        this.nomMetodo = nomMetodo;
+    }
+
+    public Font getFuente() {
+        return fuente;
+    }
+
+    public void setFuente(Font fuente) {
+        this.fuente = fuente;
+    }
+
+    public JPanel getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(JPanel titulo) {
+        this.titulo = titulo;
+    }
+
+    public JPanel getAtributo() {
+        return atributo;
+    }
+
+    public void setAtributo(JPanel atributo) {
+        this.atributo = atributo;
+    }
+
+    public JPanel getMetodo() {
+        return metodo;
+    }
+
+    public void setMetodo(JPanel metodo) {
+        this.metodo = metodo;
+    }
+
+    public JTextPane getTextPane() {
+        return textPane;
+    }
+
+    public void setTextPane(JTextPane textPane) {
+        this.textPane = textPane;
+    }
+
+    public JTextPane getTextPane1() {
+        return textPane1;
+    }
+
+    public void setTextPane1(JTextPane textPane1) {
+        this.textPane1 = textPane1;
+    }
+
+    public JScrollPane getScroll() {
+        return scroll;
+    }
+
+    public void setScroll(JScrollPane scroll) {
+        this.scroll = scroll;
+    }
+
+    
+
+    
+
 }
