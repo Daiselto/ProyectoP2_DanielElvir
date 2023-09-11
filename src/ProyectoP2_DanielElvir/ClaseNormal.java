@@ -17,11 +17,12 @@ import javax.swing.JTextPane;
  *
  * @author HP
  */
-public class ClaseNormal extends FiguraClase {    
+public class ClaseNormal extends FiguraClase {
+
     protected int sizex, sizey, locx, locy;
     protected JLabel newLabel = new JLabel();
     protected JLabel nomAtributo = new JLabel();
-    protected JLabel nomMetodo = new JLabel();  
+    protected JLabel nomMetodo = new JLabel();
     protected Font fuente;
     protected JPanel titulo = new JPanel();
     protected JPanel atributo = new JPanel();
@@ -29,48 +30,52 @@ public class ClaseNormal extends FiguraClase {
     protected JTextPane textPane = new JTextPane();
     protected JTextPane textPane1 = new JTextPane();
     protected JScrollPane scroll = new JScrollPane();
+    protected JScrollPane scroll1 = new JScrollPane();
 
-    public ClaseNormal(Font fuente, int locx, int locy, String label) {
-        this.locx = locx;
-        this.locy = locy;
+    protected String label;
 
+    public ClaseNormal(Font fuente, int locx, int locy, String label, JPanel MesaUML) {
+        super(fuente, locx, locy, label, MesaUML);
+        this.label = label;
         setBackground(new Color(100, 149, 237));
-        setSize(200, 200);
+        setSize(200, 225);
         setLocation(locx / 2, locy / 2);
 
         titulo.setBackground(new Color(100, 149, 237));
-        titulo.setPreferredSize(new Dimension(getWidth(), 40));
-        
+        titulo.setPreferredSize(new Dimension(getWidth(), 30));
 
         newLabel.setText(label);
         titulo.add(newLabel);
         add(titulo);
-        
+
         atributo.setBackground(new Color(100, 149, 237));
         atributo.setPreferredSize(new Dimension(getWidth(), 25));
-        
+
         nomAtributo.setText("Atributos");
         atributo.add(nomAtributo);
         add(atributo);
-        
-        textPane.setPreferredSize(new Dimension(getWidth()-10, 20));
-        //scroll.setPreferredSize(new Dimension(getWidth(), 20));       
-        //scroll.add(textPane);
-        add(textPane);
-        
+
+        scroll.setPreferredSize(new Dimension(getWidth() - 20, 40));
+        textPane.setPreferredSize(new Dimension(getWidth() - 10, 20));        
+        scroll.setForeground(new Color(175, 175, 175));
+        add(scroll);
+
         metodo.setBackground(new Color(100, 149, 237));
         metodo.setPreferredSize(new Dimension(getWidth(), 25));
-        
+
         nomMetodo.setText("Metodos");
         metodo.add(nomMetodo);
         add(metodo);
-        
-        textPane1.setPreferredSize(new Dimension(getWidth()-10, 20));
-        //scroll.setPreferredSize(new Dimension(getWidth(), 20));       
-        //scroll.add(textPane);
-        add(textPane1);
-        
-        
+
+        scroll1.setPreferredSize(new Dimension(getWidth() - 20, 40));
+        textPane1.setPreferredSize(new Dimension(getWidth() - 10, 20));                     
+        scroll1.setForeground(new Color(175, 175, 175));
+        add(scroll1);
+        setLabel(label);
+    }
+
+    public ClaseNormal(String label) {
+        setLabel(label);
     }
 
     public ClaseNormal() {
@@ -189,8 +194,18 @@ public class ClaseNormal extends FiguraClase {
         this.scroll = scroll;
     }
 
-    
+    public String getLabel() {
+        return label;
+    }
 
-    
+    public void setLabel(String label) {
+        newLabel.setText(label);
+        this.label = label;
+    }
+
+    public void setNombreClase(String nuevoNombre) {
+        newLabel.setText(nuevoNombre);
+        label = nuevoNombre;
+    }
 
 }

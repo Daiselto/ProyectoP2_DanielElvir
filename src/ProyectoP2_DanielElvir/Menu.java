@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,7 +23,7 @@ import javax.swing.text.StyledDocument;
  *
  * @author HP
  */
-public class Menu extends javax.swing.JFrame{
+public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
@@ -160,6 +161,10 @@ public class Menu extends javax.swing.JFrame{
         jMenu4 = new javax.swing.JMenu();
         Proceso = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
+        MenuClases = new javax.swing.JPopupMenu();
+        CrearHijo = new javax.swing.JMenuItem();
+        Eliminar = new javax.swing.JMenuItem();
+        Modificar = new javax.swing.JMenuItem();
         bg = new javax.swing.JPanel();
         sideMenu = new javax.swing.JPanel();
         HomeBttn = new javax.swing.JPanel();
@@ -748,44 +753,164 @@ public class Menu extends javax.swing.JFrame{
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Italica", " " }));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(126, 128, 127));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(192, 196, 195));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(185, 122, 87));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(233, 28, 43));
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setBackground(new java.awt.Color(131, 1, 25));
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setBackground(new java.awt.Color(253, 127, 40));
+        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setBackground(new java.awt.Color(254, 241, 5));
+        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setBackground(new java.awt.Color(36, 176, 79));
+        jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setBackground(new java.awt.Color(3, 161, 225));
+        jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setBackground(new java.awt.Color(64, 69, 213));
+        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         jButton14.setBackground(new java.awt.Color(254, 174, 201));
+        jButton14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setBackground(new java.awt.Color(238, 229, 174));
+        jButton15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jButton16.setBackground(new java.awt.Color(252, 204, 10));
+        jButton16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jButton17.setBackground(new java.awt.Color(181, 229, 29));
+        jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jButton18.setBackground(new java.awt.Color(157, 216, 232));
+        jButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
 
         jButton19.setBackground(new java.awt.Color(113, 146, 191));
+        jButton19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
 
         jButton20.setBackground(new java.awt.Color(199, 191, 232));
+        jButton20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
 
         jButton21.setBackground(new java.awt.Color(163, 71, 172));
+        jButton21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout BarraDeTareaLayout = new javax.swing.GroupLayout(BarraDeTarea);
         BarraDeTarea.setLayout(BarraDeTareaLayout);
@@ -929,6 +1054,12 @@ public class Menu extends javax.swing.JFrame{
         jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clase.jpg"))); // NOI18N
         jButton45.setText("Clase Abstracta");
         jButton45.setBorder(null);
+        jButton45.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
 
         jButton47.setBackground(new java.awt.Color(235, 235, 235));
         jButton47.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -1074,6 +1205,20 @@ public class Menu extends javax.swing.JFrame{
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(77, Short.MAX_VALUE))
         );
+
+        CrearHijo.setText("Crear Hijo");
+        CrearHijo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearHijoActionPerformed(evt);
+            }
+        });
+        MenuClases.add(CrearHijo);
+
+        Eliminar.setText("Eliminar");
+        MenuClases.add(Eliminar);
+
+        Modificar.setText("Eliminar");
+        MenuClases.add(Modificar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mini Python");
@@ -1702,7 +1847,7 @@ public class Menu extends javax.swing.JFrame{
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
         String nom = JOptionPane.showInputDialog("Ingrese el nombre de la clase");        
-        ClaseNormal miPanel = new ClaseNormal(jButton44.getFont(), MesaUML.getWidth(), MesaUML.getHeight(), nom);        
+        ClaseNormal miPanel = new ClaseNormal(jButton44.getFont(), MesaUML.getWidth(), MesaUML.getHeight(), nom, MesaUML);        
         MesaUML.add(miPanel);       
         MesaUML.revalidate();
         MesaUML.repaint();
@@ -1720,8 +1865,216 @@ public class Menu extends javax.swing.JFrame{
         MesaUML.repaint();*/
         
         
-        //clasesUML.add(clase);
+        clasesUML.add(miPanel);
     }//GEN-LAST:event_jButton44ActionPerformed
+
+    private void CrearHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearHijoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CrearHijoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton2.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton2.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton3.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton3.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton4.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton4.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton5.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton5.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton8.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton8.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton6.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton6.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton7.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton7.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton14.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton14.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton9.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton9.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton16.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton16.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton10.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton10.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton15.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton15.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+        }
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton11.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton11.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton17.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton17.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton12.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton12.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton18.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton18.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton13.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton13.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+        }
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton19.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton19.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton21.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton21.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+        }
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
+        if (ultimoclick != null){
+            ultimoclick.setBackground(jButton20.getBackground());
+            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton20.getBackground());
+            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+        }
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton45ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1758,6 +2111,7 @@ public class Menu extends javax.swing.JFrame{
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Abrir;
     private javax.swing.JPanel BarraDeTarea;
@@ -1768,6 +2122,7 @@ public class Menu extends javax.swing.JFrame{
     private javax.swing.JButton BttnInicioFin;
     private javax.swing.JButton BttnProceso;
     private javax.swing.JButton BttnSubProceso;
+    private javax.swing.JMenuItem CrearHijo;
     private javax.swing.JPanel CrearNuevo;
     private javax.swing.JPanel DFlujoBttn;
     private javax.swing.JLabel DFlujoImg;
@@ -1775,6 +2130,7 @@ public class Menu extends javax.swing.JFrame{
     private javax.swing.JPanel DUMLBttn;
     private javax.swing.JLabel DUMLImg;
     private javax.swing.JLabel DUMLTXT;
+    private javax.swing.JMenuItem Eliminar;
     private javax.swing.JPanel FigurasFlujo;
     private javax.swing.JPanel FigurasUML;
     private javax.swing.JMenuItem FlujoMenu;
@@ -1788,11 +2144,13 @@ public class Menu extends javax.swing.JFrame{
     private javax.swing.JDialog JD_UML;
     private javax.swing.JPanel JP_Flujo;
     private javax.swing.JPanel JP_UML;
+    private javax.swing.JPopupMenu MenuClases;
     private javax.swing.JMenuBar MenuPrincipal;
     private javax.swing.JPanel MesaTrabajo;
     private javax.swing.JPanel MesaTrabajoBG;
     private javax.swing.JPanel MesaUML;
     private javax.swing.JPanel MesaUMLBG;
+    private javax.swing.JMenuItem Modificar;
     private javax.swing.JPanel NewBttn;
     private javax.swing.JLabel NewTXT1;
     private javax.swing.JLabel NewTXT2;
@@ -1909,6 +2267,6 @@ public class Menu extends javax.swing.JFrame{
     // End of variables declaration//GEN-END:variables
     StyledDocument doc;
     Style estilo;
-
+    ArrayList<FiguraClase> clasesUML = new ArrayList();
    
 }
