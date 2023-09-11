@@ -11,12 +11,14 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import javax.swing.AbstractAction;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 /**
@@ -30,25 +32,26 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        
+
         Inicio.setVisible(true);
         CrearNuevo.setVisible(false);
         Abrir.setVisible(false);
-        DefaultComboBoxModel modelo=(DefaultComboBoxModel) cb_FuenteUML.getModel();
+
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_FuenteUML.getModel();
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         String fontNames[] = ge.getAvailableFontFamilyNames();
         for (int i = 0; i < fontNames.length; i++) {
             modelo.addElement(fontNames[i]);
         }
         cb_FuenteUML.setModel(modelo);
-        
-        DefaultComboBoxModel modelo1=(DefaultComboBoxModel) cb_FuenteFlujo.getModel();
+
+        DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) cb_FuenteFlujo.getModel();
         GraphicsEnvironment ge1 = GraphicsEnvironment.getLocalGraphicsEnvironment();
         String fontNames1[] = ge1.getAvailableFontFamilyNames();
         for (int i = 0; i < fontNames1.length; i++) {
-            modelo.addElement(fontNames1[i]);
+            modelo1.addElement(fontNames1[i]);
         }
-        cb_FuenteFlujo.setModel(modelo);
+        cb_FuenteFlujo.setModel(modelo1);
     }
 
     /**
@@ -111,8 +114,6 @@ public class Menu extends javax.swing.JFrame {
         BttnInicioFin = new javax.swing.JButton();
         BttnDocumento = new javax.swing.JButton();
         BttnData = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
         MesaTrabajoBG = new javax.swing.JPanel();
         MesaTrabajo = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -125,9 +126,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         cb_FuenteUML = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cb_TamañoUML = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cb_EstiloUML = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -603,10 +604,6 @@ public class Menu extends javax.swing.JFrame {
         BttnData.setBorder(null);
         BttnData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton42.setText("Separador");
-
-        jButton43.setText("Separador (Vertical)");
-
         javax.swing.GroupLayout FigurasFlujoLayout = new javax.swing.GroupLayout(FigurasFlujo);
         FigurasFlujo.setLayout(FigurasFlujoLayout);
         FigurasFlujoLayout.setHorizontalGroup(
@@ -614,26 +611,18 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(FigurasFlujoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FigurasFlujoLayout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel19)
                     .addGroup(FigurasFlujoLayout.createSequentialGroup()
                         .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BttnSubProceso)
                             .addComponent(BttnProceso)
-                            .addComponent(BttnDocumento)
-                            .addComponent(jButton42))
+                            .addComponent(BttnDocumento))
+                        .addGap(32, 32, 32)
                         .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FigurasFlujoLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BttnInicioFin)
-                                    .addComponent(BttnData)
-                                    .addComponent(BttnDecision)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FigurasFlujoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                                .addComponent(jButton43)
-                                .addGap(19, 19, 19))))))
+                            .addComponent(BttnInicioFin)
+                            .addComponent(BttnData)
+                            .addComponent(BttnDecision))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         FigurasFlujoLayout.setVerticalGroup(
             FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -652,11 +641,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BttnDocumento)
                     .addComponent(BttnData))
-                .addGap(18, 18, 18)
-                .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton42)
-                    .addComponent(jButton43))
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
 
         MesaTrabajoBG.setBackground(new java.awt.Color(255, 255, 255));
@@ -744,13 +729,29 @@ public class Menu extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Tamaño");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6 pt", "9 pt ", "10 pt", "12 pt", "14 pt", "16 pt", "18 pt", "24 pt" }));
+        cb_FuenteUML.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_FuenteUMLItemStateChanged(evt);
+            }
+        });
+
+        cb_TamañoUML.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6", "9", "10", "12", "14", "16", "24" }));
+        cb_TamañoUML.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_TamañoUMLItemStateChanged(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Estilo de Fuente");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Italica", " " }));
+        cb_EstiloUML.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Italica", "Subrayado" }));
+        cb_EstiloUML.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_EstiloUMLItemStateChanged(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -924,11 +925,11 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_EstiloUML, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_TamañoUML, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(74, 74, 74)
                 .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(BarraDeTareaLayout.createSequentialGroup()
@@ -985,10 +986,10 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cb_EstiloUML, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cb_FuenteUML)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cb_TamañoUML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46))
             .addGroup(BarraDeTareaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -1734,11 +1735,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_HomeTXT1MouseEntered
 
     private void HomeBttnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeBttnMouseEntered
-        
+
     }//GEN-LAST:event_HomeBttnMouseEntered
 
     private void HomeBttnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeBttnMouseExited
-        
+
     }//GEN-LAST:event_HomeBttnMouseExited
 
     private void HomeTXT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeTXT1MouseClicked
@@ -1844,7 +1845,7 @@ public class Menu extends javax.swing.JFrame {
         JD_Flujo.setModal(true);
         JD_Flujo.setLocationRelativeTo(this);
         JD_Flujo.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BttnProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnProcesoActionPerformed
@@ -1852,29 +1853,16 @@ public class Menu extends javax.swing.JFrame {
         MesaTrabajo.add(Proceso);
         MesaTrabajo.revalidate();
         MesaTrabajo.repaint();
-        
+
     }//GEN-LAST:event_BttnProcesoActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-        String nom = JOptionPane.showInputDialog("Ingrese el nombre de la clase");        
-        ClaseNormal miPanel = new ClaseNormal(jButton44.getFont(), MesaUML.getWidth(), MesaUML.getHeight(), nom, MesaUML);        
-        MesaUML.add(miPanel);       
+        String nom = JOptionPane.showInputDialog("Ingrese el nombre de la clase");
+        ClaseNormal miPanel = new ClaseNormal(jButton44.getFont(), MesaUML.getWidth(), MesaUML.getHeight(), nom, MesaUML);
+        MesaUML.add(miPanel);
         MesaUML.revalidate();
         MesaUML.repaint();
-        
-        /*System.out.println("Boton de Clase");
-        String name = JOptionPane.showInputDialog(null, "Ingrese el nombre de la clase:");
-        Font f = null;
-        
-        ClasePrueba clase = new ClasePrueba(f);
-        clase.getTitulo().setText("Clase " + name);
-        clase.addMouseListener(clase);
-        clase.addMouseMotionListener(clase);
-        MesaUML.add(clase);
-        clase.revalidate();
-        MesaUML.repaint();*/
-        
-        
+
         clasesUML.add(miPanel);
     }//GEN-LAST:event_jButton44ActionPerformed
 
@@ -1884,221 +1872,501 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton2.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton2.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton2.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton2.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton2.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton2.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton2.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+            }
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton3.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton3.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton3.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton3.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton3.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton3.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton3.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+            }
+
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton4.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton4.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton4.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton4.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton4.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton4.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton4.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton5.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton5.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton5.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton5.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton5.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton5.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton5.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton8.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton8.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton8.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton8.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton8.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton8.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton8.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton6.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton6.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton6.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton6.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton6.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton6.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton6.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton7.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton7.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton7.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton7.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton7.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton7.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton7.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
-            ultimoclick.setBackground(jButton14.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton14.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton14.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton14.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton14.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton14.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton14.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton9.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton9.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton9.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton9.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton16.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
+            ultimoclick.setBackground(jButton9.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
             ultimoclick.setBackground(jButton16.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton16.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton10.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton10.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton10.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton10.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton15.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton15.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton15.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton15.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton11.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton11.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton11.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton11.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton11.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton11.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton17.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton17.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton17.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton17.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton9.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton17.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton12.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton12.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton12.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton12.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton9.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton18.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton18.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton18.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton18.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton13.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton13.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton13.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton13.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton13.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton13.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton19.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton19.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton19.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton19.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton21.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton21.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton21.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton21.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
-        if (ultimoclick != null){
+        if (ultimoclick != null) {
+            if (ultimoclick instanceof ClaseNormal) {
+                ultimoclick.setBackground(jButton20.getBackground());
+                ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+                ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton20.getBackground());
+                ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
+            }else if (ultimoclick instanceof Interfaz) {
             ultimoclick.setBackground(jButton20.getBackground());
-            ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
-            ((ClaseNormal) ultimoclick).getAtributo()   .setBackground(jButton20.getBackground());
-            ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
-            ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
+            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
+
+        }else if (ultimoclick instanceof ClaseAbstracta) {
+            ultimoclick.setBackground(jButton20.getBackground());
+            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton20.getBackground());
+            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground()); 
+        } 
         }
     }//GEN-LAST:event_jButton20ActionPerformed
 
@@ -2121,6 +2389,246 @@ public class Menu extends javax.swing.JFrame {
         MesaUML.revalidate();
         MesaUML.repaint();
     }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void cb_FuenteUMLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_FuenteUMLItemStateChanged
+        FiguraClase f = FiguraClase.getUltimoclickeado();
+        if (f instanceof ClaseNormal) {
+            doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
+            estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
+            doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
+            estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
+            StyleConstants.setFontFamily(estilo, cb_FuenteUML.getSelectedItem().toString());
+            StyleConstants.setFontFamily(estilo1, cb_FuenteUML.getSelectedItem().toString());
+            doc.setCharacterAttributes(0, ((ClaseNormal) f).getTextPane().getText().length(), ((ClaseNormal) f).getTextPane().getStyle("miEstilo"), true);
+            doc1.setCharacterAttributes(0, ((ClaseNormal) f).getTextPane1().getText().length(), ((ClaseNormal) f).getTextPane1().getStyle("miEstilo"), true);
+        } else if (f instanceof ClaseAbstracta) {
+            doc = ((ClaseAbstracta) f).getTextPane().getStyledDocument();
+            estilo = ((ClaseAbstracta) f).getTextPane().addStyle("miEstilo", null);
+            doc1 = ((ClaseAbstracta) f).getTextPane1().getStyledDocument();
+            estilo1 = ((ClaseAbstracta) f).getTextPane1().addStyle("miEstilo", null);
+            StyleConstants.setFontFamily(estilo, cb_FuenteUML.getSelectedItem().toString());
+            StyleConstants.setFontFamily(estilo1, cb_FuenteUML.getSelectedItem().toString());
+            doc.setCharacterAttributes(0, ((ClaseAbstracta) f).getTextPane().getText().length(), ((ClaseAbstracta) f).getTextPane().getStyle("miEstilo"), true);
+            doc1.setCharacterAttributes(0, ((ClaseAbstracta) f).getTextPane1().getText().length(), ((ClaseAbstracta) f).getTextPane1().getStyle("miEstilo"), true);
+        } else if (f instanceof Interfaz) {
+            doc = ((Interfaz) f).getTextPane().getStyledDocument();
+            estilo = ((Interfaz) f).getTextPane().addStyle("miEstilo", null);
+            StyleConstants.setFontFamily(estilo, cb_FuenteUML.getSelectedItem().toString());
+            doc.setCharacterAttributes(0, ((Interfaz) f).getTextPane().getText().length(), ((Interfaz) f).getTextPane().getStyle("miEstilo"), true);
+        }
+
+    }//GEN-LAST:event_cb_FuenteUMLItemStateChanged
+
+    private void cb_TamañoUMLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_TamañoUMLItemStateChanged
+        FiguraClase f = FiguraClase.getUltimoclickeado();
+        if (f instanceof ClaseNormal) {
+            doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
+            estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
+            doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
+            estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
+            StyleConstants.setFontSize(estilo, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+            StyleConstants.setFontSize(estilo1, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+            doc.setCharacterAttributes(0,
+                    ((ClaseNormal) f).getTextPane().getText().length(),
+                    ((ClaseNormal) f).getTextPane().getStyle("miEstilo"),
+                    true);
+            doc1.setCharacterAttributes(0,
+                    ((ClaseNormal) f).getTextPane1().getText().length(),
+                    ((ClaseNormal) f).getTextPane1().getStyle("miEstilo"),
+                    true);
+        } else if (f instanceof ClaseAbstracta) {
+            doc = ((ClaseAbstracta) f).getTextPane().getStyledDocument();
+            estilo = ((ClaseAbstracta) f).getTextPane().addStyle("miEstilo", null);
+            doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
+            estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
+            StyleConstants.setFontSize(estilo, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+            StyleConstants.setFontSize(estilo1, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+            doc.setCharacterAttributes(0,
+                    ((ClaseAbstracta) f).getTextPane().getText().length(),
+                    ((ClaseAbstracta) f).getTextPane().getStyle("miEstilo"),
+                    true);
+            doc1.setCharacterAttributes(0,
+                    ((ClaseAbstracta) f).getTextPane1().getText().length(),
+                    ((ClaseAbstracta) f).getTextPane1().getStyle("miEstilo"),
+                    true);
+        } else if (f instanceof Interfaz) {
+            doc = ((Interfaz) f).getTextPane().getStyledDocument();
+            estilo = ((Interfaz) f).getTextPane().addStyle("miEstilo", null);
+            StyleConstants.setFontSize(estilo, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+            doc.setCharacterAttributes(0,
+                    ((Interfaz) f).getTextPane().getText().length(),
+                    ((Interfaz) f).getTextPane().getStyle("miEstilo"),
+                    true);
+        }
+    }//GEN-LAST:event_cb_TamañoUMLItemStateChanged
+
+    private void cb_EstiloUMLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_EstiloUMLItemStateChanged
+        FiguraClase f = FiguraClase.getUltimoclickeado();
+        if (f instanceof ClaseNormal) {
+
+            if (cb_EstiloUML.getSelectedIndex() == 0) {
+                doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
+
+                doc.setCharacterAttributes(0, ((ClaseNormal) f).getTextPane().getText().length(), ((ClaseNormal) f).getTextPane().getStyle("miEstilo"), true);
+                doc1.setCharacterAttributes(0, ((ClaseNormal) f).getTextPane1().getText().length(), ((ClaseNormal) f).getTextPane1().getStyle("miEstilo"), true);
+
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 1) {
+                doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
+                StyleConstants.setBold(estilo, true);
+                StyleConstants.setBold(estilo1, true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseNormal) f).getTextPane().getText().length(),
+                        ((ClaseNormal) f).getTextPane().getStyle("miEstilo"),
+                        true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseNormal) f).getTextPane1().getText().length(),
+                        ((ClaseNormal) f).getTextPane1().getStyle("miEstilo"),
+                        true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 2) {
+                doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
+                StyleConstants.setItalic(estilo, true);
+                StyleConstants.setItalic(estilo1, true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseNormal) f).getTextPane().getText().length(),
+                        ((ClaseNormal) f).getTextPane().getStyle("miEstilo"),
+                        true);
+                doc1.setCharacterAttributes(0,
+                        ((ClaseNormal) f).getTextPane1().getText().length(),
+                        ((ClaseNormal) f).getTextPane1().getStyle("miEstilo"),
+                        true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 3) {
+                doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
+                StyleConstants.setUnderline(estilo, true);
+                StyleConstants.setUnderline(estilo1, true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseNormal) f).getTextPane().getText().length(),
+                        ((ClaseNormal) f).getTextPane().getStyle("miEstilo"),
+                        true);
+                doc1.setCharacterAttributes(0,
+                        ((ClaseNormal) f).getTextPane1().getText().length(),
+                        ((ClaseNormal) f).getTextPane1().getStyle("miEstilo"),
+                        true);
+            }
+
+        } else if (f instanceof ClaseAbstracta) {
+            if (cb_EstiloUML.getSelectedIndex() == 0) {
+                doc = ((ClaseAbstracta) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseAbstracta) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseAbstracta) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseAbstracta) f).getTextPane1().addStyle("miEstilo", null);
+
+                doc.setCharacterAttributes(0, ((ClaseNormal) f).getTextPane().getText().length(), ((ClaseNormal) f).getTextPane().getStyle("miEstilo"), true);
+                doc1.setCharacterAttributes(0, ((ClaseNormal) f).getTextPane1().getText().length(), ((ClaseNormal) f).getTextPane1().getStyle("miEstilo"), true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 1) {
+                doc = ((ClaseAbstracta) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseAbstracta) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseAbstracta) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseAbstracta) f).getTextPane1().addStyle("miEstilo", null);
+                StyleConstants.setBold(estilo, true);
+                StyleConstants.setBold(estilo1, true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseAbstracta) f).getTextPane().getText().length(),
+                        ((ClaseAbstracta) f).getTextPane().getStyle("miEstilo"),
+                        true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseAbstracta) f).getTextPane1().getText().length(),
+                        ((ClaseAbstracta) f).getTextPane1().getStyle("miEstilo"),
+                        true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 2) {
+                doc = ((ClaseAbstracta) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseAbstracta) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseAbstracta) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseAbstracta) f).getTextPane1().addStyle("miEstilo", null);
+                StyleConstants.setItalic(estilo, true);
+                StyleConstants.setItalic(estilo1, true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseAbstracta) f).getTextPane().getText().length(),
+                        ((ClaseAbstracta) f).getTextPane().getStyle("miEstilo"),
+                        true);
+                doc1.setCharacterAttributes(0,
+                        ((ClaseAbstracta) f).getTextPane1().getText().length(),
+                        ((ClaseAbstracta) f).getTextPane1().getStyle("miEstilo"),
+                        true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 3) {
+                doc = ((ClaseAbstracta) f).getTextPane().getStyledDocument();
+                estilo = ((ClaseAbstracta) f).getTextPane().addStyle("miEstilo", null);
+                doc1 = ((ClaseAbstracta) f).getTextPane1().getStyledDocument();
+                estilo1 = ((ClaseAbstracta) f).getTextPane1().addStyle("miEstilo", null);
+                StyleConstants.setUnderline(estilo, true);
+                StyleConstants.setUnderline(estilo1, true);
+                doc.setCharacterAttributes(0,
+                        ((ClaseAbstracta) f).getTextPane().getText().length(),
+                        ((ClaseAbstracta) f).getTextPane().getStyle("miEstilo"),
+                        true);
+                doc1.setCharacterAttributes(0,
+                        ((ClaseAbstracta) f).getTextPane1().getText().length(),
+                        ((ClaseAbstracta) f).getTextPane1().getStyle("miEstilo"),
+                        true);
+            }
+        } else if (f instanceof Interfaz) {
+            if (cb_EstiloUML.getSelectedIndex() == 0) {
+                doc = ((Interfaz) f).getTextPane().getStyledDocument();
+                estilo = ((Interfaz) f).getTextPane().addStyle("miEstilo", null);
+
+                doc.setCharacterAttributes(0, ((Interfaz) f).getTextPane().getText().length(), ((Interfaz) f).getTextPane().getStyle("miEstilo"), true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 1) {
+                doc = ((Interfaz) f).getTextPane().getStyledDocument();
+                estilo = ((Interfaz) f).getTextPane().addStyle("miEstilo", null);
+                StyleConstants.setBold(estilo, true);
+                doc.setCharacterAttributes(0,
+                        ((Interfaz) f).getTextPane().getText().length(),
+                        ((Interfaz) f).getTextPane().getStyle("miEstilo"),
+                        true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 2) {
+                doc = ((Interfaz) f).getTextPane().getStyledDocument();
+                estilo = ((Interfaz) f).getTextPane().addStyle("miEstilo", null);
+                StyleConstants.setItalic(estilo, true);
+                doc.setCharacterAttributes(0,
+                        ((Interfaz) f).getTextPane().getText().length(),
+                        ((Interfaz) f).getTextPane().getStyle("miEstilo"),
+                        true);
+            }
+
+            if (cb_EstiloUML.getSelectedIndex() == 3) {
+                doc = ((Interfaz) f).getTextPane().getStyledDocument();
+                estilo = ((Interfaz) f).getTextPane().addStyle("miEstilo", null);
+                StyleConstants.setUnderline(estilo, true);
+                doc.setCharacterAttributes(0,
+                        ((Interfaz) f).getTextPane().getText().length(),
+                        ((Interfaz) f).getTextPane().getStyle("miEstilo"),
+                        true);
+            }
+        }
+
+    }//GEN-LAST:event_cb_EstiloUMLItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -2157,7 +2665,7 @@ public class Menu extends javax.swing.JFrame {
         });
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Abrir;
     private javax.swing.JPanel BarraDeTarea;
@@ -2210,8 +2718,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JPanel bg1;
     private javax.swing.JPanel bg2;
+    private javax.swing.JComboBox<String> cb_EstiloUML;
     private javax.swing.JComboBox<String> cb_FuenteFlujo;
     private javax.swing.JComboBox<String> cb_FuenteUML;
+    private javax.swing.JComboBox<String> cb_TamañoUML;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -2248,8 +2758,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
-    private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton47;
@@ -2259,8 +2767,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
@@ -2313,6 +2819,8 @@ public class Menu extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     StyledDocument doc;
     Style estilo;
+    StyledDocument doc1;
+    Style estilo1;
     ArrayList<FiguraClase> clasesUML = new ArrayList();
-   
+
 }

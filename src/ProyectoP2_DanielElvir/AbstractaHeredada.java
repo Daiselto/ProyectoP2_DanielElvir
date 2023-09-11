@@ -32,7 +32,7 @@ public class AbstractaHeredada extends ClaseAbstracta{
         nomExtends.setText("extends " + label);
         extend.add(nomExtends);                               
         
-        setNombreClase(nLabel);
+        setNombreClase("abstract " + nLabel);
 
         add(extend);
        

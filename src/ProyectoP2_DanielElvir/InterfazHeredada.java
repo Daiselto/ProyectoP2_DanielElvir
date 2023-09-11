@@ -16,7 +16,6 @@ import javax.swing.JPanel;
  * @author HP
  */
 public class InterfazHeredada extends Interfaz {
-    private JLayeredPane layeredPane = new JLayeredPane();
     private JPanel extend = new JPanel();
     private JLabel nomExtends = new JLabel();
     private String nLabel;
@@ -40,15 +39,7 @@ public class InterfazHeredada extends Interfaz {
     
     public InterfazHeredada() {
         super();
-    }
-
-    public JLayeredPane getLayeredPane() {
-        return layeredPane;
-    }
-
-    public void setLayeredPane(JLayeredPane layeredPane) {
-        this.layeredPane = layeredPane;
-    }
+    }    
 
     public JPanel getExtend() {
         return extend;
