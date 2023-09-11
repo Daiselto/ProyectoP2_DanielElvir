@@ -4,22 +4,18 @@
  */
 package ProyectoP2_DanielElvir;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
 
 /**
  *
  * @author HP
  */
-public class ClaseHeredada extends ClaseNormal {
-
+public class InterfazHeredada extends Interfaz {
     private JLayeredPane layeredPane = new JLayeredPane();
     private JPanel extend = new JPanel();
     private JLabel nomExtends = new JLabel();
@@ -27,7 +23,7 @@ public class ClaseHeredada extends ClaseNormal {
     private JLabel nueLabel = new JLabel();
     
 
-    public ClaseHeredada(Font fuente, int locx, int locy, String label, JPanel MesaUML, String nLabel) {
+    public InterfazHeredada(Font fuente, int locx, int locy, String label, JPanel MesaUML, String nLabel) {
         super(fuente, locx, locy, label, MesaUML);
         this.nLabel=nLabel;
         extend.setBackground(new Color(100, 149, 237));
@@ -42,8 +38,7 @@ public class ClaseHeredada extends ClaseNormal {
        
     }
     
-
-    public ClaseHeredada() {
+    public InterfazHeredada() {
         super();
     }
 
@@ -87,9 +82,5 @@ public class ClaseHeredada extends ClaseNormal {
         this.nueLabel = nueLabel;
     }
 
-    public void setNombreClase(String nuevoNombre) {
-        newLabel.setText(nuevoNombre);
-        label = nuevoNombre;
-    }
     
 }

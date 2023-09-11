@@ -42,9 +42,8 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
     private boolean selec = false;
     private int locx;
     private int locy;
-    private String label;
+    String label;
     private JPanel MesaUML;
-    
 
     public FiguraClase(Font fuente, int locx, int locy, String label, JPanel MesaUML) {
         this.addMouseListener(this);
@@ -63,13 +62,27 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
         CrearHijo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
-                ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
-                MesaUML.add(Heredero);
-                MesaUML.revalidate();
-                MesaUML.repaint();
+                if (FiguraClase.this instanceof ClaseNormal) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
+                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                }else if (FiguraClase.this instanceof Interfaz) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
+                    InterfazHeredada Heredero = new InterfazHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                }else if (FiguraClase.this instanceof ClaseAbstracta) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
+                    AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                }
                 
-
+                
             }
         });
 
@@ -85,11 +98,11 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
 
     public FiguraClase() {
     }
-    
+
     public static FiguraClase getUltimoclickeado() {
         return lastClick;
     }
-    
+
     public static void setUltimoclickeado(FiguraClase lastClick) {
         FiguraClase.lastClick = lastClick;
     }
@@ -98,7 +111,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
     public void mouseClicked(MouseEvent e) {
         lastClick = FiguraClase.this;
         selec = !selec;
-        
+
         repaint();
         if (e.isMetaDown()) {
             MenuClases.show(this, e.getX(), e.getY());

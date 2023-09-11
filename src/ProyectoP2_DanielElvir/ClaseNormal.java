@@ -29,8 +29,8 @@ public class ClaseNormal extends FiguraClase {
     protected JPanel metodo = new JPanel();
     protected JTextPane textPane = new JTextPane();
     protected JTextPane textPane1 = new JTextPane();
-    protected JScrollPane scroll = new JScrollPane();
-    protected JScrollPane scroll1 = new JScrollPane();
+    protected JScrollPane scroll = new JScrollPane(textPane);
+    protected JScrollPane scroll1 = new JScrollPane(textPane1);
 
     protected String label;
 
