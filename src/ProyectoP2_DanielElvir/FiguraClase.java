@@ -31,7 +31,7 @@ import javax.swing.border.Border;
  * @author HP
  */
 public class FiguraClase extends JPanel implements MouseListener, MouseMotionListener {
-    
+
     private Point startPoint;
     private Font fuente = new Font(getFont().getName(), Font.BOLD, getFont().getSize());
     private javax.swing.JPopupMenu MenuClases = new JPopupMenu();
@@ -44,7 +44,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
     private int locy;
     String label;
     private JPanel MesaUML;
-    
+
     public FiguraClase(Font fuente, int locx, int locy, String label, JPanel MesaUML) {
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
@@ -59,7 +59,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
         MenuClases.add(CrearHijo);
         MenuClases.add(CrearHijoAbstracto);
         MenuClases.add(Eliminar);
-        
+
         CrearHijo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,87 +69,124 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
+                    Menu.clasesUML.add(Heredero);
                 } else if (FiguraClase.this instanceof Interfaz) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
                     InterfazHeredada Heredero = new InterfazHeredada(fuente, locx, locy, label, MesaUML, nLabel);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
-                }else if (FiguraClase.this instanceof ClaseAbstracta) {
+                    Menu.clasesUML.add(Heredero);
+                } else if (FiguraClase.this instanceof ClaseAbstracta) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
                     ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
+                    Menu.clasesUML.add(Heredero);
+                }else if (FiguraClase.this instanceof ClaseHeredada) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
+                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                    Menu.clasesUML.add(Heredero);
+                } else if (FiguraClase.this instanceof InterfazHeredada) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
+                    InterfazHeredada Heredero = new InterfazHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                    Menu.clasesUML.add(Heredero);
+                } else if (FiguraClase.this instanceof AbstractaHeredada) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
+                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                    Menu.clasesUML.add(Heredero);
                 }
-                
+
             }
         });
-        
+
         CrearHijoAbstracto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija abstracta");
-                AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel);
-                MesaUML.add(Heredero);
-                MesaUML.revalidate();
-                MesaUML.repaint();
+                if (FiguraClase.this instanceof ClaseNormal) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija abstracta");
+                    AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                    Menu.clasesUML.add(Heredero);
+                } else if (FiguraClase.this instanceof ClaseAbstracta) {
+                    String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija abstracta");
+                    AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    MesaUML.add(Heredero);
+                    MesaUML.revalidate();
+                    MesaUML.repaint();
+                    Menu.clasesUML.add(Heredero);
+                } else if (FiguraClase.this instanceof Interfaz) {
+                    JOptionPane.showMessageDialog(FiguraClase.this, "No se puede crear un abstracto de una interfaz");
+                }
             }
         });
-        
+
         Eliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MesaUML.remove(FiguraClase.this);
                 MesaUML.revalidate();
                 MesaUML.repaint();
+                Menu.clasesUML.remove(FiguraClase.this);
             }
         });
     }
-    
+
     public FiguraClase() {
     }
-    
+
     public static FiguraClase getUltimoclickeado() {
         return lastClick;
     }
-    
+
     public static void setUltimoclickeado(FiguraClase lastClick) {
         FiguraClase.lastClick = lastClick;
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
         lastClick = FiguraClase.this;
         selec = !selec;
-        
+
         repaint();
         if (e.isMetaDown()) {
             MenuClases.show(this, e.getX(), e.getY());
-            
+
         }
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
         startPoint = SwingUtilities.convertPoint(this, e.getPoint(), this.getParent());
     }
-    
+
     @Override
     public void mouseReleased(MouseEvent e) {
         startPoint = null;
     }
-    
+
     @Override
     public void mouseEntered(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     @Override
     public void mouseExited(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     @Override
     public void mouseDragged(MouseEvent e) {
         Point location = SwingUtilities.convertPoint(this, e.getPoint(), this.getParent());
@@ -164,12 +201,12 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
             startPoint = location;
         }
     }
-    
+
     @Override
     public void mouseMoved(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     protected void pintar(Graphics g) {
         super.paintComponent(g);
         if (selec) {
@@ -179,5 +216,5 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
             setBorder(null);
         }
     }
-    
+
 }

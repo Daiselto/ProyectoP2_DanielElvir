@@ -110,10 +110,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         BttnProceso = new javax.swing.JButton();
         BttnDecision = new javax.swing.JButton();
-        BttnSubProceso = new javax.swing.JButton();
         BttnInicioFin = new javax.swing.JButton();
-        BttnDocumento = new javax.swing.JButton();
         BttnData = new javax.swing.JButton();
+        jButton49 = new javax.swing.JButton();
         MesaTrabajoBG = new javax.swing.JPanel();
         MesaTrabajo = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -149,6 +148,7 @@ public class Menu extends javax.swing.JFrame {
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
+        jButton42 = new javax.swing.JButton();
         FigurasUML = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jButton44 = new javax.swing.JButton();
@@ -160,12 +160,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        Proceso = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        MenuClases = new javax.swing.JPopupMenu();
-        CrearHijo = new javax.swing.JMenuItem();
-        Eliminar = new javax.swing.JMenuItem();
-        Modificar = new javax.swing.JMenuItem();
+        jDialog1 = new javax.swing.JDialog();
         bg = new javax.swing.JPanel();
         sideMenu = new javax.swing.JPanel();
         HomeBttn = new javax.swing.JPanel();
@@ -571,14 +566,11 @@ public class Menu extends javax.swing.JFrame {
         BttnDecision.setText("Decision");
         BttnDecision.setBorder(null);
         BttnDecision.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        BttnSubProceso.setBackground(new java.awt.Color(235, 235, 235));
-        BttnSubProceso.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        BttnSubProceso.setForeground(new java.awt.Color(0, 0, 0));
-        BttnSubProceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SubProceso.jpg"))); // NOI18N
-        BttnSubProceso.setText("SubProceso");
-        BttnSubProceso.setBorder(null);
-        BttnSubProceso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BttnDecision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnDecisionActionPerformed(evt);
+            }
+        });
 
         BttnInicioFin.setBackground(new java.awt.Color(235, 235, 235));
         BttnInicioFin.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -587,14 +579,11 @@ public class Menu extends javax.swing.JFrame {
         BttnInicioFin.setText("Inicio/Fin");
         BttnInicioFin.setBorder(null);
         BttnInicioFin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        BttnDocumento.setBackground(new java.awt.Color(235, 235, 235));
-        BttnDocumento.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        BttnDocumento.setForeground(new java.awt.Color(0, 0, 0));
-        BttnDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Documento.jpg"))); // NOI18N
-        BttnDocumento.setText("Documento");
-        BttnDocumento.setBorder(null);
-        BttnDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BttnInicioFin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnInicioFinActionPerformed(evt);
+            }
+        });
 
         BttnData.setBackground(new java.awt.Color(235, 235, 235));
         BttnData.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -603,25 +592,47 @@ public class Menu extends javax.swing.JFrame {
         BttnData.setText("Data");
         BttnData.setBorder(null);
         BttnData.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BttnData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttnDataActionPerformed(evt);
+            }
+        });
+
+        jButton49.setBackground(new java.awt.Color(235, 235, 235));
+        jButton49.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton49.setForeground(new java.awt.Color(0, 0, 0));
+        jButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/piton.png"))); // NOI18N
+        jButton49.setText("Convertir a Python");
+        jButton49.setBorder(null);
+        jButton49.setContentAreaFilled(false);
+        jButton49.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout FigurasFlujoLayout = new javax.swing.GroupLayout(FigurasFlujo);
         FigurasFlujo.setLayout(FigurasFlujoLayout);
         FigurasFlujoLayout.setHorizontalGroup(
             FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FigurasFlujoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
                     .addGroup(FigurasFlujoLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BttnSubProceso)
-                            .addComponent(BttnProceso)
-                            .addComponent(BttnDocumento))
-                        .addGap(32, 32, 32)
-                        .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BttnInicioFin)
-                            .addComponent(BttnData)
-                            .addComponent(BttnDecision))))
+                            .addComponent(jLabel19)
+                            .addGroup(FigurasFlujoLayout.createSequentialGroup()
+                                .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BttnProceso)
+                                    .addComponent(BttnData))
+                                .addGap(56, 56, 56)
+                                .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BttnInicioFin)
+                                    .addComponent(BttnDecision)))))
+                    .addGroup(FigurasFlujoLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         FigurasFlujoLayout.setVerticalGroup(
@@ -635,13 +646,11 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(BttnDecision))
                 .addGap(18, 18, 18)
                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BttnSubProceso)
-                    .addComponent(BttnInicioFin))
-                .addGap(18, 18, 18)
-                .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BttnDocumento)
+                    .addComponent(BttnInicioFin)
                     .addComponent(BttnData))
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         MesaTrabajoBG.setBackground(new java.awt.Color(255, 255, 255));
@@ -649,20 +658,31 @@ public class Menu extends javax.swing.JFrame {
         MesaTrabajo.setBackground(new java.awt.Color(255, 255, 255));
         MesaTrabajo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        javax.swing.GroupLayout MesaTrabajoLayout = new javax.swing.GroupLayout(MesaTrabajo);
+        MesaTrabajo.setLayout(MesaTrabajoLayout);
+        MesaTrabajoLayout.setHorizontalGroup(
+            MesaTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 851, Short.MAX_VALUE)
+        );
+        MesaTrabajoLayout.setVerticalGroup(
+            MesaTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 545, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout MesaTrabajoBGLayout = new javax.swing.GroupLayout(MesaTrabajoBG);
         MesaTrabajoBG.setLayout(MesaTrabajoBGLayout);
         MesaTrabajoBGLayout.setHorizontalGroup(
             MesaTrabajoBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MesaTrabajoBGLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MesaTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MesaTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MesaTrabajoBGLayout.setVerticalGroup(
             MesaTrabajoBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MesaTrabajoBGLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MesaTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MesaTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -676,7 +696,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(FigurasFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(MesaTrabajoBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         bg2Layout.setVerticalGroup(
             bg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -706,7 +726,9 @@ public class Menu extends javax.swing.JFrame {
         JD_Flujo.getContentPane().setLayout(JD_FlujoLayout);
         JD_FlujoLayout.setHorizontalGroup(
             JD_FlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(JD_FlujoLayout.createSequentialGroup()
+                .addComponent(bg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         JD_FlujoLayout.setVerticalGroup(
             JD_FlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -913,23 +935,36 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton42.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton42.setText("Aplicar Cambios de Fuente");
+        jButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton42ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BarraDeTareaLayout = new javax.swing.GroupLayout(BarraDeTarea);
         BarraDeTarea.setLayout(BarraDeTareaLayout);
         BarraDeTareaLayout.setHorizontalGroup(
             BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BarraDeTareaLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cb_FuenteUML, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(cb_EstiloUML, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(cb_TamañoUML, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BarraDeTareaLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_FuenteUML, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(cb_EstiloUML, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(cb_TamañoUML, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(BarraDeTareaLayout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(jButton42)))
                 .addGap(74, 74, 74)
                 .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(BarraDeTareaLayout.createSequentialGroup()
@@ -990,7 +1025,9 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cb_FuenteUML)
                         .addComponent(cb_TamañoUML, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton42)
+                .addGap(11, 11, 11))
             .addGroup(BarraDeTareaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1198,38 +1235,16 @@ public class Menu extends javax.swing.JFrame {
             .addComponent(bg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        Proceso.setBackground(new java.awt.Color(33, 157, 231));
-
-        javax.swing.GroupLayout ProcesoLayout = new javax.swing.GroupLayout(Proceso);
-        Proceso.setLayout(ProcesoLayout);
-        ProcesoLayout.setHorizontalGroup(
-            ProcesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProcesoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
-        ProcesoLayout.setVerticalGroup(
-            ProcesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProcesoLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
-
-        CrearHijo.setText("Crear Hijo");
-        CrearHijo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrearHijoActionPerformed(evt);
-            }
-        });
-        MenuClases.add(CrearHijo);
-
-        Eliminar.setText("Eliminar");
-        MenuClases.add(Eliminar);
-
-        Modificar.setText("Eliminar");
-        MenuClases.add(Modificar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mini Python");
@@ -1849,11 +1864,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BttnProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnProcesoActionPerformed
-        Proceso.setVisible(true);
-        MesaTrabajo.add(Proceso);
+        FiguraProceso prc = new FiguraProceso(BttnProceso.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 100, 60, MesaTrabajo);
+        MesaTrabajo.add(prc);
         MesaTrabajo.revalidate();
         MesaTrabajo.repaint();
-
+        
+        clasesFlujo.add(prc);
     }//GEN-LAST:event_BttnProcesoActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
@@ -1866,10 +1882,6 @@ public class Menu extends javax.swing.JFrame {
         clasesUML.add(miPanel);
     }//GEN-LAST:event_jButton44ActionPerformed
 
-    private void CrearHijoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearHijoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CrearHijoActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         FiguraClase ultimoclick = FiguraClase.getUltimoclickeado();
         if (ultimoclick != null) {
@@ -1878,7 +1890,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton2.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton2.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
@@ -1890,8 +1902,24 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton2.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton2.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton2.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton2.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton2.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton2.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton2.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton2.getBackground());
             }
-
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -1903,7 +1931,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton3.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton3.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
@@ -1915,8 +1943,24 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton3.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton3.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton3.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton3.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton3.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton3.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton3.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton3.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton3.getBackground());
             }
-
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1928,18 +1972,34 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton4.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton4.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
                 ((Interfaz) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
                 ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
-
             } else if (ultimoclick instanceof ClaseAbstracta) {
                 ultimoclick.setBackground(jButton4.getBackground());
                 ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton4.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton4.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton4.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton4.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton4.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton4.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton4.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton4.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton4.getBackground());
             }
         }
@@ -1953,18 +2013,34 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton5.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton5.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
                 ((Interfaz) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
                 ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
-
             } else if (ultimoclick instanceof ClaseAbstracta) {
                 ultimoclick.setBackground(jButton5.getBackground());
                 ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton5.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton5.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton5.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton5.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton5.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton5.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton5.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton5.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton5.getBackground());
             }
         }
@@ -1978,18 +2054,34 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton8.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton8.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
                 ((Interfaz) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
                 ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
-
             } else if (ultimoclick instanceof ClaseAbstracta) {
                 ultimoclick.setBackground(jButton8.getBackground());
                 ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton8.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton8.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton8.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton8.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton8.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton8.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton8.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton8.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton8.getBackground());
             }
         }
@@ -2003,18 +2095,34 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton6.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton6.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
                 ((Interfaz) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
                 ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
-
             } else if (ultimoclick instanceof ClaseAbstracta) {
                 ultimoclick.setBackground(jButton6.getBackground());
                 ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton6.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton6.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton6.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton6.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton6.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton6.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton6.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton6.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton6.getBackground());
             }
         }
@@ -2028,18 +2136,34 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton7.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton7.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
                 ((Interfaz) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
                 ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
-
             } else if (ultimoclick instanceof ClaseAbstracta) {
                 ultimoclick.setBackground(jButton7.getBackground());
                 ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton7.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton7.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton7.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton7.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton7.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton7.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton7.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton7.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton7.getBackground());
             }
         }
@@ -2053,18 +2177,34 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton14.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
-                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());                
             } else if (ultimoclick instanceof Interfaz) {
                 ultimoclick.setBackground(jButton14.getBackground());
                 ((Interfaz) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
                 ((Interfaz) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
                 ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
-
             } else if (ultimoclick instanceof ClaseAbstracta) {
                 ultimoclick.setBackground(jButton14.getBackground());
                 ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
                 ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton14.getBackground());
                 ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton14.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton14.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton14.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton14.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton14.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton14.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton14.getBackground());
                 ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton14.getBackground());
             }
         }
@@ -2078,20 +2218,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton9.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton9.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton9.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton9.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton9.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton9.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton9.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -2103,20 +2259,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton16.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton16.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton16.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton9.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton16.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton16.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton16.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton16.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton16.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
@@ -2128,20 +2300,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton10.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton10.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton10.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton10.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton10.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton10.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton10.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton10.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton10.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -2153,20 +2341,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton15.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton15.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton15.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton15.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton15.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton15.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton15.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton15.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton15.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton15ActionPerformed
 
@@ -2178,20 +2382,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton11.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton11.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton11.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton11.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton11.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton11.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton11.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton11.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton11.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton11.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton11.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton11.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton11.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton11.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton11.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -2203,20 +2423,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton17.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton17.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton17.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton17.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton17.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton17.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton17.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton9.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton17.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton17.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton17.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton17.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton17.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton17.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton17.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
@@ -2228,20 +2464,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton12.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton12.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton12.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton12.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton12.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton12.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton12.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton9.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton9.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton9.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton12.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton12.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton12.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton12.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton12.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -2253,20 +2505,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton18.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton18.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton18.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton18.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton18.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton18.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton18.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton18.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton18.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 
@@ -2278,20 +2546,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton13.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton13.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton13.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton13.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton13.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton13.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton13.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton13.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton13.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton13.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton13.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton13.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton13.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton13.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton13.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
@@ -2303,20 +2587,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton19.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton19.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton19.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton19.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton19.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton19.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton19.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton19.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton19.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton19ActionPerformed
 
@@ -2328,20 +2628,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton21.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton21.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton21.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton21.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton21.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton21.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton21.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton21.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton21.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton21ActionPerformed
 
@@ -2353,20 +2669,36 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
                 ((ClaseNormal) ultimoclick).getAtributo().setBackground(jButton20.getBackground());
                 ((ClaseNormal) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+                ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());                
+            } else if (ultimoclick instanceof Interfaz) {
+                ultimoclick.setBackground(jButton20.getBackground());
+                ((Interfaz) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+                ((Interfaz) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
+            } else if (ultimoclick instanceof ClaseAbstracta) {
+                ultimoclick.setBackground(jButton20.getBackground());
+                ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+                ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton20.getBackground());
+                ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
+            } else if (ultimoclick instanceof ClaseHeredada) {
+                ultimoclick.setBackground(jButton20.getBackground());
+                ((ClaseHeredada) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+                ((ClaseHeredada) ultimoclick).getAtributo().setBackground(jButton20.getBackground());
+                ((ClaseHeredada) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
                 ((ClaseHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
-            }else if (ultimoclick instanceof Interfaz) {
-            ultimoclick.setBackground(jButton20.getBackground());
-            ((Interfaz) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
-            ((Interfaz) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
-            ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
-
-        }else if (ultimoclick instanceof ClaseAbstracta) {
-            ultimoclick.setBackground(jButton20.getBackground());
-            ((ClaseAbstracta) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
-            ((ClaseAbstracta) ultimoclick).getAtributo().setBackground(jButton20.getBackground());
-            ((ClaseAbstracta) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
-            ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground()); 
-        } 
+            } else if (ultimoclick instanceof InterfazHeredada) {
+                ultimoclick.setBackground(jButton20.getBackground());
+                ((InterfazHeredada) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+                ((InterfazHeredada) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+                ((InterfazHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
+                ultimoclick.setBackground(jButton20.getBackground());
+                ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton20.getBackground());
+                ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton20.getBackground());
+                ((AbstractaHeredada) ultimoclick).getMetodo().setBackground(jButton20.getBackground());
+                ((AbstractaHeredada) ultimoclick).getExtend().setBackground(jButton20.getBackground());
+            }
         }
     }//GEN-LAST:event_jButton20ActionPerformed
 
@@ -2376,6 +2708,8 @@ public class Menu extends javax.swing.JFrame {
         MesaUML.add(abs);
         MesaUML.revalidate();
         MesaUML.repaint();
+        
+        clasesUML.add(abs);
     }//GEN-LAST:event_jButton45ActionPerformed
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
@@ -2388,13 +2722,20 @@ public class Menu extends javax.swing.JFrame {
         MesaUML.add(inter);
         MesaUML.revalidate();
         MesaUML.repaint();
+        
+        clasesUML.add(inter);
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void cb_FuenteUMLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_FuenteUMLItemStateChanged
-        FiguraClase f = FiguraClase.getUltimoclickeado();
+        /*FiguraClase f = FiguraClase.getUltimoclickeado();
+        String nuevaFuente = cb_FuenteUML.getSelectedItem().toString();
+        Font fuenteActual = null;
+        
+        
         if (f instanceof ClaseNormal) {
             doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
             estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
+            fuenteActual = ((ClaseNormal)f).getTextPane().getFont();
             doc1 = ((ClaseNormal) f).getTextPane1().getStyledDocument();
             estilo1 = ((ClaseNormal) f).getTextPane1().addStyle("miEstilo", null);
             StyleConstants.setFontFamily(estilo, cb_FuenteUML.getSelectedItem().toString());
@@ -2415,12 +2756,12 @@ public class Menu extends javax.swing.JFrame {
             estilo = ((Interfaz) f).getTextPane().addStyle("miEstilo", null);
             StyleConstants.setFontFamily(estilo, cb_FuenteUML.getSelectedItem().toString());
             doc.setCharacterAttributes(0, ((Interfaz) f).getTextPane().getText().length(), ((Interfaz) f).getTextPane().getStyle("miEstilo"), true);
-        }
+        }*/
 
     }//GEN-LAST:event_cb_FuenteUMLItemStateChanged
 
     private void cb_TamañoUMLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_TamañoUMLItemStateChanged
-        FiguraClase f = FiguraClase.getUltimoclickeado();
+        /*FiguraClase f = FiguraClase.getUltimoclickeado();
         if (f instanceof ClaseNormal) {
             doc = ((ClaseNormal) f).getTextPane().getStyledDocument();
             estilo = ((ClaseNormal) f).getTextPane().addStyle("miEstilo", null);
@@ -2459,11 +2800,11 @@ public class Menu extends javax.swing.JFrame {
                     ((Interfaz) f).getTextPane().getText().length(),
                     ((Interfaz) f).getTextPane().getStyle("miEstilo"),
                     true);
-        }
+        }*/
     }//GEN-LAST:event_cb_TamañoUMLItemStateChanged
 
     private void cb_EstiloUMLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_EstiloUMLItemStateChanged
-        FiguraClase f = FiguraClase.getUltimoclickeado();
+        /*FiguraClase f = FiguraClase.getUltimoclickeado();
         if (f instanceof ClaseNormal) {
 
             if (cb_EstiloUML.getSelectedIndex() == 0) {
@@ -2627,8 +2968,75 @@ public class Menu extends javax.swing.JFrame {
                         true);
             }
         }
-
+         */
     }//GEN-LAST:event_cb_EstiloUMLItemStateChanged
+
+    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        FiguraClase ult = FiguraClase.getUltimoclickeado();
+        Font newfo = null;
+
+        if (cb_EstiloUML.getSelectedIndex() == 0) {
+            newfo = new Font(cb_FuenteUML.getSelectedItem().toString(), Font.PLAIN, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+        }
+
+        if (cb_EstiloUML.getSelectedIndex() == 1) {
+            newfo = new Font(cb_FuenteUML.getSelectedItem().toString(), Font.BOLD, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+        }
+
+        if (cb_EstiloUML.getSelectedIndex() == 2) {
+            newfo = new Font(cb_FuenteUML.getSelectedItem().toString(), Font.ITALIC, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+        }
+
+        if (cb_EstiloUML.getSelectedIndex() == 3) {
+            newfo = new Font(cb_FuenteUML.getSelectedItem().toString(), Font.BOLD + Font.ITALIC, Integer.parseInt(cb_TamañoUML.getSelectedItem().toString()));
+        }
+
+        if (ult instanceof ClaseNormal) {
+            ((ClaseNormal) ult).getTextPane().setFont(newfo);
+            ((ClaseNormal) ult).getTextPane1().setFont(newfo);
+        } else if (ult instanceof ClaseAbstracta) {
+            ((ClaseAbstracta) ult).getTextPane().setFont(newfo);
+            ((ClaseAbstracta) ult).getTextPane1().setFont(newfo);
+        } else if (ult instanceof ClaseHeredada) {
+            ((ClaseHeredada) ult).getTextPane().setFont(newfo);
+            ((ClaseHeredada) ult).getTextPane1().setFont(newfo);
+        } else if (ult instanceof AbstractaHeredada) {
+            ((AbstractaHeredada) ult).getTextPane().setFont(newfo);
+            ((AbstractaHeredada) ult).getTextPane1().setFont(newfo);
+        } else if (ult instanceof Interfaz) {
+            ((Interfaz) ult).getTextPane().setFont(newfo);
+        } else if (ult instanceof InterfazHeredada) {
+            ((InterfazHeredada) ult).getTextPane().setFont(newfo);
+        }
+    }//GEN-LAST:event_jButton42ActionPerformed
+
+    private void BttnDecisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnDecisionActionPerformed
+        FiguraDecision rombo = new FiguraDecision(BttnDecision.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200, MesaTrabajo);
+        MesaTrabajo.add(rombo);
+        rombo.revalidate();
+        MesaTrabajo.revalidate();
+        MesaTrabajo.repaint();
+    }//GEN-LAST:event_BttnDecisionActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton49ActionPerformed
+
+    private void BttnInicioFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnInicioFinActionPerformed
+        FiguraInicio ini = new FiguraInicio(BttnInicioFin.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200, MesaTrabajo);
+        MesaTrabajo.add(ini);
+        ini.revalidate();
+        MesaTrabajo.revalidate();
+        MesaTrabajo.revalidate();
+    }//GEN-LAST:event_BttnInicioFinActionPerformed
+
+    private void BttnDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnDataActionPerformed
+        FiguraData data = new FiguraData(BttnInicioFin.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200, MesaTrabajo);
+        MesaTrabajo.add(data);
+        data.revalidate();
+        MesaTrabajo.revalidate();
+        MesaTrabajo.revalidate();
+    }//GEN-LAST:event_BttnDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2672,11 +3080,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel BarraTareaFlujo;
     private javax.swing.JButton BttnData;
     private javax.swing.JButton BttnDecision;
-    private javax.swing.JButton BttnDocumento;
     private javax.swing.JButton BttnInicioFin;
     private javax.swing.JButton BttnProceso;
-    private javax.swing.JButton BttnSubProceso;
-    private javax.swing.JMenuItem CrearHijo;
     private javax.swing.JPanel CrearNuevo;
     private javax.swing.JPanel DFlujoBttn;
     private javax.swing.JLabel DFlujoImg;
@@ -2684,7 +3089,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel DUMLBttn;
     private javax.swing.JLabel DUMLImg;
     private javax.swing.JLabel DUMLTXT;
-    private javax.swing.JMenuItem Eliminar;
     private javax.swing.JPanel FigurasFlujo;
     private javax.swing.JPanel FigurasUML;
     private javax.swing.JMenuItem FlujoMenu;
@@ -2698,13 +3102,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JDialog JD_UML;
     private javax.swing.JPanel JP_Flujo;
     private javax.swing.JPanel JP_UML;
-    private javax.swing.JPopupMenu MenuClases;
     private javax.swing.JMenuBar MenuPrincipal;
     private javax.swing.JPanel MesaTrabajo;
     private javax.swing.JPanel MesaTrabajoBG;
     private javax.swing.JPanel MesaUML;
     private javax.swing.JPanel MesaUMLBG;
-    private javax.swing.JMenuItem Modificar;
     private javax.swing.JPanel NewBttn;
     private javax.swing.JLabel NewTXT1;
     private javax.swing.JLabel NewTXT2;
@@ -2713,7 +3115,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel OpenBttn;
     private javax.swing.JLabel OpenTXT1;
     private javax.swing.JLabel OpenTXT2;
-    private javax.swing.JPanel Proceso;
     private javax.swing.JMenuItem UMLMenu;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel bg1;
@@ -2758,10 +3159,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -2769,6 +3172,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2808,7 +3212,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane3;
@@ -2821,6 +3224,7 @@ public class Menu extends javax.swing.JFrame {
     Style estilo;
     StyledDocument doc1;
     Style estilo1;
-    ArrayList<FiguraClase> clasesUML = new ArrayList();
+    public static ArrayList<FiguraClase> clasesUML = new ArrayList();
+    public static ArrayList<FiguraFlujo> clasesFlujo = new ArrayList();
 
 }

@@ -11,6 +11,7 @@ import java.awt.Point;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 /**
@@ -27,8 +28,8 @@ public class ClaseNormal extends FiguraClase {
     protected JPanel titulo = new JPanel();
     protected JPanel atributo = new JPanel();
     protected JPanel metodo = new JPanel();
-    protected JTextPane textPane = new JTextPane();
-    protected JTextPane textPane1 = new JTextPane();
+    protected JTextArea textPane = new JTextArea();
+    protected JTextArea textPane1 = new JTextArea();
     protected JScrollPane scroll = new JScrollPane(textPane);
     protected JScrollPane scroll1 = new JScrollPane(textPane1);
 
@@ -76,6 +77,11 @@ public class ClaseNormal extends FiguraClase {
 
     public ClaseNormal(String label) {
         setLabel(label);
+    }
+    
+    public ClaseNormal(JPanel c){
+        super();
+        this.copy(c);
     }
 
     public ClaseNormal() {
@@ -170,19 +176,19 @@ public class ClaseNormal extends FiguraClase {
         this.metodo = metodo;
     }
 
-    public JTextPane getTextPane() {
+    public JTextArea getTextPane() {
         return textPane;
     }
 
-    public void setTextPane(JTextPane textPane) {
+    public void setTextPane(JTextArea textPane) {
         this.textPane = textPane;
     }
 
-    public JTextPane getTextPane1() {
+    public JTextArea getTextPane1() {
         return textPane1;
     }
 
-    public void setTextPane1(JTextPane textPane1) {
+    public void setTextPane1(JTextArea textPane1) {
         this.textPane1 = textPane1;
     }
 
@@ -208,4 +214,12 @@ public class ClaseNormal extends FiguraClase {
         label = nuevoNombre;
     }
 
+    public void copy(JPanel c){
+        ClaseNormal newClass = (ClaseNormal) c;
+        this.setBackground(newClass.getBackground());
+        this.setSize(newClass.getSize());
+        this.setLocation(newClass.getLocation());
+        
+        
+    }
 }
