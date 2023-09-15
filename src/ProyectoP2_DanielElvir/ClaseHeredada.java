@@ -25,11 +25,13 @@ public class ClaseHeredada extends ClaseNormal {
     private JLabel nomExtends = new JLabel();
     private String nLabel;
     private JLabel nueLabel = new JLabel();
+    private FiguraClase padre;
     
 
-    public ClaseHeredada(Font fuente, int locx, int locy, String label, JPanel MesaUML, String nLabel) {
+    public ClaseHeredada(Font fuente, int locx, int locy, String label, JPanel MesaUML, String nLabel, FiguraClase padre) {
         super(fuente, locx, locy, label, MesaUML);
         this.nLabel=nLabel;
+        this.padre=padre;
         extend.setBackground(new Color(100, 149, 237));
         extend.setPreferredSize(new Dimension(getWidth(), 25));
 
@@ -47,6 +49,16 @@ public class ClaseHeredada extends ClaseNormal {
         super();
     }
 
+    public FiguraClase getPadre() {
+        return padre;
+    }
+
+    public void setPadre(FiguraClase padre) {
+        this.padre = padre;
+    }
+
+    
+    
     public JLayeredPane getLayeredPane() {
         return layeredPane;
     }

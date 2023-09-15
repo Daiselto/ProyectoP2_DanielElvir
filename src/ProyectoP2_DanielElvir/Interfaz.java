@@ -49,7 +49,7 @@ public class Interfaz extends FiguraClase{
         add(metodo);
 
         scroll.setPreferredSize(new Dimension(getWidth() - 20, 40));
-        textPane.setPreferredSize(new Dimension(getWidth() - 10, 20));        
+        //textPane.setPreferredSize(new Dimension(getWidth() - 10, 20));        
         scroll.setForeground(new Color(175, 175, 175));       
         add(scroll);
 

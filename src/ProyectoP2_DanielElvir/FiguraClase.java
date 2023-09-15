@@ -65,7 +65,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
             public void actionPerformed(ActionEvent e) {
                 if (FiguraClase.this instanceof ClaseNormal) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
-                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel, FiguraClase.this);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
@@ -79,14 +79,14 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     Menu.clasesUML.add(Heredero);
                 } else if (FiguraClase.this instanceof ClaseAbstracta) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
-                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel, FiguraClase.this);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
                     Menu.clasesUML.add(Heredero);
                 }else if (FiguraClase.this instanceof ClaseHeredada) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
-                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel, FiguraClase.this);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
@@ -100,7 +100,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     Menu.clasesUML.add(Heredero);
                 } else if (FiguraClase.this instanceof AbstractaHeredada) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija");
-                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    ClaseHeredada Heredero = new ClaseHeredada(fuente, locx, locy, label, MesaUML, nLabel, FiguraClase.this);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
@@ -115,14 +115,14 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
             public void actionPerformed(ActionEvent e) {
                 if (FiguraClase.this instanceof ClaseNormal) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija abstracta");
-                    AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel, FiguraClase.this);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();
                     Menu.clasesUML.add(Heredero);
                 } else if (FiguraClase.this instanceof ClaseAbstracta) {
                     String nLabel = JOptionPane.showInputDialog("Diga el nombre de la clase hija abstracta");
-                    AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel);
+                    AbstractaHeredada Heredero = new AbstractaHeredada(fuente, locx, locy, label, MesaUML, nLabel, FiguraClase.this);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
                     MesaUML.repaint();

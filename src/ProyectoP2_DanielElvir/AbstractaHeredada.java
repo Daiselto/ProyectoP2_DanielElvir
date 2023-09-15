@@ -21,11 +21,12 @@ public class AbstractaHeredada extends ClaseAbstracta{
     private JLabel nomExtends = new JLabel();
     private String nLabel;
     private JLabel nueLabel = new JLabel();
-    
+    private FiguraClase padre;
 
-    public AbstractaHeredada(Font fuente, int locx, int locy, String label, JPanel MesaUML, String nLabel) {
+    public AbstractaHeredada(Font fuente, int locx, int locy, String label, JPanel MesaUML, String nLabel, FiguraClase padre) {
         super(fuente, locx, locy, label, MesaUML);
         this.nLabel=nLabel;
+        this.padre=padre;
         extend.setBackground(new Color(100, 149, 237));
         extend.setPreferredSize(new Dimension(getWidth(), 25));
 

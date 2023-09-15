@@ -57,7 +57,7 @@ public class ClaseNormal extends FiguraClase {
         add(atributo);
 
         scroll.setPreferredSize(new Dimension(getWidth() - 20, 40));
-        textPane.setPreferredSize(new Dimension(getWidth() - 10, 20));        
+        //textPane.setPreferredSize(new Dimension(getWidth() - 10, 20));        
         scroll.setForeground(new Color(175, 175, 175));
         add(scroll);
 
@@ -69,7 +69,7 @@ public class ClaseNormal extends FiguraClase {
         add(metodo);
 
         scroll1.setPreferredSize(new Dimension(getWidth() - 20, 40));
-        textPane1.setPreferredSize(new Dimension(getWidth() - 10, 20));                     
+        //textPane1.setPreferredSize(new Dimension(getWidth() - 10, 20));                     
         scroll1.setForeground(new Color(175, 175, 175));
         add(scroll1);
         setLabel(label);
