@@ -2753,7 +2753,7 @@ public class Menu extends javax.swing.JFrame {
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
         String codiguito = generarfullcode();
 
-        ta_codFinal.setFont(new Font("Calibri Light", Font.BOLD, 14));
+        ta_codFinal.setFont(new Font("Roboto", Font.BOLD, 14));
         ta_codFinal.setText(codiguito);
 
         JD_CodigoUML.pack();
@@ -3075,7 +3075,7 @@ public class Menu extends javax.swing.JFrame {
         MesaTrabajo.add(ini);
         ini.revalidate();
         MesaTrabajo.revalidate();
-        MesaTrabajo.revalidate();
+        MesaTrabajo.repaint();
         clasesFlujo.add(ini);
     }//GEN-LAST:event_BttnInicioFinActionPerformed
 
@@ -3084,142 +3084,254 @@ public class Menu extends javax.swing.JFrame {
         MesaTrabajo.add(data);
         data.revalidate();
         MesaTrabajo.revalidate();
-        MesaTrabajo.revalidate();
+        MesaTrabajo.repaint();
         clasesFlujo.add(data);
     }//GEN-LAST:event_BttnDataActionPerformed
 
-    public String generarfullcode() {
+    public String generarfullcode(){
         String codeinstr = "";
         for (FiguraClase instca : clasesUML) {
-            if (instca instanceof ClaseAbstracta) {
-                codeinstr += "from abc import ABC, abstractmethod\n\n";
+            if (instca instanceof ClaseAbstracta){
+                codeinstr+="from abc import ABC, abstractmethod\n\n";
             }
         }
         for (FiguraClase piezauml : clasesUML) {
-            if (piezauml instanceof ClaseNormal) {
-
-                //Crea un Array de Atributos de esa Clase
-                String atri = ((ClaseNormal) piezauml).getTextPane().getText();
-                String[] atrisep = atri.split("\n");
-
-                //Crea un Array de Metodos de la Clase
-                String met = ((ClaseNormal) piezauml).getTextPane1().getText();
-                String[] metsep = met.split("\n");
-
-                //Agrega el nombre de la clase
-                codeinstr += "class " + ((ClaseNormal) piezauml).getNewLabel().getText() + ":";
-
-                //Agrega el constructor con sus atributos
-                codeinstr += "\n\tdef __init__ (self";
-
-                for (String str : atrisep) {
-                    codeinstr += ", " + str;
-
-                }
-                codeinstr += "):\n";
-
-                for (String str : atrisep) {
-                    codeinstr += "\t\tself." + str + " = " + str + "\n";
-                }
-
-                codeinstr += "\n\n";
-
-                for (String strmet : metsep) {
-                    codeinstr += "\tdef " + strmet + " (self):\n";
-                    codeinstr += "\t\tpass";
-                    codeinstr += "\n\n";
-                }
-                codeinstr += "\n";
-
-            }
-            if (piezauml instanceof ClaseAbstracta) {
-                codeinstr += "class " + ((ClaseAbstracta) piezauml).getNewLabel().getText() + ":\n";
-
-                String metca = ((ClaseAbstracta) piezauml).getNewLabel().getText();
-                String[] metcaspli = metca.split("\n");
-
-                for (String me : metcaspli) {
-                    codeinstr += "\t@abstractmethod\n";
-                    codeinstr += "\tdef " + me + " (self):\n";
-                    codeinstr += "\t\tpass";
-                    codeinstr += "\n\n";
-
-                }
-
-                codeinstr += "\n";
-            }
-            if (piezauml instanceof ClaseHeredada) {
-
-                //Crea un Array de Atributos de esa Clase
-                String atri = ((ClaseHeredada) piezauml).getTextPane().getText();
-                String[] atrisep = atri.split("\n");
-
-                //Crea un Array de Metodos de la Clase
-                String met = ((ClaseHeredada) piezauml).getTextPane1().getText();
-                String[] metsep = met.split("\n");
+            if (piezauml instanceof ClaseNormal){
                 
                 //Crea un Array de Atributos de esa Clase
-                String atri1 = ((ClaseHeredada) piezauml).getTextPane().getText();
-                String[] atrisep1 = atri1.split("\n");
-
+                String atri = ((ClaseNormal) piezauml).getTextPane().getText();
+                String [] atrisep = atri.split("\n");
+                
+                
                 //Crea un Array de Metodos de la Clase
-                String met1 = ((ClaseHeredada) piezauml).getTextPane1().getText();
-                String[] metsep1 = met1.split("\n");
-
-                FiguraClase padtem = ((ClaseHeredada) piezauml).getPadre();
-                if (padtem instanceof ClaseNormal) {
-                    codeinstr += "class " + ((ClaseHeredada) piezauml).getNewLabel().getText() + " (" + ((ClaseNormal) padtem).getNewLabel().getText() + "):\n";
-                    codeinstr += "\tdef __init__ (self";
-                    for (String str : atrisep1) {
-                        codeinstr += ", " + str;
-
-                    }
-                    codeinstr += "):";
-                    codeinstr += "\n\tsuper().__init__(";
-                    for (String str : atrisep) {
-                        codeinstr += ", " + str;
-
-                    }
-                    codeinstr += ")\n";
-                    for (String str : atrisep1) {
-                        codeinstr += "\t\tself." + str + " = " + str + "\n";
-                    }
-                    codeinstr += "\n\n";
-
-                    for (String strmet : metsep1) {
-                        codeinstr += "\tdef " + strmet + " (self):\n";
-                        codeinstr += "\t\tpass";
-                        codeinstr += "\n\n";
-                    }
-                    codeinstr += "\n";
-                } else if (padtem instanceof ClaseAbstracta) {
-                    codeinstr += "class " + ((ClaseHeredada) piezauml).getNewLabel().getText() + " (" + ((ClaseAbstracta) padtem).getNewLabel().getText() + "):\n";
-                } else if (padtem instanceof ClaseHeredada) {
-                    codeinstr += "class " + ((ClaseHeredada) piezauml).getNewLabel().getText() + " (" + ((ClaseHeredada) padtem).getNewLabel().getText() + "):\n";
-                } else if (padtem instanceof Interfaz) {
-                    codeinstr += "class " + ((ClaseHeredada) piezauml).getNewLabel().getText() + " (" + ((ClaseHeredada) padtem).getNewLabel().getText() + "):\n";
+                String met = ((ClaseNormal) piezauml).getTextPane1().getText();
+                String [] metsep = met.split("\n");
+                
+                
+                
+                //Agrega el nombre de la clase
+                codeinstr+="class "+((ClaseNormal) piezauml).getNewLabel().getText()+":";
+                
+                //Agrega el constructor con sus atributos
+                codeinstr+="\n\tdef __init__ (self";
+                
+                
+                
+                for (String str : atrisep) {
+                    codeinstr+=", "+str;
+                    
                 }
-
-                codeinstr += "\n\n";
-
+                codeinstr+="):\n";
+                
+                for (String str : atrisep) {
+                    codeinstr+="\t\tself."+str+" = "+str+"\n";
+                }
+                
+                codeinstr+="\n\n";
+                
+                for (String strmet : metsep) {
+                    codeinstr+="\tdef "+strmet+" (self):\n";
+                    codeinstr+="\t\tpass";
+                    codeinstr+="\n\n";
+                }
+                codeinstr+="\n";
+                 
             }
-            if (piezauml instanceof Interfaz) {
-                codeinstr += "class " + ((Interfaz) piezauml).getNewLabel().getText() + ":\n";
-
-                String metca = ((Interfaz) piezauml).getTextPane().getText();
-                String[] metcaspli = metca.split("\n");
-
+            if (piezauml instanceof ClaseAbstracta){
+                codeinstr+="class "+((ClaseAbstracta) piezauml).getNewLabel().getText()+":\n";
+                
+                String metca = ((ClaseAbstracta) piezauml).getTextPane1().getText();
+                String [] metcaspli = metca.split("\n");
+                
                 for (String me : metcaspli) {
-                    codeinstr += "\t@abstractmethod\n";
-                    codeinstr += "\tdef " + me + " (self):\n";
-                    codeinstr += "\t\tpass";
-                    codeinstr += "\n\n";
-
+                    codeinstr+="\t@abstractmethod\n";
+                    codeinstr+="\tdef "+me+" (self):\n";
+                    codeinstr+="\t\tpass";
+                    codeinstr+="\n\n";
+                    
                 }
-
-                codeinstr += "\n";
+                
+                codeinstr+="\n";
             }
-
+            if (piezauml instanceof ClaseHeredada){
+                
+                FiguraClase padtem = ((ClaseHeredada) piezauml).getPadre();
+                
+                if (padtem instanceof ClaseNormal){
+                    codeinstr+="class "+((ClaseHeredada) piezauml).getNewLabel().getText()+" ("+((ClaseNormal) padtem).getNewLabel().getText()+"):\n"; 
+                    
+                    String attpadre = ((ClaseNormal) padtem).getTextPane().getText();
+                    String [] attpadrespl = attpadre.split("\n");
+                    
+                    
+                    codeinstr+="\tdef __init__ (self";
+                    
+                    String att = ((ClaseHeredada) piezauml).getTextPane().getText();
+                    String [] attspli = att.split("\n");
+                    
+                    for (String g : attpadrespl) {
+                        codeinstr+=", "+g;
+                        
+                    }
+                    
+                    for (String at : attspli) {
+                        codeinstr+=", "+at;
+                    }
+                    codeinstr+="):\n";
+                    
+                    
+                    
+                    codeinstr+="\t\tsuper().__init__(";
+                    
+                    for (int i = 0; i < attpadrespl.length; i++) {
+                        if (i==0){
+                            codeinstr+=attpadrespl[i];
+                            
+                        }
+                        else{
+                            codeinstr+=", "+attpadrespl[i];
+                        }
+                        
+                    }
+                    codeinstr+=")\n";
+                    
+                    for (String atr : attspli) {
+                        codeinstr+="\t\tself."+atr+" = "+atr+"\n";
+                    }
+                    
+                    codeinstr+="\n\n";
+                    
+                    String met = ((ClaseHeredada) piezauml).getTextPane1().getText();
+                    String [] mets = met.split("\n");
+                    
+                    for (String met1 : mets) {
+                        codeinstr+="\tdef "+met1+" (self):\n";
+                        codeinstr+="\t\tpass";
+                        codeinstr+="\n\n";
+                       
+                    }
+                    
+                    codeinstr+="\n";
+                    
+                }
+                 if (padtem instanceof ClaseAbstracta){
+                    codeinstr+="class "+((ClaseHeredada) piezauml).getNewLabel().getText()+" ("+((ClaseAbstracta) padtem).getNewLabel().getText()+"):\n";
+                    
+                    codeinstr+="\tdef __init__ (self";
+                    
+                    String att = ((ClaseHeredada) piezauml).getTextPane().getText();
+                    String [] attspli = att.split("\n");
+                    
+                    for (String at : attspli) {
+                        codeinstr+=", "+at;
+                    }
+                    codeinstr+="):\n";
+                    
+                    for (String atr : attspli) {
+                        codeinstr+="\t\tself."+atr+" = "+atr+"\n";
+                    }
+                    
+                    codeinstr+="\n\n";
+                    
+                    String metpad = ((ClaseAbstracta) padtem).getTextPane1().getText();
+                    String [] metpadspli = metpad.split("\n");
+                    
+                    for (String string : metpadspli) {
+                        codeinstr+="\tdef "+string+" (self):\n";
+                        codeinstr+="\t\tpass";
+                        codeinstr+="\n\n";
+                    }
+                    
+                    String mets = ((ClaseHeredada) piezauml).getTextPane().getText();
+                    String [] metssp = mets.split("\n");
+                     
+                    for (String string : metssp) {
+                        codeinstr+="\tdef "+string+" (self):\n";
+                        codeinstr+="\t\tpass";
+                        codeinstr+="\n\n";
+                        
+                    }
+                    
+                    codeinstr+="\n";
+                    
+                }
+                 if (padtem instanceof ClaseHeredada){
+                    codeinstr+="class "+((ClaseHeredada) piezauml).getNewLabel().getText()+" ("+((ClaseHeredada) padtem).getNewLabel().getText()+"):\n";
+                    
+                    codeinstr+="\tdef __init__ (self";
+                    
+                    String attpadre = ((ClaseHeredada) padtem).getTextPane().getText();
+                    String [] attpadrespl = attpadre.split("\n");
+                    
+                    String att = ((ClaseHeredada) piezauml).getTextPane().getText();
+                    String [] attspli = att.split("\n");
+                    
+                    for (String r : attpadrespl) {
+                        codeinstr+=", "+r;
+                        
+                    }
+                    
+                    for (String at : attspli) {
+                        codeinstr+=", "+at;
+                    }
+                    codeinstr+="):\n";
+                    
+                    
+                    
+                    codeinstr+="\t\tsuper().__init__(";
+                    
+                    for (int i = 0; i < attpadrespl.length; i++) {
+                        if (i==0){
+                            codeinstr+=attpadrespl[i];
+                            
+                        }
+                        else{
+                            codeinstr+=", "+attpadrespl[i];
+                        }
+                        
+                    }
+                    codeinstr+="):\n";
+                    
+                    for (String atr : attspli) {
+                        codeinstr+="\t\tself."+atr+" = "+atr+"\n";
+                    }
+                    
+                    codeinstr+="\n\n";
+                    
+                    String met = ((ClaseHeredada) piezauml).getTextPane1().getText();
+                    String [] mets = met.split("\n");
+                    
+                    for (String met1 : mets) {
+                        codeinstr+="\tdef "+met1+" (self):\n";
+                        codeinstr+="\t\tpass";
+                        codeinstr+="\n\n";
+                       
+                    }
+                    
+                    codeinstr+="\n";
+                    
+                }
+                
+                codeinstr+="\n\n";
+ 
+            }
+            if (piezauml instanceof Interfaz){
+                codeinstr+="class "+((Interfaz) piezauml).getNewLabel().getText()+":\n";
+                
+                String metca = ((Interfaz) piezauml).getTextPane().getText();
+                String [] metcaspli = metca.split("\n");
+                
+                for (String me : metcaspli) {
+                    codeinstr+="\t@abstractmethod\n";
+                    codeinstr+="\tdef "+me+" (self):\n";
+                    codeinstr+="\t\tpass";
+                    codeinstr+="\n\n";
+                    
+                }
+                
+                codeinstr+="\n";
+            }
+            
         }
         return codeinstr;
     }
