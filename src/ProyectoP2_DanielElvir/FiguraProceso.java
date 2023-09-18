@@ -22,30 +22,38 @@ public class FiguraProceso extends FiguraFlujo {
     private JTextField textField = new JTextField();
     private int sizex, sizey, locx, locy;
     private Font fuente = new Font(getFont().getName(), Font.BOLD, getFont().getSize());
+    Color color = new Color(33, 157, 229);
 
     public FiguraProceso() {
         super();
     }
 
-    public FiguraProceso(Font fuente, int locx, int locy, int sizex, int sizey, JPanel MesaUML) {
-        super(fuente, locx, locy, sizex, sizey, MesaUML);
+    public FiguraProceso(Font fuente, int locx, int locy, int sizex, int sizey) {
+        super(fuente, locx, locy, sizex, sizey);
         this.sizex=sizex;
         this.sizey=sizey;
         this.locx=locx;
         this.locy=locy;
         this.fuente=fuente;
-        setBackground(new Color(33, 157, 229));
-        setSize(new Dimension(200, 100));
-        setLocation(locx / 2, locy / 2);    
-
-        textField.setPreferredSize(new Dimension(20, 20));
-        textField.setLocation(0, 0);
-        add(textField);
-
-        textArea.setPreferredSize(new Dimension(getWidth() - 20, 50));
-        add(textArea);
+        setLayout(null);
+        setSize(200,60);
+        setBackground(color);
         
-        repaint();
+        textArea = new JTextArea();
+        textArea.setText("Aqui va el texto de instruccion");
+        textArea.setBackground(Color.GRAY); // Establecer el fondo del JTextPane al color del panel
+        textArea.setForeground(Color.WHITE); // Establecer el color del texto en blanco
+        textArea.setBorder(null); // Eliminar el borde del JTextPane
+        
+        
+        // Cambiar el estilo de fuente del texto a negrita
+        Font boldFont = new Font(textArea.getFont().getName(), Font.BOLD, textArea.getFont().getSize());
+        textArea.setFont(boldFont);
+        
+        textArea.setBounds(20, (getHeight()/2)-10, 160, 20);
+
+        
+        add(textArea);
     }
 
     public JTextArea getTextArea() {
@@ -104,9 +112,9 @@ public class FiguraProceso extends FiguraFlujo {
         this.fuente = fuente;
     }
     
-    protected void paintComponent(Graphics g){
-        super.paintComponent(g);
-        g.setColor(new Color(33, 157, 229));
-        g.fillRect(0, 0, 100, 60);
+    public void setColorBG(Color color) {
+        this.color = color;
+        repaint(); // Vuelve a dibujar el componente para reflejar el nuevo color
     }
+       
 }

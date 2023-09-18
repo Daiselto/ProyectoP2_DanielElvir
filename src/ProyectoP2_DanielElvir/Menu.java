@@ -4,22 +4,29 @@
  */
 package ProyectoP2_DanielElvir;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
-import javax.swing.AbstractAction;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.event.MouseInputListener;
+import javax.swing.text.Document;
 import javax.swing.text.Style;
-import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
+import java.awt.Component;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.StyleConstants;
 
 /**
  *
@@ -106,6 +113,7 @@ public class Menu extends javax.swing.JFrame {
         jButton39 = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
+        jButton46 = new javax.swing.JButton();
         FigurasFlujo = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         BttnProceso = new javax.swing.JButton();
@@ -113,11 +121,13 @@ public class Menu extends javax.swing.JFrame {
         BttnInicioFin = new javax.swing.JButton();
         BttnData = new javax.swing.JButton();
         jButton49 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
         MesaTrabajoBG = new javax.swing.JPanel();
         MesaTrabajo = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         JD_UML = new javax.swing.JDialog();
         bg1 = new javax.swing.JPanel();
@@ -156,9 +166,11 @@ public class Menu extends javax.swing.JFrame {
         jButton47 = new javax.swing.JButton();
         jButton48 = new javax.swing.JButton();
         MesaUMLBG = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
         MesaUML = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
+        GuardarUML = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         JD_CodigoUML = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
@@ -388,62 +400,170 @@ public class Menu extends javax.swing.JFrame {
 
         jButton22.setBackground(new java.awt.Color(0, 0, 0));
         jButton22.setForeground(new java.awt.Color(0, 0, 0));
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
 
         jButton23.setBackground(new java.awt.Color(255, 255, 255));
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         jButton24.setBackground(new java.awt.Color(126, 128, 127));
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
 
         jButton25.setBackground(new java.awt.Color(192, 196, 195));
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
 
         jButton26.setBackground(new java.awt.Color(185, 122, 87));
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
 
         jButton27.setBackground(new java.awt.Color(233, 28, 43));
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
 
         jButton28.setBackground(new java.awt.Color(131, 1, 25));
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
 
         jButton29.setBackground(new java.awt.Color(253, 127, 40));
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
 
         jButton30.setBackground(new java.awt.Color(254, 241, 5));
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
 
         jButton31.setBackground(new java.awt.Color(36, 176, 79));
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
 
         jButton32.setBackground(new java.awt.Color(3, 161, 225));
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
 
         jButton33.setBackground(new java.awt.Color(64, 69, 213));
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
 
         jButton34.setBackground(new java.awt.Color(254, 174, 201));
+        jButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton34ActionPerformed(evt);
+            }
+        });
 
         jButton35.setBackground(new java.awt.Color(238, 229, 174));
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
 
         jButton36.setBackground(new java.awt.Color(252, 204, 10));
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
 
         jButton37.setBackground(new java.awt.Color(181, 229, 29));
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
 
         jButton38.setBackground(new java.awt.Color(157, 216, 232));
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
 
         jButton39.setBackground(new java.awt.Color(113, 146, 191));
+        jButton39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton39ActionPerformed(evt);
+            }
+        });
 
         jButton40.setBackground(new java.awt.Color(199, 191, 232));
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
 
         jButton41.setBackground(new java.awt.Color(163, 71, 172));
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
+
+        jButton46.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton46.setText("Aplicar Cambios de Fuente");
 
         javax.swing.GroupLayout BarraTareaFlujoLayout = new javax.swing.GroupLayout(BarraTareaFlujo);
         BarraTareaFlujo.setLayout(BarraTareaFlujoLayout);
         BarraTareaFlujoLayout.setHorizontalGroup(
             BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cb_FuenteFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(18, 18, 18)
-                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_FuenteFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addGap(18, 18, 18)
+                        .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jButton46, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(74, 74, 74)
                 .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
@@ -471,7 +591,7 @@ public class Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
                         .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -487,8 +607,8 @@ public class Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(594, Short.MAX_VALUE))
         );
         BarraTareaFlujoLayout.setVerticalGroup(
             BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -504,7 +624,9 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cb_FuenteFlujo)
                         .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton46)
+                .addGap(11, 11, 11))
             .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -616,6 +738,18 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton43.setBackground(new java.awt.Color(235, 235, 235));
+        jButton43.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton43.setForeground(new java.awt.Color(0, 0, 0));
+        jButton43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/circulo.png"))); // NOI18N
+        jButton43.setText("Ciclo");
+        jButton43.setBorder(null);
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FigurasFlujoLayout = new javax.swing.GroupLayout(FigurasFlujo);
         FigurasFlujo.setLayout(FigurasFlujoLayout);
         FigurasFlujoLayout.setHorizontalGroup(
@@ -636,7 +770,10 @@ public class Menu extends javax.swing.JFrame {
                                     .addComponent(BttnDecision)))))
                     .addGroup(FigurasFlujoLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FigurasFlujoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         FigurasFlujoLayout.setVerticalGroup(
@@ -652,7 +789,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BttnInicioFin)
                     .addComponent(BttnData))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
                 .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -666,7 +805,7 @@ public class Menu extends javax.swing.JFrame {
         MesaTrabajo.setLayout(MesaTrabajoLayout);
         MesaTrabajoLayout.setHorizontalGroup(
             MesaTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 851, Short.MAX_VALUE)
+            .addGap(0, 1074, Short.MAX_VALUE)
         );
         MesaTrabajoLayout.setVerticalGroup(
             MesaTrabajoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -708,9 +847,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(BarraTareaFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(bg2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FigurasFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MesaTrabajoBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(MesaTrabajoBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FigurasFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 28, Short.MAX_VALUE))
         );
 
         jMenu5.setText("Archivos ");
@@ -718,6 +857,14 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem2.setText("Guardar como");
         jMenu5.add(jMenuItem2);
+
+        jMenuItem3.setText("Guardar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem3);
 
         jMenuBar2.add(jMenu5);
 
@@ -772,7 +919,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Estilo de Fuente");
 
-        cb_EstiloUML.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Italica", "Subrayado" }));
+        cb_EstiloUML.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Italica", "Italica+Negrita" }));
         cb_EstiloUML.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cb_EstiloUMLItemStateChanged(evt);
@@ -1165,36 +1312,41 @@ public class Menu extends javax.swing.JFrame {
 
         MesaUMLBG.setBackground(new java.awt.Color(255, 255, 255));
 
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(855, 1150));
+
         MesaUML.setBackground(new java.awt.Color(255, 255, 255));
         MesaUML.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         MesaUML.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        MesaUML.setPreferredSize(new java.awt.Dimension(850, 1150));
 
         javax.swing.GroupLayout MesaUMLLayout = new javax.swing.GroupLayout(MesaUML);
         MesaUML.setLayout(MesaUMLLayout);
         MesaUMLLayout.setHorizontalGroup(
             MesaUMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 956, Short.MAX_VALUE)
+            .addGap(0, 942, Short.MAX_VALUE)
         );
         MesaUMLLayout.setVerticalGroup(
             MesaUMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 582, Short.MAX_VALUE)
+            .addGap(0, 1148, Short.MAX_VALUE)
         );
+
+        jScrollPane8.setViewportView(MesaUML);
 
         javax.swing.GroupLayout MesaUMLBGLayout = new javax.swing.GroupLayout(MesaUMLBG);
         MesaUMLBG.setLayout(MesaUMLBGLayout);
         MesaUMLBGLayout.setHorizontalGroup(
             MesaUMLBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MesaUMLBGLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MesaUML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(7, 7, 7)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 956, Short.MAX_VALUE)
+                .addGap(7, 7, 7))
         );
         MesaUMLBGLayout.setVerticalGroup(
             MesaUMLBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MesaUMLBGLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MesaUML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(7, 7, 7)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                .addGap(7, 7, 7))
         );
 
         javax.swing.GroupLayout bg1Layout = new javax.swing.GroupLayout(bg1);
@@ -1221,6 +1373,15 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jMenu3.setText("Archivos ");
+
+        GuardarUML.setText("Guardar UML");
+        GuardarUML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarUMLActionPerformed(evt);
+            }
+        });
+        jMenu3.add(GuardarUML);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Ayuda");
@@ -1902,7 +2063,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BttnProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnProcesoActionPerformed
-        FiguraProceso prc = new FiguraProceso(BttnProceso.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 100, 60, MesaTrabajo);
+        FiguraProceso prc = new FiguraProceso(BttnProceso.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 100, 60);
         MesaTrabajo.add(prc);
         MesaTrabajo.revalidate();
         MesaTrabajo.repaint();
@@ -2751,7 +2912,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton45ActionPerformed
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
-        String codiguito = generarfullcode();
+        String codiguito = codigoUML();
 
         ta_codFinal.setFont(new Font("Roboto", Font.BOLD, 14));
         ta_codFinal.setText(codiguito);
@@ -3057,7 +3218,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton42ActionPerformed
 
     private void BttnDecisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnDecisionActionPerformed
-        FiguraDecision rombo = new FiguraDecision(BttnDecision.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200, MesaTrabajo);
+        FiguraDecision rombo = new FiguraDecision(BttnDecision.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200);
         MesaTrabajo.add(rombo);
         rombo.revalidate();
         MesaTrabajo.revalidate();
@@ -3071,16 +3232,18 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton49ActionPerformed
 
     private void BttnInicioFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnInicioFinActionPerformed
-        FiguraInicio ini = new FiguraInicio(BttnInicioFin.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200, MesaTrabajo);
+        Font fuente = new Font("Arial", Font.PLAIN, 12);
+        FiguraInicio ini = new FiguraInicio(fuente, 100, 100, 200, 200);
+
         MesaTrabajo.add(ini);
-        ini.revalidate();
         MesaTrabajo.revalidate();
         MesaTrabajo.repaint();
+
         clasesFlujo.add(ini);
     }//GEN-LAST:event_BttnInicioFinActionPerformed
 
     private void BttnDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnDataActionPerformed
-        FiguraData data = new FiguraData(BttnInicioFin.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200, MesaTrabajo);
+        FiguraData data = new FiguraData(BttnInicioFin.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 200, 200);
         MesaTrabajo.add(data);
         data.revalidate();
         MesaTrabajo.revalidate();
@@ -3088,252 +3251,992 @@ public class Menu extends javax.swing.JFrame {
         clasesFlujo.add(data);
     }//GEN-LAST:event_BttnDataActionPerformed
 
-    public String generarfullcode(){
+    private void GuardarUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarUMLActionPerformed
+        try {
+            saveAsJPG(MesaUML);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_GuardarUMLActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        Font fuente = new Font("Arial", Font.PLAIN, 12);
+
+        FiguraCiclo ciclo = new FiguraCiclo(fuente, 100, 100, 200, 200);
+        MesaTrabajo.add(ciclo);
+        ciclo.revalidate();
+        MesaTrabajo.repaint();
+        clasesFlujo.add(ciclo);
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton22.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton22.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton22.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton22.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton22.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton23.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton23.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton23.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton23.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton23.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton24.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton24.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton24.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton24.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton24.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton25.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton25.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton25.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton25.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton25.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton28.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton28.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton28.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton28.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton28.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton26.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton26.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton26.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton26.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton26.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton27.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton27.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton27.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton27.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton27.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton34.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton34.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton34.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton34.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton34.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton29.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton29.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton29.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton29.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton29.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton36.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton36.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton36.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton36.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton36.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton36ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton30.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton30.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton30.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton30.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton30.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton30ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton35.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton35.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton35.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton35.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton35.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton31.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton31.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton31.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton31.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton31.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton37.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton37.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton37.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton37.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton37.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton37ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton32.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton32.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton32.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton32.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton32.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton32ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton38.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton38.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton38.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton38.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton38.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton38ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton33.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton33.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton33.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton33.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton33.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton39.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton39.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton39.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton39.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton39.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton39ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton41.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton41.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton41.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton41.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton41.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
+        if (ultc instanceof FiguraInicio) {
+            Color tem = jButton40.getBackground();
+            ((FiguraInicio) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraData) {
+            Color tem = jButton40.getBackground();
+            ((FiguraData) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraDecision) {
+            Color tem = jButton40.getBackground();
+            ((FiguraDecision) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraProceso) {
+            Color tem = jButton40.getBackground();
+            ((FiguraProceso) ultc).setColorBG(tem);
+        }
+
+        if (ultc instanceof FiguraCiclo) {
+            Color tem = jButton40.getBackground();
+            ((FiguraCiclo) ultc).setColorBG(tem);
+        }
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        JFileChooser jfc = new JFileChooser();
+
+        jfc.setCurrentDirectory(new File("./"));
+
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(
+                "Archivos UML",
+                "uml");
+        jfc.setFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(this);
+
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+
+            try {
+                File file = null;
+                if (jfc.getFileFilter().getDescription().equals("Archivos UML")) {
+                    file = new File(jfc.getSelectedFile().getPath());
+                } else {
+                    file = jfc.getSelectedFile();
+                }
+                fw = new FileOutputStream(file);
+                bw = new ObjectOutputStream(fw);
+
+                for (Object figura : clasesUML) {
+
+                    if (figura instanceof ClaseHeredada) {
+                        JOptionPane.showMessageDialog(this, "Serializando Herenciafigura....");
+                        ClaseHeredada temp = (ClaseHeredada) figura;
+                        DatosHerencia dat = convertirDatosInh(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+                    } else if (figura instanceof AbstractaFigura) {
+                        JOptionPane.showMessageDialog(this, "Serializando Abstractafigura....");
+                        AbstractaFigura temp = (AbstractaFigura) figura;
+                        DatosAbstract dat = convertirDatosAbs(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+
+                    } else if (figura instanceof InterfazFigura) {
+                        JOptionPane.showMessageDialog(this, "Serializando Interfazfigura....");
+                        InterfazFigura temp = (InterfazFigura) figura;
+                        DatosInterfaz dat = convertirDatosInt(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+
+                    } else if (figura instanceof ClasseFigura) {
+                        JOptionPane.showMessageDialog(this, "Serializando Simplefigura....");
+                        ClasseFigura temp = (ClasseFigura) figura;
+                        DatosClasse dat = convertirDatosSimp(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+                    }
+
+                }
+
+                JOptionPane.showMessageDialog(this, "Guardado exitosamente!");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error");
+                e.printStackTrace();
+            }
+            try {
+                bw.close();
+                fw.close();
+
+            } catch (Exception e) {
+            }
+
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+   /* public DatosHerencia convertirDatosInh(ClaseHeredada c) {
+
+        DatosHerencia datos = new DatosHerencia(
+                c.getSizex(),
+                c.getSizey(),
+                c.getLocx(),
+                c.getLocy(),
+                c.getNewLabel().getText(),
+                c.getTextPane().getText(),
+                c.getTitulo().getBackground());
+
+        datos.settA(c.getTextPane().getText());
+
+        textPadre.add(c.getTextPane().getText());
+
+        //JOptionPane.showMessageDialog(this, c.gettA().getText());
+        //datos.setFontColor(c.getFontColor());
+        //Style styleTit = c.getTitulo().getStyle("myStyle");
+        //Style styleText = c.getTextA().getStyle("myStileText");
+        /*if (styleTit != null) {
+            datos.setFontFamily(StyleConstants.getFontFamily(styleTit));
+            datos.setFontSize(StyleConstants.getFontSize(styleTit));
+            datos.setFgColor(StyleConstants.getForeground(styleTit));
+            datos.setBgColor(StyleConstants.getBackground(styleTit));
+        }*/
+
+ /*if(styleText != null){
+            datos.setFontAtrFamily(StyleConstants.getFontFamily(styleText));
+            datos.setFontAtrSize(StyleConstants.getFontSize(styleText));
+            
+            datos.setFgColor(StyleConstants.getForeground(styleTit));
+            datos.setBgColor(StyleConstants.getBackground(styleTit));*
+        }*/
+        /*datos.setFont(c.getTitulo().getFont());
+
+        for (JTextArea atributo : c.getAtributos()) {
+
+            /*Style tempStyleText = atributo.getStyle("myStyleText");
+
+            if (tempStyleText != null) {
+                dStyle tempStyleText = atributo.getStyle("myStyleText");atos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
+                datos.setFontAtrSize(StyleConstants.getFontSize(tempStyleText));
+            }*/
+           /* Style tempStyleText = atributo.getStyle("myStyleText");
+
+            if (tempStyleText != null) {
+                String fontFamily = StyleConstants.getFontFamily(tempStyleText);
+                int fontSize = StyleConstants.getFontSize(tempStyleText);
+
+                // Assuming textArea is your JTextArea instance
+                Font currentFont = atributo.getFont();
+                Font newFont = new Font(fontFamily, currentFont.getStyle(), fontSize);
+
+                atributo.setFont(newFont);
+            }
+
+            datos.getAtributos().add(atributo.getText());
+        }
+        for (JTextArea metodo : c.getMetodos()) {
+
+            Style tempStyleText = metodo.getStyle("myStyleText");
+
+            if (tempStyleText != null) {
+                datos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
+                datos.setFontAtrSize(StyleConstants.getFontSize(tempStyleText));
+            }
+            datos.getMetodos().add(metodo.getText());
+        }
+
+        return datos;
+    }*/
+
+    public String codigoUML() {
         String codeinstr = "";
         for (FiguraClase instca : clasesUML) {
-            if (instca instanceof ClaseAbstracta){
-                codeinstr+="from abc import ABC, abstractmethod\n\n";
+            if (instca instanceof ClaseAbstracta) {
+                codeinstr += "from abc import ABC, abstractmethod\n\n";
             }
         }
         for (FiguraClase piezauml : clasesUML) {
-            if (piezauml instanceof ClaseNormal){
-                
+            if (piezauml instanceof ClaseNormal) {
+
                 //Crea un Array de Atributos de esa Clase
                 String atri = ((ClaseNormal) piezauml).getTextPane().getText();
-                String [] atrisep = atri.split("\n");
-                
-                
+                String[] atrisep = atri.split("\n");
+
                 //Crea un Array de Metodos de la Clase
                 String met = ((ClaseNormal) piezauml).getTextPane1().getText();
-                String [] metsep = met.split("\n");
-                
-                
-                
+                String[] metsep = met.split("\n");
+
                 //Agrega el nombre de la clase
-                codeinstr+="class "+((ClaseNormal) piezauml).getNewLabel().getText()+":";
-                
+                codeinstr += "class " + ((ClaseNormal) piezauml).getNewLabel().getText() + ":";
+
                 //Agrega el constructor con sus atributos
-                codeinstr+="\n\tdef __init__ (self";
-                
-                
-                
+                codeinstr += "\n\tdef __init__ (self";
+
                 for (String str : atrisep) {
-                    codeinstr+=", "+str;
-                    
+                    codeinstr += ", " + str;
+
                 }
-                codeinstr+="):\n";
-                
+                codeinstr += "):\n";
+
                 for (String str : atrisep) {
-                    codeinstr+="\t\tself."+str+" = "+str+"\n";
+                    codeinstr += "\t\tself." + str + " = " + str + "\n";
                 }
-                
-                codeinstr+="\n\n";
-                
+
+                codeinstr += "\n\n";
+
                 for (String strmet : metsep) {
-                    codeinstr+="\tdef "+strmet+" (self):\n";
-                    codeinstr+="\t\tpass";
-                    codeinstr+="\n\n";
+                    codeinstr += "\tdef " + strmet + " (self):\n";
+                    codeinstr += "\t\tpass";
+                    codeinstr += "\n\n";
                 }
-                codeinstr+="\n";
-                 
+                codeinstr += "\n";
+
             }
-            if (piezauml instanceof ClaseAbstracta){
-                codeinstr+="class "+((ClaseAbstracta) piezauml).getNewLabel().getText()+":\n";
-                
+            if (piezauml instanceof ClaseAbstracta) {
+                codeinstr += "class " + ((ClaseAbstracta) piezauml).getNewLabel().getText() + ":\n";
+
                 String metca = ((ClaseAbstracta) piezauml).getTextPane1().getText();
-                String [] metcaspli = metca.split("\n");
-                
+                String[] metcaspli = metca.split("\n");
+
                 for (String me : metcaspli) {
-                    codeinstr+="\t@abstractmethod\n";
-                    codeinstr+="\tdef "+me+" (self):\n";
-                    codeinstr+="\t\tpass";
-                    codeinstr+="\n\n";
-                    
+                    codeinstr += "\t@abstractmethod\n";
+                    codeinstr += "\tdef " + me + " (self):\n";
+                    codeinstr += "\t\tpass";
+                    codeinstr += "\n\n";
+
                 }
-                
-                codeinstr+="\n";
+
+                codeinstr += "\n";
             }
-            if (piezauml instanceof ClaseHeredada){
-                
+            if (piezauml instanceof ClaseHeredada) {
+
                 FiguraClase padtem = ((ClaseHeredada) piezauml).getPadre();
-                
-                if (padtem instanceof ClaseNormal){
-                    codeinstr+="class "+((ClaseHeredada) piezauml).getNewLabel().getText()+" ("+((ClaseNormal) padtem).getNewLabel().getText()+"):\n"; 
-                    
+
+                if (padtem instanceof ClaseNormal) {
+                    codeinstr += "class " + ((ClaseHeredada) piezauml).getNewLabel().getText() + " (" + ((ClaseNormal) padtem).getNewLabel().getText() + "):\n";
+
                     String attpadre = ((ClaseNormal) padtem).getTextPane().getText();
-                    String [] attpadrespl = attpadre.split("\n");
-                    
-                    
-                    codeinstr+="\tdef __init__ (self";
-                    
+                    String[] attpadrespl = attpadre.split("\n");
+
+                    codeinstr += "\tdef __init__ (self";
+
                     String att = ((ClaseHeredada) piezauml).getTextPane().getText();
-                    String [] attspli = att.split("\n");
-                    
+                    String[] attspli = att.split("\n");
+
                     for (String g : attpadrespl) {
-                        codeinstr+=", "+g;
-                        
+                        codeinstr += ", " + g;
+
                     }
-                    
+
                     for (String at : attspli) {
-                        codeinstr+=", "+at;
+                        codeinstr += ", " + at;
                     }
-                    codeinstr+="):\n";
-                    
-                    
-                    
-                    codeinstr+="\t\tsuper().__init__(";
-                    
+                    codeinstr += "):\n";
+
+                    codeinstr += "\t\tsuper().__init__(";
+
                     for (int i = 0; i < attpadrespl.length; i++) {
-                        if (i==0){
-                            codeinstr+=attpadrespl[i];
-                            
+                        if (i == 0) {
+                            codeinstr += attpadrespl[i];
+
+                        } else {
+                            codeinstr += ", " + attpadrespl[i];
                         }
-                        else{
-                            codeinstr+=", "+attpadrespl[i];
-                        }
-                        
+
                     }
-                    codeinstr+=")\n";
-                    
+                    codeinstr += ")\n";
+
                     for (String atr : attspli) {
-                        codeinstr+="\t\tself."+atr+" = "+atr+"\n";
+                        codeinstr += "\t\tself." + atr + " = " + atr + "\n";
                     }
-                    
-                    codeinstr+="\n\n";
-                    
+
+                    codeinstr += "\n\n";
+
                     String met = ((ClaseHeredada) piezauml).getTextPane1().getText();
-                    String [] mets = met.split("\n");
-                    
+                    String[] mets = met.split("\n");
+
                     for (String met1 : mets) {
-                        codeinstr+="\tdef "+met1+" (self):\n";
-                        codeinstr+="\t\tpass";
-                        codeinstr+="\n\n";
-                       
+                        codeinstr += "\tdef " + met1 + " (self):\n";
+                        codeinstr += "\t\tpass";
+                        codeinstr += "\n\n";
+
                     }
-                    
-                    codeinstr+="\n";
-                    
+
+                    codeinstr += "\n";
+
                 }
-                 if (padtem instanceof ClaseAbstracta){
-                    codeinstr+="class "+((ClaseHeredada) piezauml).getNewLabel().getText()+" ("+((ClaseAbstracta) padtem).getNewLabel().getText()+"):\n";
-                    
-                    codeinstr+="\tdef __init__ (self";
-                    
+                if (padtem instanceof ClaseAbstracta) {
+                    codeinstr += "class " + ((ClaseHeredada) piezauml).getNewLabel().getText() + " (" + ((ClaseAbstracta) padtem).getNewLabel().getText() + "):\n";
+
+                    codeinstr += "\tdef __init__ (self";
+
                     String att = ((ClaseHeredada) piezauml).getTextPane().getText();
-                    String [] attspli = att.split("\n");
-                    
+                    String[] attspli = att.split("\n");
+
                     for (String at : attspli) {
-                        codeinstr+=", "+at;
+                        codeinstr += ", " + at;
                     }
-                    codeinstr+="):\n";
-                    
+                    codeinstr += "):\n";
+
                     for (String atr : attspli) {
-                        codeinstr+="\t\tself."+atr+" = "+atr+"\n";
+                        codeinstr += "\t\tself." + atr + " = " + atr + "\n";
                     }
-                    
-                    codeinstr+="\n\n";
-                    
+
+                    codeinstr += "\n\n";
+
                     String metpad = ((ClaseAbstracta) padtem).getTextPane1().getText();
-                    String [] metpadspli = metpad.split("\n");
-                    
+                    String[] metpadspli = metpad.split("\n");
+
                     for (String string : metpadspli) {
-                        codeinstr+="\tdef "+string+" (self):\n";
-                        codeinstr+="\t\tpass";
-                        codeinstr+="\n\n";
+                        codeinstr += "\tdef " + string + " (self):\n";
+                        codeinstr += "\t\tpass";
+                        codeinstr += "\n\n";
                     }
-                    
+
                     String mets = ((ClaseHeredada) piezauml).getTextPane().getText();
-                    String [] metssp = mets.split("\n");
-                     
+                    String[] metssp = mets.split("\n");
+
                     for (String string : metssp) {
-                        codeinstr+="\tdef "+string+" (self):\n";
-                        codeinstr+="\t\tpass";
-                        codeinstr+="\n\n";
-                        
+                        codeinstr += "\tdef " + string + " (self):\n";
+                        codeinstr += "\t\tpass";
+                        codeinstr += "\n\n";
+
                     }
-                    
-                    codeinstr+="\n";
-                    
+
+                    codeinstr += "\n";
+
                 }
-                 if (padtem instanceof ClaseHeredada){
-                    codeinstr+="class "+((ClaseHeredada) piezauml).getNewLabel().getText()+" ("+((ClaseHeredada) padtem).getNewLabel().getText()+"):\n";
-                    
-                    codeinstr+="\tdef __init__ (self";
-                    
+                if (padtem instanceof ClaseHeredada) {
+                    codeinstr += "class " + ((ClaseHeredada) piezauml).getNewLabel().getText() + " (" + ((ClaseHeredada) padtem).getNewLabel().getText() + "):\n";
+
+                    codeinstr += "\tdef __init__ (self";
+
                     String attpadre = ((ClaseHeredada) padtem).getTextPane().getText();
-                    String [] attpadrespl = attpadre.split("\n");
-                    
+                    String[] attpadrespl = attpadre.split("\n");
+
                     String att = ((ClaseHeredada) piezauml).getTextPane().getText();
-                    String [] attspli = att.split("\n");
-                    
+                    String[] attspli = att.split("\n");
+
                     for (String r : attpadrespl) {
-                        codeinstr+=", "+r;
-                        
+                        codeinstr += ", " + r;
+
                     }
-                    
+
                     for (String at : attspli) {
-                        codeinstr+=", "+at;
+                        codeinstr += ", " + at;
                     }
-                    codeinstr+="):\n";
-                    
-                    
-                    
-                    codeinstr+="\t\tsuper().__init__(";
-                    
+                    codeinstr += "):\n";
+
+                    codeinstr += "\t\tsuper().__init__(";
+
                     for (int i = 0; i < attpadrespl.length; i++) {
-                        if (i==0){
-                            codeinstr+=attpadrespl[i];
-                            
+                        if (i == 0) {
+                            codeinstr += attpadrespl[i];
+
+                        } else {
+                            codeinstr += ", " + attpadrespl[i];
                         }
-                        else{
-                            codeinstr+=", "+attpadrespl[i];
-                        }
-                        
+
                     }
-                    codeinstr+="):\n";
-                    
+                    codeinstr += "):\n";
+
                     for (String atr : attspli) {
-                        codeinstr+="\t\tself."+atr+" = "+atr+"\n";
+                        codeinstr += "\t\tself." + atr + " = " + atr + "\n";
                     }
-                    
-                    codeinstr+="\n\n";
-                    
+
+                    codeinstr += "\n\n";
+
                     String met = ((ClaseHeredada) piezauml).getTextPane1().getText();
-                    String [] mets = met.split("\n");
-                    
+                    String[] mets = met.split("\n");
+
                     for (String met1 : mets) {
-                        codeinstr+="\tdef "+met1+" (self):\n";
-                        codeinstr+="\t\tpass";
-                        codeinstr+="\n\n";
-                       
+                        codeinstr += "\tdef " + met1 + " (self):\n";
+                        codeinstr += "\t\tpass";
+                        codeinstr += "\n\n";
+
                     }
-                    
-                    codeinstr+="\n";
-                    
+
+                    codeinstr += "\n";
+
                 }
-                
-                codeinstr+="\n\n";
- 
+
+                /* if (padtem instanceof AbstractaHeredada) {
+                    
+                }*/
+                codeinstr += "\n\n";
+
             }
-            if (piezauml instanceof Interfaz){
-                codeinstr+="class "+((Interfaz) piezauml).getNewLabel().getText()+":\n";
-                
+            if (piezauml instanceof Interfaz) {
+                codeinstr += "class " + ((Interfaz) piezauml).getNewLabel().getText() + ":\n";
+
                 String metca = ((Interfaz) piezauml).getTextPane().getText();
-                String [] metcaspli = metca.split("\n");
-                
+                String[] metcaspli = metca.split("\n");
+
                 for (String me : metcaspli) {
-                    codeinstr+="\t@abstractmethod\n";
-                    codeinstr+="\tdef "+me+" (self):\n";
-                    codeinstr+="\t\tpass";
-                    codeinstr+="\n\n";
-                    
+                    codeinstr += "\t@abstractmethod\n";
+                    codeinstr += "\tdef " + me + " (self):\n";
+                    codeinstr += "\t\tpass";
+                    codeinstr += "\n\n";
+
                 }
-                
-                codeinstr+="\n";
+
+                codeinstr += "\n";
             }
-            
+
         }
         return codeinstr;
+    }
+
+    public BufferedImage captureComponent(Component component) {
+        BufferedImage image = new BufferedImage(component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_RGB);
+        component.paint(image.getGraphics());
+        return image;
+    }
+
+    public void saveAsJPG(Component component) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar como JPG");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Imágenes JPG", "jpg");
+        fileChooser.setFileFilter(filter);
+
+        int userSelection = fileChooser.showSaveDialog(null);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            try {
+                BufferedImage image = captureComponent(component);
+                ImageIO.write(image, "jpg", fileToSave);
+                JOptionPane.showMessageDialog(JD_UML, "Guadado como JPG en " + fileToSave.getAbsolutePath());
+                System.out.println("Guardado como JPG en: " + fileToSave.getAbsolutePath());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -3391,6 +4294,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel FigurasFlujo;
     private javax.swing.JPanel FigurasUML;
     private javax.swing.JMenuItem FlujoMenu;
+    private javax.swing.JMenuItem GuardarUML;
     private javax.swing.JPanel HomeBttn;
     private javax.swing.JLabel HomeTXT1;
     private javax.swing.JLabel HomeTXT2;
@@ -3460,8 +4364,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
     private javax.swing.JButton jButton49;
@@ -3502,6 +4408,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -3510,6 +4417,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3529,5 +4437,6 @@ public class Menu extends javax.swing.JFrame {
     Style estilo1;
     public static ArrayList<FiguraClase> clasesUML = new ArrayList();
     public static ArrayList<FiguraFlujo> clasesFlujo = new ArrayList();
+    ArrayList<String> textPadre = new ArrayList<>();
 
 }

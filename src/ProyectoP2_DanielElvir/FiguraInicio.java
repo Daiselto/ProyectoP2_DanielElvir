@@ -8,126 +8,185 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.RoundRectangle2D;
+import java.util.ArrayList;
+import javax.accessibility.AccessibleContext;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.event.EventListenerList;
+import javax.swing.plaf.ComponentUI;
 
 /**
  *
  * @author HP
  */
 public class FiguraInicio extends FiguraFlujo{
-    Color color = new Color(223, 0, 111);
-    private JTextArea textArea = new JTextArea();
-    private JTextField textField = new JTextField();
-    private int sizex, sizey, locx, locy;
+   private int sizeX, sizeY, locX, locY;
     
-    private Font fuente = null;
-
-    public FiguraInicio() {
-    }
-
-    public FiguraInicio(Font fuente, int locx, int locy, int sizex, int sizey, JPanel MesaUML) {
-        super(fuente, locx, locy, sizex, sizey, MesaUML);
-        this.sizex = sizex;
-        this.sizey = sizey;
-        this.locx = locx;
-        this.locy = locy;
-        this.fuente = fuente;
-        
+    protected JTextArea text = new JTextArea();
+    protected JTextField field = new JTextField();
+    Color color = new Color(223, 0, 111);    
+    private Font font = null;
+    
+    private ArrayList<JTextArea> miembros = new ArrayList();
+    
+    public FiguraInicio(Font font, int locX, int locY, int sizeX, int sizeY) {
+        super(font, locX, locY, sizeX, sizeY);
+        // Constructor: Configurar el panel y agregar componentes
         setLayout(null);
-        setBackground(new Color(223, 0, 111));
-        setSize(sizex, sizey);
-        setLocation(locx / 2, locy / 2);
+        setSize(180,80);
+        setBackground(new Color(204,204,204));
 
-        textField.setPreferredSize(new Dimension(20, 20));
-        add(textField);
-
-        textArea.setPreferredSize(new Dimension(getWidth() - 10, 20));
-        add(textArea);
+        // Crear un JTextPane y agregarlo al centro del panel
+        text = new JTextArea();
+        text.setText("Inicio/Fin");
+        text.setBackground(Color.GRAY); // Establecer el fondo del JTextPane al color del panel
+        text.setForeground(Color.WHITE); // Establecer el color del texto en blanco
+        text.setBorder(null); // Eliminar el borde del JTextPane
         
-        repaint();
-    }
+        
+        // Cambiar el estilo de fuente del texto a negrita
+        Font boldFont = new Font(text.getFont().getName(), Font.BOLD, text.getFont().getSize());
+        text.setFont(boldFont);
+        
+        text.setBounds(40, (getHeight()/2)-10, 100, 20);
 
-    public Color getColor() {
+        
+        add(text);
+        
+    }
+    
+    public FiguraInicio(JPanel c) {
+        super();
+        this.copy(c);
+    }
+    
+     public Color getColor() {
         return color;
     }
 
     public void setColor(Color color) {
         this.color = color;
-    }
-
-    public JTextArea getTextArea() {
-        return textArea;
-    }
-
-    public void setTextArea(JTextArea textArea) {
-        this.textArea = textArea;
-    }
-
-    public JTextField getTextField() {
-        return textField;
-    }
-
-    public void setTextField(JTextField textField) {
-        this.textField = textField;
-    }
-
-    public int getSizex() {
-        return sizex;
-    }
-
-    public void setSizex(int sizex) {
-        this.sizex = sizex;
-    }
-
-    public int getSizey() {
-        return sizey;
-    }
-
-    public void setSizey(int sizey) {
-        this.sizey = sizey;
-    }
-
-    public int getLocx() {
-        return locx;
-    }
-
-    public void setLocx(int locx) {
-        this.locx = locx;
-    }
-
-    public int getLocy() {
-        return locy;
-    }
-
-    public void setLocy(int locy) {
-        this.locy = locy;
-    }
-
-    public Font getFuente() {
-        return fuente;
-    }
-
-    public void setFuente(Font fuente) {
-        this.fuente = fuente;
+        repaint();
     }
     
+    public int getSizeX() {
+        return sizeX;
+    }
     
+    public void setSizeX(int sizeX) {
+        this.sizeX = sizeX;
+    }
     
-    @Override
-    protected void paintComponent(Graphics g){
+    public int getSizeY() {
+        return sizeY;
+    }
+    
+    public void setSizeY(int sizeY) {
+        this.sizeY = sizeY;
+    }
+    
+    public int getLocX() {
+        return locX;
+    }
+    
+    public void setLocX(int locX) {
+        this.locX = locX;
+    }
+    
+    public int getLocY() {
+        return locY;
+    }
+    
+    public void setLocY(int locY) {
+        this.locY = locY;
+    }
+    
+    public JTextArea getText() {
+        return text;
+    }
+    
+    public void setText(JTextArea text) {
+        this.text = text;
+    }
+    
+    public Font getFont() {
+        return font;
+    }
+    
+    public void setFont(Font font) {
+        this.font = font;
+    }
+    
+    public ArrayList<JTextArea> getMiembros() {
+        return miembros;
+    }
+    
+    public void setMiembros(ArrayList<JTextArea> miembros) {
+        this.miembros = miembros;
+    }
+    
+    public ComponentUI getUi() {
+        return ui;
+    }
+    
+    public void setUi(ComponentUI ui) {
+        this.ui = ui;
+    }
+    
+    public EventListenerList getListenerList() {
+        return listenerList;
+    }
+    
+    public void setListenerList(EventListenerList listenerList) {
+        this.listenerList = listenerList;
+    }
+    
+    public AccessibleContext getAccessibleContext() {
+        return accessibleContext;
+    }
+    
+    public void setAccessibleContext(AccessibleContext accessibleContext) {
+        this.accessibleContext = accessibleContext;
+    }
+    
+    public void setColorBG(Color color) {
+        this.color = color;
+        repaint(); // Vuelve a dibujar el componente para reflejar el nuevo color
+    }
+    
+     @Override
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int x = 20;
-        int y = 0;
-        int w = getWidth()-70;
-        int h = getHeight();
         
+        int width = getWidth();
+        int height = getHeight();
         
+        Graphics2D g2d = (Graphics2D) g;
         
-        g.setColor(color);
-        g.fillRect(x, y, w+30, h);
-        g.fillArc(0, 0, h, h, 90, 180);
-        g.fillArc(w+30, 0, h, h, 270, 180);
+        // Crear una forma de cápsula horizontal
+        Shape capsuleShape = new RoundRectangle2D.Double(0, height / 4, width, height / 2, height / 2, height / 2);
+        
+        // Rellenar la forma con un color
+        g2d.setColor(color); // Cambia el color como desees
+        g2d.fill(capsuleShape);
+    }
+    
+    public void copy(JPanel c) {
+        
+        FiguraInicio newC = (FiguraInicio) c;
+        this.setBackground(newC.getBackground());
+        this.setSize(newC.getSize());
+        this.setLocation(newC.getLocation());
+
+        this.text = new JTextArea();
+        this.text.setText(newC.getText().getText());
+
+        this.add(this.text);
+
     }
 }

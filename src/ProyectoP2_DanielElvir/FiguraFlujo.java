@@ -30,15 +30,15 @@ public class FiguraFlujo extends JPanel implements MouseListener, MouseMotionLis
     private int locy;
     private int sizex, sizey;
     private String label;
-    private JPanel MesaUML;
+    //private JPanel MesaTrabajo;
     
-    public FiguraFlujo(Font fuente, int locx, int locy, int sizex, int sizey, JPanel MesaUML) {
+    public FiguraFlujo(Font fuente, int locx, int locy, int sizex, int sizey /*JPanel MesaTrabajo*/) {
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
         this.fuente = fuente;
         this.locx = locx;
         this.locy = locy;
-        this.MesaUML = MesaUML;
+        //this.MesaTrabajo = MesaTrabajo;
     }
 
     public FiguraFlujo() {

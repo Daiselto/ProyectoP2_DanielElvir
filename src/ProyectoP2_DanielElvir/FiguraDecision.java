@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Path2D;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -27,29 +29,33 @@ public class FiguraDecision extends FiguraFlujo {
     public FiguraDecision() {
     }
 
-    public FiguraDecision(Font fuente, int locx, int locy, int sizex, int sizey, JPanel MesaUML) {
-        super(fuente, locx, locy, sizex, sizey, MesaUML);
+    public FiguraDecision(Font fuente, int locx, int locy, int sizex, int sizey) {
+        super(fuente, locx, locy, sizex, sizey);
         this.sizex = sizex;
         this.sizey = sizey;
         this.locx = locx;
         this.locy = locy;
         this.fuente = fuente;
-        
+
         setLayout(null);
-        setBackground(Color.WHITE);
-        setSize(sizex, sizey);
-        setLocation(locx / 2, locy / 2);
+        setSize(200, 100);
+        setBackground(new Color(204, 204, 204));
 
-        textField.setPreferredSize(new Dimension(20, 20));
-        add(textField);
+        // Crear un JTextPane y agregarlo al centro del panel
+        textArea = new JTextArea();
+        textArea.setText("Aqui va el texto de instruccion");
+        textArea.setBackground(Color.GRAY); // Establecer el fondo del JTextPane al color del panel
+        textArea.setForeground(Color.WHITE); // Establecer el color del texto en blanco
+        textArea.setBorder(null); // Eliminar el borde del JTextPane
 
-        textArea.setPreferredSize(new Dimension(getWidth() - 10, 20));
+        // Cambiar el estilo de fuente del texto a negrita
+        Font boldFont = new Font(textArea.getFont().getName(), Font.BOLD, textArea.getFont().getSize());
+        textArea.setFont(boldFont);
+
+        textArea.setBounds(30, (getHeight() / 2) - 10, 140, 20);
+
         add(textArea);
-        
-        repaint();
     }
-    
-    
 
     public JTextArea getTextArea() {
         return textArea;
@@ -115,19 +121,32 @@ public class FiguraDecision extends FiguraFlujo {
         this.fuente = fuente;
     }
     
+    public void setColorBG(Color color) {
+        this.color = color;
+        repaint(); // Vuelve a dibujar el componente para reflejar el nuevo color
+    }
+
     @Override
-    protected void paintComponent(Graphics g){
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int x = getWidth()/2;
-        int y = getHeight()/2;
-        int w = 200;
-        int h = 110;
-        
-        int[] xPoints = {x, x+w/2, x, x-w/2};
-        int[] yPoints = {y-h/2, y, y+h/2, y};
-        
-        g.setColor(color);
-        g.fillPolygon(xPoints, yPoints, 4);
+
+        // Crear un rombo
+        Path2D.Double rombo = new Path2D.Double();
+        int width = getWidth();
+        int height = getHeight();
+        int midX = width / 2;
+        int midY = height / 2;
+
+        rombo.moveTo(midX, 0);          // Arriba
+        rombo.lineTo(width, midY);      // Derecha
+        rombo.lineTo(midX, height);      // Abajo
+        rombo.lineTo(0, midY);          // Izquierda
+        rombo.closePath();               // Conectar con el punto de inicio
+
+        // Dibujar el rombo
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(color);
+        g2d.fill(rombo);
     }
 
 }

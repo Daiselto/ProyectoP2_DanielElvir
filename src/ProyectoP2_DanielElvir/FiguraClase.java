@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -22,6 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
@@ -44,6 +46,8 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
     private int locy;
     String label;
     private JPanel MesaUML;
+    protected ArrayList<JTextArea> atributos = new ArrayList<>();
+    protected ArrayList<JTextArea> metodos = new ArrayList<>();
 
     public FiguraClase(Font fuente, int locx, int locy, String label, JPanel MesaUML) {
         this.addMouseListener(this);
@@ -146,6 +150,120 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
 
     public FiguraClase() {
     }
+
+    public Point getStartPoint() {
+        return startPoint;
+    }
+
+    public void setStartPoint(Point startPoint) {
+        this.startPoint = startPoint;
+    }
+
+    public Font getFuente() {
+        return fuente;
+    }
+
+    public void setFuente(Font fuente) {
+        this.fuente = fuente;
+    }
+
+    public JPopupMenu getMenuClases() {
+        return MenuClases;
+    }
+
+    public void setMenuClases(JPopupMenu MenuClases) {
+        this.MenuClases = MenuClases;
+    }
+
+    public JMenuItem getCrearHijo() {
+        return CrearHijo;
+    }
+
+    public void setCrearHijo(JMenuItem CrearHijo) {
+        this.CrearHijo = CrearHijo;
+    }
+
+    public JMenuItem getCrearHijoAbstracto() {
+        return CrearHijoAbstracto;
+    }
+
+    public void setCrearHijoAbstracto(JMenuItem CrearHijoAbstracto) {
+        this.CrearHijoAbstracto = CrearHijoAbstracto;
+    }
+
+    public JMenuItem getEliminar() {
+        return Eliminar;
+    }
+
+    public void setEliminar(JMenuItem Eliminar) {
+        this.Eliminar = Eliminar;
+    }
+
+    public static FiguraClase getLastClick() {
+        return lastClick;
+    }
+
+    public static void setLastClick(FiguraClase lastClick) {
+        FiguraClase.lastClick = lastClick;
+    }
+
+    public boolean isSelec() {
+        return selec;
+    }
+
+    public void setSelec(boolean selec) {
+        this.selec = selec;
+    }
+
+    public int getLocx() {
+        return locx;
+    }
+
+    public void setLocx(int locx) {
+        this.locx = locx;
+    }
+
+    public int getLocy() {
+        return locy;
+    }
+
+    public void setLocy(int locy) {
+        this.locy = locy;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public JPanel getMesaUML() {
+        return MesaUML;
+    }
+
+    public void setMesaUML(JPanel MesaUML) {
+        this.MesaUML = MesaUML;
+    }
+
+    public ArrayList<JTextArea> getAtributos() {
+        return atributos;
+    }
+
+    public void setAtributos(ArrayList<JTextArea> atributos) {
+        this.atributos = atributos;
+    }
+
+    public ArrayList<JTextArea> getMetodos() {
+        return metodos;
+    }
+
+    public void setMetodos(ArrayList<JTextArea> metodos) {
+        this.metodos = metodos;
+    }
+    
+    
 
     public static FiguraClase getUltimoclickeado() {
         return lastClick;

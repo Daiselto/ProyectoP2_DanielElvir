@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Path2D;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -25,26 +27,35 @@ public class FiguraData extends FiguraFlujo {
     public FiguraData() {
     }
 
-    public FiguraData(Font fuente, int locx, int locy, int sizex, int sizey, JPanel MesaUML) {
-        super(fuente, locx, locy, sizex, sizey, MesaUML);
+    public FiguraData(Font fuente, int locx, int locy, int sizex, int sizey) {
+        super(fuente, locx, locy, sizex, sizey);
         this.sizex = sizex;
         this.sizey = sizey;
         this.locx = locx;
         this.locy = locy;
         this.fuente = fuente;
         
+        // Constructor: Configurar el panel y agregar componentes
         setLayout(null);
-        setBackground(new Color(235, 152, 10));
-        setSize(sizex, sizey);
-        setLocation(locx / 2, locy / 2);
+        setSize(260,60);
+        setBackground(new Color(204,204,204));
 
-        textField.setPreferredSize(new Dimension(20, 20));
-        add(textField);
-
-        textArea.setPreferredSize(new Dimension(getWidth() - 10, 20));
-        add(textArea);
+        // Crear un JTextPane y agregarlo al centro del panel
+        textArea = new JTextArea();
+        textArea.setText("Aqui va el texto de instruccion");
+        textArea.setBackground(Color.GRAY); // Establecer el fondo del JTextPane al color del panel
+        textArea.setForeground(Color.WHITE); // Establecer el color del texto en blanco
+        textArea.setBorder(null); // Eliminar el borde del JTextPane
         
-        repaint();
+        
+        // Cambiar el estilo de fuente del texto a negrita
+        Font boldFont = new Font(textArea.getFont().getName(), Font.BOLD, textArea.getFont().getSize());
+        textArea.setFont(boldFont);
+        
+        textArea.setBounds(40, (getHeight()/2)-10, 180, 20);
+
+        
+        add(textArea);
     }
 
     public Color getColor() {
@@ -105,21 +116,31 @@ public class FiguraData extends FiguraFlujo {
     
     
     
-    @Override
-    protected void paintComponent(Graphics g){
+    public void setColorBG(Color color) {
+        this.color = color;
+        repaint(); // Vuelve a dibujar el componente para reflejar el nuevo color
+    }
+    
+    
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int x = getWidth()/2-50;
-        int y = getHeight()/2-35;
-        int w = 100;
-        int h = 70;
-        int inclinacion = 30;
-        
-        g.setColor(color);
-        
-        int[] xPoints = {x+inclinacion-20, x+w+inclinacion-20, x+w-20, x-20};
-        int[] yPoints = {y, y, y+h, y+h};
-        
-        
-        g.fillPolygon(xPoints, yPoints, 4);
+
+        int width = getWidth();
+        int height = getHeight();
+
+        // Crear un paralelogramo
+        Path2D.Double parallelogram = new Path2D.Double();
+        int slant = 50; // Ajusta el ángulo de inclinación del paralelogramo
+
+        parallelogram.moveTo(0, 0);
+        parallelogram.lineTo(width - slant, 0);
+        parallelogram.lineTo(width, height);
+        parallelogram.lineTo(slant, height);
+        parallelogram.closePath();
+
+        // Rellenar el paralelogramo con un color
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(color); // Cambia el color como desees
+        g2d.fill(parallelogram);
     }
 }
