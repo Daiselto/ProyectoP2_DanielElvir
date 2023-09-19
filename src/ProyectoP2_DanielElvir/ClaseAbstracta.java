@@ -7,6 +7,7 @@ package ProyectoP2_DanielElvir;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -31,6 +32,7 @@ public class ClaseAbstracta extends FiguraClase {
     protected JTextArea textPane1 = new JTextArea();
     protected JScrollPane scroll = new JScrollPane(textPane);
     protected JScrollPane scroll1 = new JScrollPane(textPane1);
+    private ArrayList <FiguraClase> hijos = new ArrayList();
 
     public ClaseAbstracta(Font fuente, int locx, int locy, String label, JPanel MesaUML) {
         super(fuente, locx, locy, label, MesaUML);
@@ -77,6 +79,15 @@ public class ClaseAbstracta extends FiguraClase {
         super();
     }
 
+    public ArrayList<FiguraClase> getHijos() {
+        return hijos;
+    }
+
+    public void setHijos(ArrayList<FiguraClase> hijos) {
+        this.hijos = hijos;
+    }
+    
+    
     public int getSizex() {
         return sizex;
     }

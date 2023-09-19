@@ -8,11 +8,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
+import java.util.ArrayList;
+import javax.accessibility.AccessibleContext;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+import javax.swing.event.EventListenerList;
+import javax.swing.plaf.ComponentUI;
+import javax.swing.text.Style;
+import javax.swing.text.StyledDocument;
 
 /**
  *
@@ -20,59 +26,96 @@ import javax.swing.JTextPane;
  */
 public class ClaseNormal extends FiguraClase {
 
-    protected int sizex, sizey, locx, locy;
-    protected JLabel newLabel = new JLabel();
-    protected JLabel nomAtributo = new JLabel();
-    protected JLabel nomMetodo = new JLabel();
-    protected Font fuente;
-    protected JPanel titulo = new JPanel();
-    protected JPanel atributo = new JPanel();
-    protected JPanel metodo = new JPanel();
-    protected JTextArea textPane = new JTextArea();
-    protected JTextArea textPane1 = new JTextArea();
-    protected JScrollPane scroll = new JScrollPane(textPane);
-    protected JScrollPane scroll1 = new JScrollPane(textPane1);
+    private StyledDocument doctpat;
+    private Style estilotpat;
+    
+    private StyledDocument doctpmt;
+    private Style estilotpmt;
+    
+    private ArrayList <FiguraClase> hijos = new ArrayList();
+            
+    
+    private Font boldFont = new Font(getFont().getName(), Font.BOLD, getFont().getSize());
+    
+    protected JTextArea atributos = new JTextArea();
+    protected JScrollPane pnatributos = new JScrollPane(atributos);
+    
+    protected JTextArea metodos = new JTextArea();
+    protected JScrollPane pnmetodos = new JScrollPane(metodos);
+ 
+     
+    protected JPanel pn_nomclase = new JPanel();
+    protected JLabel titulo = new JLabel("NombreClase");
+    
+    
+    protected JPanel pn_lblatributos = new JPanel();
+    protected JLabel titulo2 = new JLabel("Atributos");
+    
+    
+    protected JPanel pn_lblmetodos = new JPanel();
+    protected JLabel titulo3 = new JLabel("Metodos");
 
     protected String label;
 
     public ClaseNormal(Font fuente, int locx, int locy, String label, JPanel MesaUML) {
         super(fuente, locx, locy, label, MesaUML);
-        this.label = label;
-        setBackground(new Color(100, 149, 237));
-        setSize(200, 225);
-        setLocation(locx / 2, locy / 2);
-
-        titulo.setBackground(new Color(100, 149, 237));
-        titulo.setPreferredSize(new Dimension(getWidth(), 30));
-
-        newLabel.setText(label);
-        titulo.add(newLabel);
-        add(titulo);
-
-        atributo.setBackground(new Color(100, 149, 237));
-        atributo.setPreferredSize(new Dimension(getWidth(), 25));
-
-        nomAtributo.setText("Atributos");
-        atributo.add(nomAtributo);
-        add(atributo);
-
-        scroll.setPreferredSize(new Dimension(getWidth() - 20, 40));
-        //textPane.setPreferredSize(new Dimension(getWidth() - 10, 20));        
-        scroll.setForeground(new Color(175, 175, 175));
-        add(scroll);
-
-        metodo.setBackground(new Color(100, 149, 237));
-        metodo.setPreferredSize(new Dimension(getWidth(), 25));
-
-        nomMetodo.setText("Metodos");
-        metodo.add(nomMetodo);
-        add(metodo);
-
-        scroll1.setPreferredSize(new Dimension(getWidth() - 20, 40));
-        //textPane1.setPreferredSize(new Dimension(getWidth() - 10, 20));                     
-        scroll1.setForeground(new Color(175, 175, 175));
-        add(scroll1);
-        setLabel(label);
+        setBackground(Color.blue);
+        setSize (220,190);
+        //setLocation(10,10);
+        
+        pn_nomclase.setBackground(getBackground());
+        pn_nomclase.setPreferredSize(new Dimension(getWidth()-10,20));
+        
+        
+        titulo.setPreferredSize(new Dimension(getWidth()-10,20));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        titulo.setBackground(new Color(0,0,0));
+        titulo.setForeground(Color.white);
+        titulo.setFont(boldFont);
+        pn_nomclase.add(titulo);
+        
+        
+        
+        pn_lblatributos.setBackground(getBackground());
+        pn_lblatributos.setPreferredSize(new Dimension(getWidth()-10,25));
+        
+        titulo2.setPreferredSize(new Dimension(getWidth()-10,25));
+        titulo2.setBackground(new Color(0,0,0));
+        titulo2.setForeground(Color.white);
+        titulo2.setFont(boldFont);
+        pn_lblatributos.add(titulo2);
+        
+        
+        
+        pn_lblmetodos.setBackground(getBackground());
+        pn_lblmetodos.setPreferredSize(new Dimension(getWidth()-10,25));
+        
+        titulo3.setPreferredSize(new Dimension(getWidth()-10,25));
+        titulo3.setBackground(new Color(0,0,0));
+        titulo3.setForeground(Color.white);
+        titulo3.setFont(boldFont);
+        pn_lblmetodos.add(titulo3);
+        
+        
+        
+        
+        pnatributos.setPreferredSize(new Dimension (getWidth()-20, 40));
+        atributos.setBackground(new Color(175,175,175));
+        pnatributos.setForeground(new Color(175,175,175));
+        
+        pnmetodos.setPreferredSize(new Dimension (getWidth()-20, 40));
+        metodos.setBackground(new Color(175,175,175));
+        pnmetodos.setForeground(new Color(175,175,175));
+        
+        
+        add(pn_nomclase);
+        add(pn_lblatributos);
+        add(pnatributos);
+        add(pn_lblmetodos);
+        add(pnmetodos);
+        
+        repaint();
     }
 
     public ClaseNormal(String label) {
@@ -84,134 +127,172 @@ public class ClaseNormal extends FiguraClase {
         this.copy(c);
     }
 
-    public ClaseNormal() {
-        super();
+    public JPanel getPn_nomclase() {
+        return pn_nomclase;
     }
 
-    public int getSizex() {
-        return sizex;
+    public void setPn_nomclase(JPanel pn_nomclase) {
+        this.pn_nomclase = pn_nomclase;
     }
 
-    public void setSizex(int sizex) {
-        this.sizex = sizex;
-    }
-
-    public int getSizey() {
-        return sizey;
-    }
-
-    public void setSizey(int sizey) {
-        this.sizey = sizey;
-    }
-
-    public int getLocx() {
-        return locx;
-    }
-
-    public void setLocx(int locx) {
-        this.locx = locx;
-    }
-
-    public int getLocy() {
-        return locy;
-    }
-
-    public void setLocy(int locy) {
-        this.locy = locy;
-    }
-
-    public JLabel getNewLabel() {
-        return newLabel;
-    }
-
-    public void setNewLabel(JLabel newLabel) {
-        this.newLabel = newLabel;
-    }
-
-    public JLabel getNomAtributo() {
-        return nomAtributo;
-    }
-
-    public void setNomAtributo(JLabel nomAtributo) {
-        this.nomAtributo = nomAtributo;
-    }
-
-    public JLabel getNomMetodo() {
-        return nomMetodo;
-    }
-
-    public void setNomMetodo(JLabel nomMetodo) {
-        this.nomMetodo = nomMetodo;
-    }
-
-    public Font getFuente() {
-        return fuente;
-    }
-
-    public void setFuente(Font fuente) {
-        this.fuente = fuente;
-    }
-
-    public JPanel getTitulo() {
+    
+    public JLabel getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(JPanel titulo) {
+    public void setTitulo(JLabel titulo) {
         this.titulo = titulo;
     }
 
-    public JPanel getAtributo() {
-        return atributo;
+    public JPanel getPn_lblatributos() {
+        return pn_lblatributos;
     }
 
-    public void setAtributo(JPanel atributo) {
-        this.atributo = atributo;
+    public void setPn_lblatributos(JPanel pn_lblatributos) {
+        this.pn_lblatributos = pn_lblatributos;
     }
 
-    public JPanel getMetodo() {
-        return metodo;
+    
+
+    public JLabel getTitulo2() {
+        return titulo2;
     }
 
-    public void setMetodo(JPanel metodo) {
-        this.metodo = metodo;
+    public void setTitulo2(JLabel titulo2) {
+        this.titulo2 = titulo2;
     }
 
-    public JTextArea getTextPane() {
-        return textPane;
+    public JPanel getPn_lblmetodos() {
+        return pn_lblmetodos;
     }
 
-    public void setTextPane(JTextArea textPane) {
-        this.textPane = textPane;
+    public void setPn_lblmetodos(JPanel pn_lblmetodos) {
+        this.pn_lblmetodos = pn_lblmetodos;
     }
 
-    public JTextArea getTextPane1() {
-        return textPane1;
+    public StyledDocument getDoctpat() {
+        return doctpat;
     }
 
-    public void setTextPane1(JTextArea textPane1) {
-        this.textPane1 = textPane1;
+    public void setDoctpat(StyledDocument doctpat) {
+        this.doctpat = doctpat;
     }
 
-    public JScrollPane getScroll() {
-        return scroll;
+    public Style getEstilotpat() {
+        return estilotpat;
     }
 
-    public void setScroll(JScrollPane scroll) {
-        this.scroll = scroll;
+    public void setEstilotpat(Style estilotpat) {
+        this.estilotpat = estilotpat;
     }
 
-    public String getLabel() {
-        return label;
+    public StyledDocument getDoctpmt() {
+        return doctpmt;
     }
 
-    public void setLabel(String label) {
-        newLabel.setText(label);
-        this.label = label;
+    public void setDoctpmt(StyledDocument doctpmt) {
+        this.doctpmt = doctpmt;
     }
 
-    public void setNombreClase(String nuevoNombre) {
-        newLabel.setText(nuevoNombre);
-        label = nuevoNombre;
+    public Style getEstilotpmt() {
+        return estilotpmt;
+    }
+
+    public void setEstilotpmt(Style estilotpmt) {
+        this.estilotpmt = estilotpmt;
+    }
+    
+    
+    public JLabel getTitulo3() {
+        return titulo3;
+    }
+
+    public void setTitulo3(JLabel titulo3) {
+        this.titulo3 = titulo3;
+    }
+    
+
+    public Font getBoldFont() {
+        return boldFont;
+    }
+
+    public void setBoldFont(Font boldFont) {
+        this.boldFont = boldFont;
+    }
+
+    public JTextArea getAtributos() {
+        return atributos;
+    }
+
+    public void setAtributos(JTextArea atributos) {
+        this.atributos = atributos;
+    }
+
+    
+
+    public JScrollPane getPnatributos() {
+        return pnatributos;
+    }
+
+    public void setPnatributos(JScrollPane pnatributos) {
+        this.pnatributos = pnatributos;
+    }
+
+    public JTextArea getMetodos() {
+        return metodos;
+    }
+
+    public void setMetodos(JTextArea metodos) {
+        this.metodos = metodos;
+    }
+
+    
+
+    public JScrollPane getPnmetodos() {
+        return pnmetodos;
+    }
+
+    public void setPnmetodos(JScrollPane pnmetodos) {
+        this.pnmetodos = pnmetodos;
+    }
+
+    public ArrayList<FiguraClase> getHijos() {
+        return hijos;
+    }
+
+    public void setHijos(ArrayList<FiguraClase> hijos) {
+        this.hijos = hijos;
+    }
+
+    
+
+    public ComponentUI getUi() {
+        return ui;
+    }
+
+    public void setUi(ComponentUI ui) {
+        this.ui = ui;
+    }
+
+    public EventListenerList getListenerList() {
+        return listenerList;
+    }
+
+    public void setListenerList(EventListenerList listenerList) {
+        this.listenerList = listenerList;
+    }
+
+    public AccessibleContext getAccessibleContext() {
+        return accessibleContext;
+    }
+
+    public void setAccessibleContext(AccessibleContext accessibleContext) {
+        this.accessibleContext = accessibleContext;
+    }
+
+    @Override
+    public String toString() {
+        return titulo.getText();
     }
 
     public void copy(JPanel c){
