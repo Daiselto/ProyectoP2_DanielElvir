@@ -44,9 +44,15 @@ public class FiguraInicio extends FiguraFlujo{
         // Crear un JTextPane y agregarlo al centro del panel
         text = new JTextArea();
         text.setText("Inicio/Fin");
-        text.setBackground(Color.GRAY); // Establecer el fondo del JTextPane al color del panel
+        text.setBackground(Color.WHITE); // Establecer el fondo del JTextPane al color del panel
         text.setForeground(Color.WHITE); // Establecer el color del texto en blanco
         text.setBorder(null); // Eliminar el borde del JTextPane
+        
+        field = new JTextField();
+        field.setText("Indice");
+        field.setBackground(Color.WHITE); // Establecer el fondo del JTextPane al color del panel
+        field.setForeground(Color.WHITE); // Establecer el color del texto en blanco
+        field.setBorder(null); // Eliminar el borde del JTextPane
         
         
         // Cambiar el estilo de fuente del texto a negrita
@@ -54,6 +60,9 @@ public class FiguraInicio extends FiguraFlujo{
         text.setFont(boldFont);
         
         text.setBounds(40, (getHeight()/2)-10, 100, 20);
+        
+        field.setFont(font);
+        
 
         
         add(text);
@@ -64,8 +73,18 @@ public class FiguraInicio extends FiguraFlujo{
         super();
         this.copy(c);
     }
+
+    public JTextField getField() {
+        return field;
+    }
+
+    public void setField(JTextField field) {
+        this.field = field;
+    }
     
-     public Color getColor() {
+     
+    
+    public Color getColor() {
         return color;
     }
 

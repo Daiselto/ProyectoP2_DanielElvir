@@ -5,13 +5,14 @@
 package ProyectoP2_DanielElvir;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author HP
  */
-public class DatosHerencia extends DatosUML{
+public class DatosHerencia extends DatosUML implements Serializable{
     private String tA;
 
     public DatosHerencia() {

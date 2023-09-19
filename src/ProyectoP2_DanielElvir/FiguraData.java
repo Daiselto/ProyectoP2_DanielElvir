@@ -43,7 +43,7 @@ public class FiguraData extends FiguraFlujo {
         // Crear un JTextPane y agregarlo al centro del panel
         textArea = new JTextArea();
         textArea.setText("Aqui va el texto de instruccion");
-        textArea.setBackground(Color.GRAY); // Establecer el fondo del JTextPane al color del panel
+        textArea.setBackground(Color.WHITE); // Establecer el fondo del JTextPane al color del panel
         textArea.setForeground(Color.WHITE); // Establecer el color del texto en blanco
         textArea.setBorder(null); // Eliminar el borde del JTextPane
         

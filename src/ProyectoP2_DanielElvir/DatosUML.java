@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.JTextArea;
 import javax.swing.text.Style;
 import javax.swing.text.StyledDocument;
 
@@ -228,6 +229,12 @@ public class DatosUML implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    
+    
+
+    public void setMetodos1(ArrayList<String> metodos) {
+        this.metodos = metodos;
     }
 
     @Override

@@ -18,15 +18,31 @@ import javax.swing.text.Document;
 import javax.swing.text.Style;
 import javax.swing.text.StyledDocument;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JColorChooser;
 import javax.swing.JFileChooser;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.StyleConstants;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
  *
@@ -90,9 +106,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         cb_FuenteFlujo = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cb_TamañoFlujo = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        cb_EstiloFlujo = new javax.swing.JComboBox<>();
         jButton22 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
@@ -114,6 +130,7 @@ public class Menu extends javax.swing.JFrame {
         jButton40 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
         jButton46 = new javax.swing.JButton();
+        jButton51 = new javax.swing.JButton();
         FigurasFlujo = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         BttnProceso = new javax.swing.JButton();
@@ -126,8 +143,12 @@ public class Menu extends javax.swing.JFrame {
         MesaTrabajo = new javax.swing.JPanel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        GuardarPNG1 = new javax.swing.JMenuItem();
+        GuardarPNGPDF1 = new javax.swing.JMenuItem();
+        GuardarUML1 = new javax.swing.JMenuItem();
+        AbrirUML1 = new javax.swing.JMenuItem();
+        ImprimirUML1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         JD_UML = new javax.swing.JDialog();
         bg1 = new javax.swing.JPanel();
@@ -159,6 +180,7 @@ public class Menu extends javax.swing.JFrame {
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
         jButton42 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
         FigurasUML = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jButton44 = new javax.swing.JButton();
@@ -170,13 +192,23 @@ public class Menu extends javax.swing.JFrame {
         MesaUML = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        GuardarPNG = new javax.swing.JMenuItem();
+        GuardarPNGPDF = new javax.swing.JMenuItem();
         GuardarUML = new javax.swing.JMenuItem();
+        AbrirUML = new javax.swing.JMenuItem();
+        ImprimirUML = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         JD_CodigoUML = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         ta_codFinal = new javax.swing.JTextArea();
+        JD_CodigoFlujo = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        ta_codFinal1 = new javax.swing.JTextArea();
         bg = new javax.swing.JPanel();
         sideMenu = new javax.swing.JPanel();
         HomeBttn = new javax.swing.JPanel();
@@ -390,13 +422,13 @@ public class Menu extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Tamaño");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6 pt", "9 pt ", "10 pt", "12 pt", "14 pt", "16 pt", "18 pt", "24 pt" }));
+        cb_TamañoFlujo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "6 pt", "9 pt ", "10 pt", "12 pt", "14 pt", "16 pt", "18 pt", "24 pt" }));
 
         jLabel18.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Estilo de Fuente");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Italica", " " }));
+        cb_EstiloFlujo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Italica", " " }));
 
         jButton22.setBackground(new java.awt.Color(0, 0, 0));
         jButton22.setForeground(new java.awt.Color(0, 0, 0));
@@ -541,6 +573,18 @@ public class Menu extends javax.swing.JFrame {
 
         jButton46.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jButton46.setText("Aplicar Cambios de Fuente");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
+
+        jButton51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/carta-a.png"))); // NOI18N
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout BarraTareaFlujoLayout = new javax.swing.GroupLayout(BarraTareaFlujo);
         BarraTareaFlujo.setLayout(BarraTareaFlujoLayout);
@@ -556,11 +600,11 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cb_EstiloFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cb_TamañoFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
                         .addGap(203, 203, 203)
                         .addComponent(jButton46, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -608,7 +652,9 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(594, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jButton51)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BarraTareaFlujoLayout.setVerticalGroup(
             BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,48 +666,53 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cb_EstiloFlujo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cb_FuenteFlujo)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cb_TamañoFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton46)
                 .addGap(11, 11, 11))
             .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
-                        .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
                         .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BarraTareaFlujoLayout.createSequentialGroup()
-                                .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
-                                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton33, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton41, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton34, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BarraTareaFlujoLayout.createSequentialGroup()
+                                        .addComponent(jButton27, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                                        .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton31, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton32, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton33, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jButton41, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton34, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton35, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton36, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton37, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton38, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jButton51)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -854,17 +905,49 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu5.setText("Archivos ");
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Guardar como");
-        jMenu5.add(jMenuItem2);
+        jMenu8.setText("Guardar como");
 
-        jMenuItem3.setText("Guardar");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        GuardarPNG1.setText("Guardar como PNG");
+        GuardarPNG1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                GuardarPNG1ActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem3);
+        jMenu8.add(GuardarPNG1);
+
+        GuardarPNGPDF1.setText("Guardar como PNG Y PDF");
+        GuardarPNGPDF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarPNGPDF1ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(GuardarPNGPDF1);
+
+        jMenu5.add(jMenu8);
+
+        GuardarUML1.setText("Guardar Flujo en binario");
+        GuardarUML1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarUML1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(GuardarUML1);
+
+        AbrirUML1.setText("Abrir Flujo");
+        AbrirUML1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirUML1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(AbrirUML1);
+
+        ImprimirUML1.setText("Imprimir Flujo");
+        ImprimirUML1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImprimirUML1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(ImprimirUML1);
 
         jMenuBar2.add(jMenu5);
 
@@ -1094,6 +1177,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/carta-a.png"))); // NOI18N
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BarraDeTareaLayout = new javax.swing.GroupLayout(BarraDeTarea);
         BarraDeTarea.setLayout(BarraDeTareaLayout);
         BarraDeTareaLayout.setHorizontalGroup(
@@ -1160,7 +1250,9 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(jButton50)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BarraDeTareaLayout.setVerticalGroup(
             BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1180,40 +1272,45 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jButton42)
                 .addGap(11, 11, 11))
             .addGroup(BarraDeTareaLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BarraDeTareaLayout.createSequentialGroup()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BarraDeTareaLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
                         .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BarraDeTareaLayout.createSequentialGroup()
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(BarraDeTareaLayout.createSequentialGroup()
-                                .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BarraDeTareaLayout.createSequentialGroup()
+                                .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BarraDeTareaLayout.createSequentialGroup()
+                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(BarraDeTareaLayout.createSequentialGroup()
+                                        .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jButton21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(BarraDeTareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(BarraDeTareaLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jButton50)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1317,7 +1414,7 @@ public class Menu extends javax.swing.JFrame {
         MesaUML.setBackground(new java.awt.Color(255, 255, 255));
         MesaUML.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         MesaUML.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        MesaUML.setPreferredSize(new java.awt.Dimension(850, 1150));
+        MesaUML.setPreferredSize(new java.awt.Dimension(816, 1056));
 
         javax.swing.GroupLayout MesaUMLLayout = new javax.swing.GroupLayout(MesaUML);
         MesaUML.setLayout(MesaUMLLayout);
@@ -1327,7 +1424,7 @@ public class Menu extends javax.swing.JFrame {
         );
         MesaUMLLayout.setVerticalGroup(
             MesaUMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1148, Short.MAX_VALUE)
+            .addGap(0, 1054, Short.MAX_VALUE)
         );
 
         jScrollPane8.setViewportView(MesaUML);
@@ -1374,13 +1471,49 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu3.setText("Archivos ");
 
-        GuardarUML.setText("Guardar UML");
+        jMenu7.setText("Guardar como");
+
+        GuardarPNG.setText("Guardar como PNG");
+        GuardarPNG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarPNGActionPerformed(evt);
+            }
+        });
+        jMenu7.add(GuardarPNG);
+
+        GuardarPNGPDF.setText("Guardar como PNG Y PDF");
+        GuardarPNGPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarPNGPDFActionPerformed(evt);
+            }
+        });
+        jMenu7.add(GuardarPNGPDF);
+
+        jMenu3.add(jMenu7);
+
+        GuardarUML.setText("Guardar UML en binario");
         GuardarUML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarUMLActionPerformed(evt);
             }
         });
         jMenu3.add(GuardarUML);
+
+        AbrirUML.setText("Abrir UML");
+        AbrirUML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AbrirUMLActionPerformed(evt);
+            }
+        });
+        jMenu3.add(AbrirUML);
+
+        ImprimirUML.setText("Imprimir UML");
+        ImprimirUML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImprimirUMLActionPerformed(evt);
+            }
+        });
+        jMenu3.add(ImprimirUML);
 
         jMenuBar1.add(jMenu3);
 
@@ -1443,6 +1576,51 @@ public class Menu extends javax.swing.JFrame {
         JD_CodigoUMLLayout.setVerticalGroup(
             JD_CodigoUMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel2.setBackground(new java.awt.Color(0, 51, 51));
+
+        jLabel21.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Codigo Generado");
+
+        ta_codFinal1.setColumns(20);
+        ta_codFinal1.setRows(5);
+        jScrollPane9.setViewportView(ta_codFinal1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(jLabel21))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout JD_CodigoFlujoLayout = new javax.swing.GroupLayout(JD_CodigoFlujo.getContentPane());
+        JD_CodigoFlujo.getContentPane().setLayout(JD_CodigoFlujoLayout);
+        JD_CodigoFlujoLayout.setHorizontalGroup(
+            JD_CodigoFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        JD_CodigoFlujoLayout.setVerticalGroup(
+            JD_CodigoFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -3252,10 +3430,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BttnDataActionPerformed
 
     private void GuardarUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarUMLActionPerformed
-        try {
+        /*try {
             saveAsJPG(MesaUML);
         } catch (Exception e) {
-        }
+        }*/
+
+
     }//GEN-LAST:event_GuardarUMLActionPerformed
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
@@ -3629,6 +3809,7 @@ public class Menu extends javax.swing.JFrame {
         if (ultc instanceof FiguraCiclo) {
             Color tem = jButton31.getBackground();
             ((FiguraCiclo) ultc).setColorBG(tem);
+
         }
     }//GEN-LAST:event_jButton31ActionPerformed
 
@@ -3798,6 +3979,7 @@ public class Menu extends javax.swing.JFrame {
             Color tem = jButton41.getBackground();
             ((FiguraCiclo) ultc).setColorBG(tem);
         }
+
     }//GEN-LAST:event_jButton41ActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
@@ -3826,82 +4008,403 @@ public class Menu extends javax.swing.JFrame {
             Color tem = jButton40.getBackground();
             ((FiguraCiclo) ultc).setColorBG(tem);
         }
+
+
     }//GEN-LAST:event_jButton40ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        JFileChooser jfc = new JFileChooser();
+    private void AbrirUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirUMLActionPerformed
+        /*        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Abrir como JPG");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Imágenes JPG", "jpg");
+        fileChooser.setFileFilter(filter);
+        
+        int aprove = fileChooser.showOpenDialog(null);
+        
+        if (aprove==JFileChooser.APPROVE_OPTION) {
+            File selec = fileChooser.getSelectedFile();
+            String selecstr = selec.getPath();
+            try {
+                JPanel imagePanel = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    // Aquí dibujamos la imagen en el JPanel
+                    BufferedImage image = loadImage(selecstr); // Reemplaza "imagen.jpg" con la ruta de tu archivo JPG
+                    g.drawImage(image, 0, 0, this);
+                }
+            };
+                
+                
+                
+            } catch (Exception e) {
+            }
+        }*/
 
-        jfc.setCurrentDirectory(new File("./"));
 
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter(
-                "Archivos UML",
-                "uml");
-        jfc.setFileFilter(filtro);
-        int seleccion = jfc.showSaveDialog(this);
+    }//GEN-LAST:event_AbrirUMLActionPerformed
 
-        FileOutputStream fw = null;
-        ObjectOutputStream bw = null;
+    private void GuardarPNGPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPNGPDFActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar Imagen como PNG y PDF");
 
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
+        int userSelection = fileChooser.showSaveDialog(JD_UML);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String nombre = fileToSave.getAbsolutePath(); // Obtener la ruta completa seleccionada por el usuario
+
+            int Pa = MesaUML.getWidth();
+            int Pal = MesaUML.getHeight();
+
+            BufferedImage bf = new BufferedImage(Pa, Pal, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2d = bf.createGraphics();
+
+            MesaUML.paint(g2d);
+            g2d.dispose();
+            MesaUML.paint(g2d);
+            g2d.dispose();
+
+            PDDocument document = new PDDocument();
+            PDPage page = new PDPage(new PDRectangle(Pa, Pal));
+            document.addPage(page);
 
             try {
-                File file = null;
-                if (jfc.getFileFilter().getDescription().equals("Archivos UML")) {
-                    file = new File(jfc.getSelectedFile().getPath());
-                } else {
-                    file = jfc.getSelectedFile();
-                }
-                fw = new FileOutputStream(file);
-                bw = new ObjectOutputStream(fw);
-
-                for (Object figura : clasesUML) {
-
-                    if (figura instanceof ClaseHeredada) {
-                        JOptionPane.showMessageDialog(this, "Serializando Herenciafigura....");
-                        ClaseHeredada temp = (ClaseHeredada) figura;
-                        DatosHerencia dat = convertirDatosInh(temp);
-                        bw.writeObject(dat);
-                        bw.flush();
-                    } else if (figura instanceof AbstractaFigura) {
-                        JOptionPane.showMessageDialog(this, "Serializando Abstractafigura....");
-                        AbstractaFigura temp = (AbstractaFigura) figura;
-                        DatosAbstract dat = convertirDatosAbs(temp);
-                        bw.writeObject(dat);
-                        bw.flush();
-
-                    } else if (figura instanceof InterfazFigura) {
-                        JOptionPane.showMessageDialog(this, "Serializando Interfazfigura....");
-                        InterfazFigura temp = (InterfazFigura) figura;
-                        DatosInterfaz dat = convertirDatosInt(temp);
-                        bw.writeObject(dat);
-                        bw.flush();
-
-                    } else if (figura instanceof ClasseFigura) {
-                        JOptionPane.showMessageDialog(this, "Serializando Simplefigura....");
-                        ClasseFigura temp = (ClasseFigura) figura;
-                        DatosClasse dat = convertirDatosSimp(temp);
-                        bw.writeObject(dat);
-                        bw.flush();
-                    }
-
-                }
-
-                JOptionPane.showMessageDialog(this, "Guardado exitosamente!");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error");
+                ImageIO.write(bf, "PNG", new File(nombre + ".png"));
+                JOptionPane.showMessageDialog(JD_UML, "Imagen creada exitosamente");
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-            try {
-                bw.close();
-                fw.close();
 
-            } catch (Exception e) {
+            try {
+                PDPageContentStream contentStream = new PDPageContentStream(document, page);
+                contentStream.drawImage(PDImageXObject.createFromFile(nombre + ".png", document), TOP_ALIGNMENT, TOP_ALIGNMENT);
+                contentStream.close();
+                document.save(new File(nombre + ".pdf"));
+                document.close();
+                JOptionPane.showMessageDialog(JD_UML, "Archivo pdf creado exitosamente");
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(JD_UML, "No se seleccionó ninguna ubicación para guardar la imagen.");
+        }
+
+    }//GEN-LAST:event_GuardarPNGPDFActionPerformed
+
+    private void GuardarPNGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPNGActionPerformed
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar Imagen como PNG");
+
+        int userSelection = fileChooser.showSaveDialog(JD_UML);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String nombre = fileToSave.getAbsolutePath(); // Obtener la ruta completa seleccionada por el usuario
+
+            int Pa = MesaUML.getWidth();
+            int Pal = MesaUML.getHeight();
+
+            BufferedImage bf = new BufferedImage(Pa, Pal, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2d = bf.createGraphics();
+
+            MesaUML.paint(g2d);
+            g2d.dispose();
+
+            try {
+                ImageIO.write(bf, "PNG", new File(nombre + ".png"));
+                JOptionPane.showMessageDialog(JD_UML, "Imagen creada exitosamente");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(JD_UML, "No se seleccionó ninguna ubicación para guardar la imagen.");
+        }
+
+        /*else if (banderita.contains("2")) {
+            String nombre = JOptionPane.showInputDialog(this, "Escriba el nombre de su archivo");
+            int Pa = MesaUML.getWidth();
+            int Pal = MesaUML.getHeight();
+
+
+            BufferedImage bufferedImage = new BufferedImage(Pa, Pal, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2d = bufferedImage.createGraphics();
+
+
+            MesaUML.paint(g2d);
+            g2d.dispose();
+
+            try {
+
+                ImageIO.write(bufferedImage, "PNG", new File(nombre+".jiz"));
+               JOptionPane.showMessageDialog(this, "Archivo creado exitosamente");
+            } catch (IOException e) {
+                e.printStackTrace();
+               
+            }
+        }*/
+    }//GEN-LAST:event_GuardarPNGActionPerformed
+
+    private void ImprimirUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirUMLActionPerformed
+        PrintRecord(MesaUML);
+    }//GEN-LAST:event_ImprimirUMLActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+        try {
+            FiguraClase ultselect = FiguraClase.getUltimoclickeado();
+            Color newcol = JColorChooser.showDialog(JD_UML, "Seleccione color de texto", Color.yellow);
+            if (ultselect instanceof ClaseNormal) {
+                ((ClaseNormal) ultselect).getTextPane().setForeground(newcol);
+                ((ClaseNormal) ultselect).getTextPane1().setForeground(newcol);
+
+            } else if (ultselect instanceof ClaseAbstracta) {
+                ((ClaseAbstracta) ultselect).getTextPane().setForeground(newcol);
+                ((ClaseAbstracta) ultselect).getTextPane1().setForeground(newcol);
+
+            } else if (ultselect instanceof ClaseHeredada) {
+                ((ClaseHeredada) ultselect).getTextPane().setForeground(newcol);
+                ((ClaseHeredada) ultselect).getTextPane1().setForeground(newcol);
+            } else if (ultselect instanceof Interfaz) {
+                ((Interfaz) ultselect).getTextPane().setForeground(newcol);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+       FiguraFlujo ult = FiguraFlujo.getUltimoclickeado();
+        Font newfo = null;
+
+        if (cb_EstiloFlujo.getSelectedIndex() == 0) {
+            newfo = new Font(cb_FuenteFlujo.getSelectedItem().toString(), Font.PLAIN, Integer.parseInt(cb_TamañoFlujo.getSelectedItem().toString()));
+        }
+
+        if (cb_EstiloFlujo.getSelectedIndex() == 1) {
+            newfo = new Font(cb_FuenteFlujo.getSelectedItem().toString(), Font.BOLD, Integer.parseInt(cb_TamañoFlujo.getSelectedItem().toString()));
+        }
+
+        if (cb_EstiloFlujo.getSelectedIndex() == 2) {
+            newfo = new Font(cb_FuenteFlujo.getSelectedItem().toString(), Font.ITALIC, Integer.parseInt(cb_TamañoFlujo.getSelectedItem().toString()));
+        }
+
+        if (cb_EstiloFlujo.getSelectedIndex() == 3) {
+            newfo = new Font(cb_FuenteFlujo.getSelectedItem().toString(), Font.BOLD + Font.ITALIC, Integer.parseInt(cb_TamañoFlujo.getSelectedItem().toString()));
+        }
+
+        if (ult instanceof FiguraInicio) {
+            ((FiguraInicio) ult).getText().setFont(newfo);
+            ((FiguraInicio) ult).getField().setFont(newfo);
+        } else if (ult instanceof FiguraCiclo) {
+            ((FiguraCiclo) ult).getTextA().setFont(newfo);
+            ((FiguraCiclo) ult).getNum_proceso().setFont(newfo);
+        } else if (ult instanceof FiguraDecision) {
+            ((FiguraDecision) ult).getTextArea().setFont(newfo);
+            ((FiguraDecision) ult).getTextField().setFont(newfo);
+        } else if (ult instanceof FiguraProceso) {
+            ((FiguraProceso) ult).getTextArea().setFont(newfo);
+            ((FiguraProceso) ult).getTextField().setFont(newfo);
+        } else if (ult instanceof FiguraData) {
+            ((FiguraData) ult).getTextArea().setFont(newfo);
+            ((FiguraData) ult).getTextField().setFont(newfo);
+        }
+    }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        try {
+            FiguraFlujo ultselect = FiguraFlujo.getUltimoclickeado();
+            Color newcol = JColorChooser.showDialog(JD_Flujo, "Seleccione color de texto", Color.yellow);
+            if (ultselect instanceof FiguraInicio) {
+                ((FiguraInicio) ultselect).getText().setForeground(newcol);
+                ((FiguraInicio) ultselect).getField().setForeground(newcol);
+            } else if (ultselect instanceof FiguraCiclo) {
+                ((FiguraCiclo) ultselect).getTextA().setForeground(newcol);
+                ((FiguraCiclo) ultselect).getNum_proceso().setForeground(newcol);
+            } else if (ultselect instanceof FiguraDecision) {
+                ((FiguraDecision) ultselect).getTextArea().setForeground(newcol);
+                ((FiguraDecision) ultselect).getTextField().setForeground(newcol);
+            } else if (ultselect instanceof FiguraProceso) {
+                ((FiguraProceso) ultselect).getTextArea().setForeground(newcol);
+                ((FiguraProceso) ultselect).getTextField().setForeground(newcol);
+            } else if (ultselect instanceof FiguraData) {
+                ((FiguraData) ultselect).getTextArea().setForeground(newcol);
+                ((FiguraData) ultselect).getTextField().setForeground(newcol);
+            } 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+    }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void GuardarPNG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPNG1ActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar Imagen como PNG");
+
+        int userSelection = fileChooser.showSaveDialog(JD_Flujo);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String nombre = fileToSave.getAbsolutePath(); // Obtener la ruta completa seleccionada por el usuario
+
+            int Pa = MesaTrabajo.getWidth();
+            int Pal = MesaTrabajo.getHeight();
+
+            BufferedImage bf = new BufferedImage(Pa, Pal, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2d = bf.createGraphics();
+
+            MesaTrabajo.paint(g2d);
+            g2d.dispose();
+
+            try {
+                ImageIO.write(bf, "PNG", new File(nombre + ".png"));
+                JOptionPane.showMessageDialog(JD_Flujo, "Imagen creada exitosamente");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            JOptionPane.showMessageDialog(JD_Flujo, "No se seleccionó ninguna ubicación para guardar la imagen.");
+        }
+    }//GEN-LAST:event_GuardarPNG1ActionPerformed
+
+    private void GuardarPNGPDF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPNGPDF1ActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar Imagen como PNG y PDF");
+
+        int userSelection = fileChooser.showSaveDialog(JD_Flujo);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String nombre = fileToSave.getAbsolutePath(); // Obtener la ruta completa seleccionada por el usuario
+
+            int Pa = MesaTrabajo.getWidth();
+            int Pal = MesaTrabajo.getHeight();
+
+            BufferedImage bf = new BufferedImage(Pa, Pal, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2d = bf.createGraphics();
+
+            MesaTrabajo.paint(g2d);
+            g2d.dispose();
+            MesaTrabajo.paint(g2d);
+            g2d.dispose();
+
+            PDDocument document = new PDDocument();
+            PDPage page = new PDPage(new PDRectangle(Pa, Pal));
+            document.addPage(page);
+
+            try {
+                ImageIO.write(bf, "PNG", new File(nombre + ".png"));
+                JOptionPane.showMessageDialog(JD_Flujo, "Imagen creada exitosamente");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                PDPageContentStream contentStream = new PDPageContentStream(document, page);
+                contentStream.drawImage(PDImageXObject.createFromFile(nombre + ".png", document), TOP_ALIGNMENT, TOP_ALIGNMENT);
+                contentStream.close();
+                document.save(new File(nombre + ".pdf"));
+                document.close();
+                JOptionPane.showMessageDialog(JD_Flujo, "Archivo pdf creado exitosamente");
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(JD_Flujo, "No se seleccionó ninguna ubicación para guardar la imagen.");
+        }
+    }//GEN-LAST:event_GuardarPNGPDF1ActionPerformed
+
+    private void GuardarUML1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarUML1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GuardarUML1ActionPerformed
+
+    private void AbrirUML1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirUML1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AbrirUML1ActionPerformed
+
+    private void ImprimirUML1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirUML1ActionPerformed
+        PrintRecord(MesaTrabajo);
+    }//GEN-LAST:event_ImprimirUML1ActionPerformed
+
+    private void PrintRecord(JPanel panel) {
+
+        PrinterJob pj = PrinterJob.getPrinterJob();
+
+        //Ponerle nombre al PrinterJob
+        pj.setJobName("Print Record");
+
+        //Hacer el Set Printable
+        pj.setPrintable(new Printable() {
+            @Override
+            public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+                //Chequea si el size es muy grande
+                if (pageIndex > 0) {
+                    return Printable.NO_SUCH_PAGE;
+                }
+
+                //Hacer las Graficas 2D
+                Graphics2D graphics2D = (Graphics2D) graphics;
+
+                //Hacer la "traduccion" de las graficas
+                graphics2D.translate(pageFormat.getImageableX() * 2, pageFormat.getImageableY() * 2);
+
+                //Esto es una escala de pagina. No obstante, la default es 0.3, no 0.5.
+                graphics2D.scale(0.3, 0.3);
+
+                //Pintamos el panel como graficas
+                panel.paint(graphics2D);
+
+                //Retornar si la pagina existe
+                return Printable.PAGE_EXISTS;
+            }
+
+        });
+        //Guardar PrinterDialog como booleano
+        boolean Resultadoreturn = pj.printDialog();
+
+        //Revisar si el dialogo se muestra
+        if (Resultadoreturn) {
+
+            try {
+                //Llamamos al metodo para imprimir
+                pj.print();
+
+            } catch (PrinterException printerexc) {
+                JOptionPane.showMessageDialog(null, printerexc.getMessage());
             }
 
         }
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-   /* public DatosHerencia convertirDatosInh(ClaseHeredada c) {
+    }
+
+    public Point ajustarPosicion(Point original, Dimension panelSize, Dimension componentSize) {
+        int maxX = panelSize.width - componentSize.width;
+        int maxY = panelSize.height - componentSize.height;
+
+        int x = original.x;
+        int y = original.y;
+
+        if (x > maxX) {
+            x = maxX;
+        }
+        if (y > maxY) {
+            y = maxY;
+        }
+
+        if (x < 0) {
+            x = 0;
+        }
+        if (y < 0) {
+            y = 0;
+        }
+
+        return new Point(x, y);
+    }
+
+    public DatosHerencia convertirDatosInh(ClaseHeredada c) {
 
         DatosHerencia datos = new DatosHerencia(
                 c.getSizex(),
@@ -3909,10 +4412,10 @@ public class Menu extends javax.swing.JFrame {
                 c.getLocx(),
                 c.getLocy(),
                 c.getNewLabel().getText(),
-                c.getTextPane().getText(),
+                c.getNomExtends().getText(),
                 c.getTitulo().getBackground());
 
-        datos.settA(c.getTextPane().getText());
+        datos.settA(c.getNomExtends().getText());
 
         textPadre.add(c.getTextPane().getText());
 
@@ -3934,32 +4437,114 @@ public class Menu extends javax.swing.JFrame {
             datos.setFgColor(StyleConstants.getForeground(styleTit));
             datos.setBgColor(StyleConstants.getBackground(styleTit));*
         }*/
-        /*datos.setFont(c.getTitulo().getFont());
+        datos.setFont(c.getTitulo().getFont());
 
         for (JTextArea atributo : c.getAtributos()) {
 
             /*Style tempStyleText = atributo.getStyle("myStyleText");
 
             if (tempStyleText != null) {
-                dStyle tempStyleText = atributo.getStyle("myStyleText");atos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
+                datos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
                 datos.setFontAtrSize(StyleConstants.getFontSize(tempStyleText));
             }*/
-           /* Style tempStyleText = atributo.getStyle("myStyleText");
-
-            if (tempStyleText != null) {
-                String fontFamily = StyleConstants.getFontFamily(tempStyleText);
-                int fontSize = StyleConstants.getFontSize(tempStyleText);
-
-                // Assuming textArea is your JTextArea instance
-                Font currentFont = atributo.getFont();
-                Font newFont = new Font(fontFamily, currentFont.getStyle(), fontSize);
-
-                atributo.setFont(newFont);
-            }
-
             datos.getAtributos().add(atributo.getText());
         }
         for (JTextArea metodo : c.getMetodos()) {
+
+            /*Style tempStyleText = metodo.getStyle("myStyleText");
+
+            if (tempStyleText != null) {
+                datos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
+                datos.setFontAtrSize(StyleConstants.getFontSize(tempStyleText));
+            }*/
+            datos.getMetodos().add(metodo.getText());
+        }
+
+        return datos;
+    }
+
+    public DatosAbstracta convertirDatosAbs(ClaseAbstracta c) {
+
+        DatosAbstracta datos = new DatosAbstracta(c.getSizex(), c.getSizey(), c.getLocx(), c.getLocy(), c.getNewLabel().getText(), c.getTitulo().getBackground());
+
+        /*datos.setFontColor(c.getFontColor());
+        Style styleTit = c.getTitulo().getStyle("myStyle");*/
+        //Style styleText = c.getTextA().getStyle("myStileText");
+        /*if (styleTit != null) {
+            datos.setFontFamily(StyleConstants.getFontFamily(styleTit));
+            datos.setFontSize(StyleConstants.getFontSize(styleTit));
+            datos.setFgColor(StyleConstants.getForeground(styleTit));
+            datos.setBgColor(StyleConstants.getBackground(styleTit));
+        }*/
+
+ /*if(styleText != null){
+            datos.setFontAtrFamily(StyleConstants.getFontFamily(styleText));
+            datos.setFontAtrSize(StyleConstants.getFontSize(styleText));
+            
+            datos.setFgColor(StyleConstants.getForeground(styleTit));
+            datos.setBgColor(StyleConstants.getBackground(styleTit));*
+        }*/
+        datos.setFont(c.getTitulo().getFont());
+
+        for (JTextArea atributo : c.getAtributos()) {
+
+            //Style tempStyleText = atributo.getStyle("myStyleText");
+
+            /*if (tempStyleText != null) {
+                datos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
+                datos.setFontAtrSize(StyleConstants.getFontSize(tempStyleText));
+            }*/
+            datos.getAtributos().add(atributo.getText());
+        }
+        for (JTextArea metodo : c.getMetodos()) {
+
+            /*Style tempStyleText = metodo.getStyle("myStyleText");
+
+            if (tempStyleText != null) {
+                datos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
+                datos.setFontAtrSize(StyleConstants.getFontSize(tempStyleText));
+            }*/
+            datos.getMetodos().add(metodo.getText());
+        }
+
+        return datos;
+    }
+
+    /*public DatosUML convertirDatosSimp(DatosUML c) {
+
+        DatosUML datos = new DatosUML(c.getSizeX(), c.getSizeY(), c.getLocX(), c.getLocY(), c.getTitulo().getText(), c.getTitleBG().getBackground());
+
+        /*datos.setFontColor(c.getFontColor());
+        Style styleTit = c.getTitulo().getStyle("myStyle");*/
+    //Style styleText = c.getTextA().getStyle("myStileText");
+    /*if (styleTit != null) {
+            datos.setFontFamily(StyleConstants.getFontFamily(styleTit));
+            datos.setFontSize(StyleConstants.getFontSize(styleTit));
+            datos.setFgColor(StyleConstants.getForeground(styleTit));
+            datos.setBgColor(StyleConstants.getBackground(styleTit));
+        }*/
+
+ /*if(styleText != null){
+            datos.setFontAtrFamily(StyleConstants.getFontFamily(styleText));
+            datos.setFontAtrSize(StyleConstants.getFontSize(styleText));
+            
+            datos.setFgColor(StyleConstants.getForeground(styleTit));
+            datos.setBgColor(StyleConstants.getBackground(styleTit));*
+        }*/
+    // datos.setFont(c.getTitulo().getFont());
+
+    /*for (JTextArea atributo : c.getAtributos1()) {
+
+            /*Style tempStyleText = atributo.getStyle("myStyleText");
+
+            if (tempStyleText != null) {
+                datos.setFontAtrFamily(StyleConstants.getFontFamily(tempStyleText));
+                datos.setFontAtrSize(StyleConstants.getFontSize(tempStyleText));
+            }*/
+
+ /* datos.getAtributos().add(atributo.getText());
+        }
+        for (JTextArea metodo : c.getMetodos1()) {
 
             Style tempStyleText = metodo.getStyle("myStyleText");
 
@@ -3972,7 +4557,6 @@ public class Menu extends javax.swing.JFrame {
 
         return datos;
     }*/
-
     public String codigoUML() {
         String codeinstr = "";
         for (FiguraClase instca : clasesUML) {
@@ -4239,6 +4823,15 @@ public class Menu extends javax.swing.JFrame {
         }
     }
 
+    public static BufferedImage loadImage(String filePath) {
+        try {
+            return ImageIO.read(new File(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -4278,6 +4871,8 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Abrir;
+    private javax.swing.JMenuItem AbrirUML;
+    private javax.swing.JMenuItem AbrirUML1;
     private javax.swing.JPanel BarraDeTarea;
     private javax.swing.JPanel BarraTareaFlujo;
     private javax.swing.JButton BttnData;
@@ -4294,11 +4889,19 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel FigurasFlujo;
     private javax.swing.JPanel FigurasUML;
     private javax.swing.JMenuItem FlujoMenu;
+    private javax.swing.JMenuItem GuardarPNG;
+    private javax.swing.JMenuItem GuardarPNG1;
+    private javax.swing.JMenuItem GuardarPNGPDF;
+    private javax.swing.JMenuItem GuardarPNGPDF1;
     private javax.swing.JMenuItem GuardarUML;
+    private javax.swing.JMenuItem GuardarUML1;
     private javax.swing.JPanel HomeBttn;
     private javax.swing.JLabel HomeTXT1;
     private javax.swing.JLabel HomeTXT2;
+    private javax.swing.JMenuItem ImprimirUML;
+    private javax.swing.JMenuItem ImprimirUML1;
     private javax.swing.JPanel Inicio;
+    private javax.swing.JDialog JD_CodigoFlujo;
     private javax.swing.JDialog JD_CodigoUML;
     private javax.swing.JDialog JD_CrearFlujo;
     private javax.swing.JDialog JD_CrearUML;
@@ -4323,9 +4926,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JPanel bg1;
     private javax.swing.JPanel bg2;
+    private javax.swing.JComboBox<String> cb_EstiloFlujo;
     private javax.swing.JComboBox<String> cb_EstiloUML;
     private javax.swing.JComboBox<String> cb_FuenteFlujo;
     private javax.swing.JComboBox<String> cb_FuenteUML;
+    private javax.swing.JComboBox<String> cb_TamañoFlujo;
     private javax.swing.JComboBox<String> cb_TamañoUML;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -4372,12 +4977,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton48;
     private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4391,6 +4996,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -4404,12 +5010,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -4418,6 +5025,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -4430,6 +5038,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTree jTree1;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JTextArea ta_codFinal;
+    private javax.swing.JTextArea ta_codFinal1;
     // End of variables declaration//GEN-END:variables
     StyledDocument doc;
     Style estilo;

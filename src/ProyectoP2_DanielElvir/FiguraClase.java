@@ -40,6 +40,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
     private javax.swing.JMenuItem CrearHijo = new JMenuItem();
     private javax.swing.JMenuItem CrearHijoAbstracto = new JMenuItem();
     private javax.swing.JMenuItem Eliminar = new JMenuItem();
+    private javax.swing.JMenuItem Modificar = new JMenuItem();
     private static FiguraClase lastClick;
     private boolean selec = false;
     private int locx;
@@ -60,9 +61,11 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
         CrearHijo.setText("Crear clase hija");
         CrearHijoAbstracto.setText("Crear un hijo abstracto");
         Eliminar.setText("Eliminar clase");
+        Modificar.setText("Modificar el nombre de la clase");
         MenuClases.add(CrearHijo);
         MenuClases.add(CrearHijoAbstracto);
         MenuClases.add(Eliminar);
+        MenuClases.add(Modificar);
 
         CrearHijo.addActionListener(new ActionListener() {
             @Override
@@ -144,6 +147,38 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                 MesaUML.revalidate();
                 MesaUML.repaint();
                 Menu.clasesUML.remove(FiguraClase.this);
+            }
+        });
+        
+        Modificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FiguraClase ultclk = FiguraClase.getUltimoclickeado();
+                String mod = JOptionPane.showInputDialog("Ingrese el nuevo nombre de la clase\n"
+                                        + "Esto podria afectar a las clases hijas ya existentes");
+                if (ultclk instanceof ClaseNormal) {
+                    ((ClaseNormal)ultclk).getNewLabel().setText(mod);
+                }
+                
+                if (ultclk instanceof ClaseHeredada) {
+                    ((ClaseHeredada)ultclk).getNewLabel().setText(mod);
+                }
+                
+                if (ultclk instanceof ClaseAbstracta) {
+                    ((ClaseAbstracta)ultclk).getNewLabel().setText(mod);
+                }
+                
+                if (ultclk instanceof Interfaz) {
+                    ((Interfaz)ultclk).getNewLabel().setText(mod);
+                }
+                
+                if (ultclk instanceof InterfazHeredada) {
+                    ((InterfazHeredada)ultclk).getNewLabel().setText(mod);
+                }
+                
+                if (ultclk instanceof AbstractaHeredada) {
+                    ((AbstractaHeredada)ultclk).getNewLabel().setText(mod);
+                }
             }
         });
     }

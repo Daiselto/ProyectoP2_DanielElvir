@@ -52,6 +52,32 @@ public class FiguraCiclo extends FiguraFlujo{
         this.color = color;
         repaint(); // Vuelve a dibujar el componente para reflejar el nuevo color
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public JTextArea getTextA() {
+        return textA;
+    }
+
+    public void setTextA(JTextArea textA) {
+        this.textA = textA;
+    }
+
+    public JTextField getNum_proceso() {
+        return num_proceso;
+    }
+
+    public void setNum_proceso(JTextField num_proceso) {
+        this.num_proceso = num_proceso;
+    }
+    
+    
     
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
