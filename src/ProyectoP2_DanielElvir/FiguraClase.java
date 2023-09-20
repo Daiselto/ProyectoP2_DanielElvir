@@ -80,7 +80,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     if (temppadre instanceof ClaseNormal) {
                         ((ClaseNormal) temppadre).getHijos().add(Heredero);
                     }
-                    Heredero.getNomclase().setText("Clase " + nLabel);
+                    Heredero.getNomclase().setText(nLabel);
                     Heredero.getExtension().setText("extends " + padre);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
@@ -96,7 +96,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     if (temppadre instanceof ClaseAbstracta) {
                         ((ClaseAbstracta) temppadre).getHijos().add(Heredero);
                     }
-                    Heredero.getNomclase().setText("Clase " + nLabel);
+                    Heredero.getNomclase().setText(nLabel);
                     Heredero.getExtension().setText("extends " + padre);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
@@ -112,7 +112,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     if (temppadre instanceof ClaseHeredada) {
                         ((ClaseHeredada) temppadre).getHijos().add(Heredero);
                     }
-                    Heredero.getNomclase().setText("Clase " + nLabel);
+                    Heredero.getNomclase().setText(nLabel);
                     Heredero.getExtension().setText("extends " + padre);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
@@ -138,7 +138,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     if (temppadre instanceof ClaseNormal) {
                         ((ClaseNormal) temppadre).getHijos().add(Heredero);
                     }
-                    Heredero.getNomclase().setText("abstract Clase " + nLabel);
+                    Heredero.getNomclase().setText("abstract" + nLabel);
                     Heredero.getExtension().setText("extends " + padre);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();

@@ -25,6 +25,8 @@ public class FiguraDecision extends FiguraFlujo {
     private int sizex, sizey, locx, locy;
     Color color = new Color(223, 0, 111);
     private Font fuente = null;
+    private boolean isLoop;
+    private boolean isConditional;
 
     public FiguraDecision() {
     }
@@ -45,7 +47,7 @@ public class FiguraDecision extends FiguraFlujo {
         textArea = new JTextArea();
         textArea.setText("Aqui va el texto de instruccion");
         textArea.setBackground(Color.WHITE); // Establecer el fondo del JTextPane al color del panel
-        textArea.setForeground(Color.WHITE); // Establecer el color del texto en blanco
+        textArea.setForeground(Color.BLACK); // Establecer el color del texto en blanco
         textArea.setBorder(null); // Eliminar el borde del JTextPane
 
         // Cambiar el estilo de fuente del texto a negrita
@@ -57,6 +59,24 @@ public class FiguraDecision extends FiguraFlujo {
         add(textArea);
     }
 
+    public boolean isIsLoop() {
+        return isLoop;
+    }
+
+    public void setIsLoop(boolean isLoop) {
+        this.isLoop = isLoop;
+    }
+
+    public boolean isIsConditional() {
+        return isConditional;
+    }
+
+    public void setIsConditional(boolean isConditional) {
+        this.isConditional = isConditional;
+    }
+
+    
+    
     public JTextArea getTextArea() {
         return textArea;
     }

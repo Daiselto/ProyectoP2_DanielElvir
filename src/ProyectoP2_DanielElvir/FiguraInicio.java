@@ -45,7 +45,7 @@ public class FiguraInicio extends FiguraFlujo{
         text = new JTextArea();
         text.setText("Inicio/Fin");
         text.setBackground(Color.WHITE); // Establecer el fondo del JTextPane al color del panel
-        text.setForeground(Color.WHITE); // Establecer el color del texto en blanco
+        text.setForeground(Color.BLACK); // Establecer el color del texto en blanco
         text.setBorder(null); // Eliminar el borde del JTextPane
         
         field = new JTextField();

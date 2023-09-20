@@ -32,6 +32,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Enumeration;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JColorChooser;
@@ -41,6 +42,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.StyleConstants;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -134,6 +137,7 @@ public class Menu extends javax.swing.JFrame {
         jButton41 = new javax.swing.JButton();
         jButton46 = new javax.swing.JButton();
         jButton51 = new javax.swing.JButton();
+        jButton53 = new javax.swing.JButton();
         FigurasFlujo = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         BttnProceso = new javax.swing.JButton();
@@ -141,6 +145,7 @@ public class Menu extends javax.swing.JFrame {
         BttnInicioFin = new javax.swing.JButton();
         BttnData = new javax.swing.JButton();
         jButton49 = new javax.swing.JButton();
+        jButton52 = new javax.swing.JButton();
         jButton43 = new javax.swing.JButton();
         MesaTrabajoBG = new javax.swing.JPanel();
         MesaTrabajo = new javax.swing.JPanel();
@@ -212,6 +217,17 @@ public class Menu extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         ta_codFinal1 = new javax.swing.JTextArea();
+        JD_ArbolFlujo = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jt_Flujo = new javax.swing.JTree();
+        pop_addspecifically = new javax.swing.JPopupMenu();
+        mi_agregarEspe = new javax.swing.JMenuItem();
+        pop_agregar = new javax.swing.JPopupMenu();
+        mi_addNod = new javax.swing.JMenuItem();
+        pop_eliminar = new javax.swing.JPopupMenu();
+        mi_deleteNod = new javax.swing.JMenuItem();
         bg = new javax.swing.JPanel();
         sideMenu = new javax.swing.JPanel();
         HomeBttn = new javax.swing.JPanel();
@@ -589,6 +605,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton53.setText("Visualizar Arbol");
+        jButton53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton53ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BarraTareaFlujoLayout = new javax.swing.GroupLayout(BarraTareaFlujo);
         BarraTareaFlujo.setLayout(BarraTareaFlujoLayout);
         BarraTareaFlujoLayout.setHorizontalGroup(
@@ -657,25 +680,12 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jButton40, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addGap(31, 31, 31)
                 .addComponent(jButton51)
+                .addGap(33, 33, 33)
+                .addComponent(jButton53, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BarraTareaFlujoLayout.setVerticalGroup(
             BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cb_EstiloFlujo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cb_FuenteFlujo)
-                        .addComponent(cb_TamañoFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton46)
-                .addGap(11, 11, 11))
             .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
                 .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
@@ -717,6 +727,26 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jButton51)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                        .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_EstiloFlujo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(BarraTareaFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cb_FuenteFlujo)
+                                .addComponent(cb_TamañoFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton46)
+                        .addGap(11, 11, 11))
+                    .addGroup(BarraTareaFlujoLayout.createSequentialGroup()
+                        .addComponent(jButton53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         FigurasFlujo.setBackground(new java.awt.Color(235, 235, 235));
@@ -792,11 +822,27 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton52.setBackground(new java.awt.Color(235, 235, 235));
+        jButton52.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jButton52.setForeground(new java.awt.Color(0, 0, 0));
+        jButton52.setText("Agregar Seleccionado al Arbol");
+        jButton52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jButton52.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton52MouseClicked(evt);
+            }
+        });
+        jButton52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton52ActionPerformed(evt);
+            }
+        });
+
         jButton43.setBackground(new java.awt.Color(235, 235, 235));
         jButton43.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jButton43.setForeground(new java.awt.Color(0, 0, 0));
         jButton43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/circulo.png"))); // NOI18N
-        jButton43.setText("Ciclo");
+        jButton43.setText("Ciclos");
         jButton43.setBorder(null);
         jButton43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -810,25 +856,27 @@ public class Menu extends javax.swing.JFrame {
             FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FigurasFlujoLayout.createSequentialGroup()
                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton52, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(FigurasFlujoLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19)
                             .addGroup(FigurasFlujoLayout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BttnProceso)
-                                    .addComponent(BttnData))
-                                .addGap(56, 56, 56)
-                                .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(BttnInicioFin)
-                                    .addComponent(BttnDecision)))))
-                    .addGroup(FigurasFlujoLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FigurasFlujoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                                    .addComponent(jLabel19)
+                                    .addGroup(FigurasFlujoLayout.createSequentialGroup()
+                                        .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(BttnProceso)
+                                            .addComponent(BttnData))
+                                        .addGap(56, 56, 56)
+                                        .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(BttnInicioFin)
+                                            .addComponent(BttnDecision)))))
+                            .addGroup(FigurasFlujoLayout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         FigurasFlujoLayout.setVerticalGroup(
             FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -843,9 +891,11 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(FigurasFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BttnInicioFin)
                     .addComponent(BttnData))
-                .addGap(30, 30, 30)
-                .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addComponent(jButton52, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -1626,6 +1676,79 @@ public class Menu extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel22.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel22.setText("Diagrama de Flujo");
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Flujo");
+        jt_Flujo.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_Flujo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_FlujoMouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(jt_Flujo);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
+                        .addComponent(jLabel22)))
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel22)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout JD_ArbolFlujoLayout = new javax.swing.GroupLayout(JD_ArbolFlujo.getContentPane());
+        JD_ArbolFlujo.getContentPane().setLayout(JD_ArbolFlujoLayout);
+        JD_ArbolFlujoLayout.setHorizontalGroup(
+            JD_ArbolFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        JD_ArbolFlujoLayout.setVerticalGroup(
+            JD_ArbolFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        mi_agregarEspe.setText("Agregar a Condicion/Ciclo\n");
+        mi_agregarEspe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_agregarEspeActionPerformed(evt);
+            }
+        });
+        pop_addspecifically.add(mi_agregarEspe);
+
+        mi_addNod.setText("Agregar");
+        mi_addNod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_addNodActionPerformed(evt);
+            }
+        });
+        pop_agregar.add(mi_addNod);
+
+        mi_deleteNod.setText("Eliminar");
+        mi_deleteNod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_deleteNodActionPerformed(evt);
+            }
+        });
+        pop_eliminar.add(mi_deleteNod);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mini Python");
         setResizable(false);
@@ -2286,7 +2409,8 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton2.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton2.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton2.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+                ((ClaseHeredada) ultimoclick).getJp_extension().setBackground(jButton2.getBackground());
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton2.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton2.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton2.getBackground());
@@ -2550,7 +2674,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton9.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton9.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton9.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton9.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton9.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton9.getBackground());
@@ -2583,7 +2707,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton16.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton16.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton16.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton16.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton16.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton16.getBackground());
@@ -2616,7 +2740,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton10.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton10.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton10.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton10.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton10.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton10.getBackground());
@@ -2649,7 +2773,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton15.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton15.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton15.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton15.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton15.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton15.getBackground());
@@ -2748,7 +2872,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseNormal) ultimoclick).getPn_nomclase().setBackground(jButton12.getBackground());
                 ((ClaseNormal) ultimoclick).getPn_lblatributos().setBackground(jButton12.getBackground());
                 ((ClaseNormal) ultimoclick).getPn_lblmetodos().setBackground(jButton12.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton12.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton12.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton12.getBackground());
@@ -2781,7 +2905,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton18.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton18.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton18.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton18.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton18.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton18.getBackground());
@@ -2847,7 +2971,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton19.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton19.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton19.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton19.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton19.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton19.getBackground());
@@ -2880,7 +3004,7 @@ public class Menu extends javax.swing.JFrame {
                 ((ClaseHeredada) ultimoclick).getPn_nomclase().setBackground(jButton21.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblatributos().setBackground(jButton21.getBackground());
                 ((ClaseHeredada) ultimoclick).getPn_lblmetodos().setBackground(jButton21.getBackground());
-            }  else if (ultimoclick instanceof AbstractaHeredada) {
+            } else if (ultimoclick instanceof AbstractaHeredada) {
                 ultimoclick.setBackground(jButton21.getBackground());
                 ((AbstractaHeredada) ultimoclick).getTitulo().setBackground(jButton21.getBackground());
                 ((AbstractaHeredada) ultimoclick).getAtributo().setBackground(jButton21.getBackground());
@@ -3235,7 +3359,7 @@ public class Menu extends javax.swing.JFrame {
             ((AbstractaHeredada) ult).getTextPane1().setFont(newfo);
         } else if (ult instanceof Interfaz) {
             ((Interfaz) ult).getTp_metodos().setFont(newfo);
-        } 
+        }
     }//GEN-LAST:event_jButton42ActionPerformed
 
     private void BttnDecisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnDecisionActionPerformed
@@ -3249,7 +3373,26 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_BttnDecisionActionPerformed
 
     private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
-        // TODO add your handling code here:
+        try {
+
+            ta_codFinal1.setText("");
+
+            DefaultTreeModel m = (DefaultTreeModel) jt_Flujo.getModel();
+            DefaultMutableTreeNode root = (DefaultMutableTreeNode) m.getRoot();
+
+            AdminTreeFLujo arbolFlujo = new AdminTreeFLujo();
+
+            arbolFlujo.translate(root, ta_codFinal1);
+
+            JD_CodigoFlujo.pack();
+            JD_CodigoFlujo.setModal(true);
+            JD_CodigoFlujo.setLocationRelativeTo(JD_Flujo);
+            JD_CodigoFlujo.setVisible(true);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al generar codigo");
+        }
     }//GEN-LAST:event_jButton49ActionPerformed
 
     private void BttnInicioFinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttnInicioFinActionPerformed
@@ -3287,11 +3430,11 @@ public class Menu extends javax.swing.JFrame {
         ObjectOutputStream bw = null;
 
         if (seleccion == JFileChooser.APPROVE_OPTION) {
-            
+
             try {
                 File file = null;
                 if (jfc.getFileFilter().getDescription().equals("Archivos UML")) {
-                    file = new File(jfc.getSelectedFile().getPath()+".dvp");
+                    file = new File(jfc.getSelectedFile().getPath() + ".dvp");
                 } else {
                     file = jfc.getSelectedFile();
                 }
@@ -3306,21 +3449,21 @@ public class Menu extends javax.swing.JFrame {
                         bw.writeObject(dat);
                         bw.flush();
                     } else if (fig instanceof ClaseAbstracta) {
-                        
+
                         ClaseAbstracta temp = (ClaseAbstracta) fig;
                         DatosAbstracta dat = genDatosCA(temp);
                         bw.writeObject(dat);
                         bw.flush();
 
                     } else if (fig instanceof ClaseHeredada) {
-                        
+
                         ClaseHeredada temp = (ClaseHeredada) fig;
                         DatosHerencia dat = genDatosCH(temp);
                         bw.writeObject(dat);
                         bw.flush();
 
                     } else if (fig instanceof Interfaz) {
-                        
+
                         Interfaz temp = (Interfaz) fig;
                         DatosInterfaz dat = genDatosIF(temp);
                         bw.writeObject(dat);
@@ -3329,11 +3472,11 @@ public class Menu extends javax.swing.JFrame {
 
                 }
 
-                JOptionPane.showMessageDialog(this, "Guardado exitosamente!");
+                JOptionPane.showMessageDialog(JD_UML, "Guardado exitosamente!");
                 clasesUML.clear();
                 JP_UML.removeAll();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error");
+                JOptionPane.showMessageDialog(JD_UML, "Error");
                 e.printStackTrace();
             }
             try {
@@ -3348,16 +3491,6 @@ public class Menu extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_GuardarUMLActionPerformed
-
-    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
-        Font fuente = new Font("Arial", Font.PLAIN, 12);
-
-        FiguraCiclo ciclo = new FiguraCiclo(fuente, 100, 100, 200, 200);
-        MesaTrabajo.add(ciclo);
-        ciclo.revalidate();
-        MesaTrabajo.repaint();
-        clasesFlujo.add(ciclo);
-    }//GEN-LAST:event_jButton43ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         FiguraFlujo ultc = FiguraFlujo.getUltimoclickeado();
@@ -3941,22 +4074,17 @@ public class Menu extends javax.swing.JFrame {
             int sel = jfc.showOpenDialog(this);
 
             if (sel == JFileChooser.APPROVE_OPTION) {
-                
+
                 file = jfc.getSelectedFile();
                 input = new FileInputStream(file);
                 obj = new ObjectInputStream(input);
-                
-                
-                
-                
-                
+
                 int wannaCopy = JOptionPane.showConfirmDialog(this, "Desea copiar el diagrama seleccionado a este proyecto?");
-                
-                if(wannaCopy != JOptionPane.YES_OPTION){
+
+                if (wannaCopy != JOptionPane.YES_OPTION) {
                     MesaUML.removeAll();
                     clasesUML.clear();
                 }
-                
 
                 try {
                     //continuar deserializando
@@ -3964,40 +4092,34 @@ public class Menu extends javax.swing.JFrame {
                         Object objectDeserializado = obj.readObject();
 
                         if (objectDeserializado instanceof DatosUML) {
-                            
+
                             DatosUML tempClass = (DatosUML) objectDeserializado;
                             ClaseNormal clas = DatostogenCG(tempClass);
 
                             deserializadas.add(clas);
                             //jp_umlWork.add(clas);
-                            
 
                         } else if (objectDeserializado instanceof DatosAbstracta) {
-                           
+
                             DatosAbstracta tempClass = (DatosAbstracta) objectDeserializado;
                             ClaseAbstracta clas = DatostogenCA(tempClass);
-                            
-
 
                             deserializadas.add(clas);
                         } else if (objectDeserializado instanceof DatosHerencia) {
-                            
+
                             DatosHerencia tempClass = (DatosHerencia) objectDeserializado;
                             ClaseHeredada clas = DatostogenCH(tempClass);
-
 
                             deserializadas.add(clas);
 
                         } else if (objectDeserializado instanceof DatosInterfaz) {
-                            
+
                             DatosInterfaz tempClass = (DatosInterfaz) objectDeserializado;
                             Interfaz clas = DatostogenIF(tempClass);
-                           
-
 
                             deserializadas.add(clas);
                         }
-                        
+
                     }
                 } catch (EOFException e) {
                     //llega al final del archivo
@@ -4005,7 +4127,7 @@ public class Menu extends javax.swing.JFrame {
                 for (Object desFig : deserializadas) {
                     if (desFig instanceof ClaseNormal) {
                         ClaseNormal temp = (ClaseNormal) desFig;
-                        
+
                         clasesUML.add(temp);
                         MesaUML.add(temp);
                         temp.revalidate();
@@ -4047,14 +4169,14 @@ public class Menu extends javax.swing.JFrame {
                 }
 
                 System.out.println(deserializadas);
-                JOptionPane.showMessageDialog(this, MesaUML.getComponentCount());
+                JOptionPane.showMessageDialog(JD_UML, MesaUML.getComponentCount());
 
                 MesaUML.revalidate();
                 MesaUML.repaint();
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al cargar archivo");
+            JOptionPane.showMessageDialog(JD_UML, "Error al cargar archivo");
             e.printStackTrace();
         }
 
@@ -4201,7 +4323,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton50ActionPerformed
 
     private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
-       FiguraFlujo ult = FiguraFlujo.getUltimoclickeado();
+        FiguraFlujo ult = FiguraFlujo.getUltimoclickeado();
         Font newfo = null;
 
         if (cb_EstiloFlujo.getSelectedIndex() == 0) {
@@ -4257,11 +4379,11 @@ public class Menu extends javax.swing.JFrame {
             } else if (ultselect instanceof FiguraData) {
                 ((FiguraData) ultselect).getTextArea().setForeground(newcol);
                 ((FiguraData) ultselect).getTextField().setForeground(newcol);
-            } 
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
-        }        
+        }
     }//GEN-LAST:event_jButton51ActionPerformed
 
     private void GuardarPNG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPNG1ActionPerformed
@@ -4343,16 +4465,353 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_GuardarPNGPDF1ActionPerformed
 
     private void GuardarUML1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarUML1ActionPerformed
-        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        jfc.setCurrentDirectory(new File("C:\\Users\\HP\\Desktop\\ProyectoP2 Pruebas"));
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(
+                "Archivos Flujo",
+                "owo");
+        jfc.setFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(MesaTrabajo);
+
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            
+            try {
+                File file = null;
+                if (jfc.getFileFilter().getDescription().equals("Archivos Flujo")) {
+                    file = new File(jfc.getSelectedFile().getPath()+".owo");
+                } else {
+                    file = jfc.getSelectedFile();
+                }
+                fw = new FileOutputStream(file);
+                bw = new ObjectOutputStream(fw);
+                
+                Component [] figuras = MesaTrabajo.getComponents();
+
+                for (Component fig : figuras) {
+
+                    if (fig instanceof FiguraInicio) {
+                        FiguraInicio temp = (FiguraInicio) fig;
+                        DatosInicio dat = genDatosIniFin(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+                    } else if (fig instanceof FiguraData) {
+                        
+                        FiguraData temp = (FiguraData) fig;
+                        DatosData dat = genDatosLit(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+
+                    } else if (fig instanceof FiguraProceso) {
+                        
+                        FiguraProceso temp = (FiguraProceso) fig;
+                        DatosProceso dat = genDatosProceso(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+
+                    } else if (fig instanceof FiguraDecision) {
+                        
+                        FiguraDecision temp = (FiguraDecision) fig;
+                        DatosDecision dat = genDatosRombo(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+                    }
+                    else if (fig instanceof FiguraCiclo) {
+                        
+                        FiguraCiclo temp = (FiguraCiclo) fig;
+                        DatosCiclo dat = genDatosCiclo(temp);
+                        bw.writeObject(dat);
+                        bw.flush();
+                    }
+
+                }
+                DatosTree arbx = new DatosTree(jt_Flujo);
+                bw.writeObject(arbx);
+                bw.flush();
+
+                JOptionPane.showMessageDialog(JD_UML, "Guardado exitosamente!");
+                clasesUML.clear();
+                MesaTrabajo.removeAll();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(JD_UML, "Error");
+                e.printStackTrace();
+            }
+            try {
+                bw.close();
+                fw.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
     }//GEN-LAST:event_GuardarUML1ActionPerformed
 
     private void AbrirUML1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirUML1ActionPerformed
-        // TODO add your handling code here:
+        File file = null;
+        FileInputStream input = null;
+        ObjectInputStream obj = null;
+        ArrayList deserializadas = new ArrayList();
+
+        try {
+            JFileChooser jfc = new JFileChooser();
+
+            jfc.setCurrentDirectory(new File("C:\\Users\\HP\\Desktop\\ProyectoP2 Pruebas"));
+
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos Flujo", "owo");
+
+            jfc.setFileFilter(filtro);
+
+            int sel = jfc.showOpenDialog(this);
+
+            if (sel == JFileChooser.APPROVE_OPTION) {
+
+                file = jfc.getSelectedFile();
+                input = new FileInputStream(file);
+                obj = new ObjectInputStream(input);
+
+                int wannaCopy = JOptionPane.showConfirmDialog(this, "Desea copiar el diagrama seleccionado a este proyecto?");
+
+                if (wannaCopy != JOptionPane.YES_OPTION) {
+                    MesaTrabajo.removeAll();
+                    repaint();
+                }
+
+                try {
+                    //continuar deserializando
+                    while (true) {
+                        Object objectDeserializado = obj.readObject();
+
+                        if (objectDeserializado instanceof DatosInicio) {
+
+                            DatosInicio tempClass = (DatosInicio) objectDeserializado;
+                            FiguraInicio clas = generarInicioFin(tempClass);
+
+                            deserializadas.add(clas);
+                            //jp_umlWork.add(clas);
+
+                        } else if (objectDeserializado instanceof DatosProceso) {
+
+                            DatosProceso tempClass = (DatosProceso) objectDeserializado;
+                            FiguraProceso clas = generarProceso(tempClass);
+
+                            deserializadas.add(clas);
+
+                        } else if (objectDeserializado instanceof DatosData) {
+
+                            DatosData tempClass = (DatosData) objectDeserializado;
+                            FiguraData clas = generarBlqDatos(tempClass);
+
+                            deserializadas.add(clas);
+
+                        } else if (objectDeserializado instanceof DatosDecision) {
+
+                            DatosDecision tempClass = (DatosDecision) objectDeserializado;
+                            FiguraDecision clas = generarRombo(tempClass);
+
+                            deserializadas.add(clas);
+                        } else if (objectDeserializado instanceof DatosCiclo) {
+
+                            DatosCiclo tempClass = (DatosCiclo) objectDeserializado;
+                            FiguraCiclo clas = generarCiclo(tempClass);
+                            deserializadas.add(clas);
+                        } else if (objectDeserializado instanceof DatosTree) {
+
+                            DatosTree mod = (DatosTree) objectDeserializado;
+                            DefaultTreeModel modelo = (DefaultTreeModel) mod.getDiag().getModel();
+                            jt_Flujo.setModel(modelo);
+                        }
+
+                    }
+                } catch (EOFException e) {
+                    //llega al final del archivo
+                }
+                for (Object desFig : deserializadas) {
+                    if (desFig instanceof FiguraInicio) {
+                        FiguraInicio temp = (FiguraInicio) desFig;
+
+                        MesaTrabajo.add(temp);
+                        temp.revalidate();
+                        temp.repaint();
+                        temp.setVisible(true);
+                        MesaTrabajo.revalidate();
+                        MesaTrabajo.repaint();
+
+                    } else if (desFig instanceof FiguraData) {
+                        FiguraData temp = (FiguraData) desFig;
+
+                        MesaTrabajo.add(temp);
+                        temp.revalidate();
+                        temp.repaint();
+                        temp.setVisible(true);
+                        MesaTrabajo.revalidate();
+                        MesaTrabajo.repaint();
+                    } else if (desFig instanceof FiguraProceso) {
+                        FiguraProceso temp = (FiguraProceso) desFig;
+
+                        MesaTrabajo.add(temp);
+                        temp.revalidate();
+                        temp.repaint();
+                        temp.setVisible(true);
+                        MesaTrabajo.revalidate();
+                        MesaTrabajo.repaint();
+
+                    } else if (desFig instanceof FiguraDecision) {
+                        FiguraDecision temp = (FiguraDecision) desFig;
+
+                        MesaTrabajo.add(temp);
+                        temp.revalidate();
+                        temp.repaint();
+                        temp.setVisible(true);
+                        MesaTrabajo.revalidate();
+                        MesaTrabajo.repaint();
+                    } else if (desFig instanceof FiguraCiclo) {
+                        FiguraCiclo temp = (FiguraCiclo) desFig;
+
+                        MesaTrabajo.add(temp);
+                        temp.revalidate();
+                        temp.repaint();
+                        temp.setVisible(true);
+                        MesaTrabajo.revalidate();
+                        MesaTrabajo.repaint();
+                    }
+                }
+
+                System.out.println(deserializadas);
+                JOptionPane.showMessageDialog(this, MesaTrabajo.getComponentCount());
+
+                MesaTrabajo.revalidate();
+                MesaTrabajo.repaint();
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al cargar archivo");
+            e.printStackTrace();
+        }
+
+        try {
+            input.close();
+            obj.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_AbrirUML1ActionPerformed
 
     private void ImprimirUML1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirUML1ActionPerformed
         PrintRecord(MesaTrabajo);
     }//GEN-LAST:event_ImprimirUML1ActionPerformed
+
+    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        JD_ArbolFlujo.pack();
+        JD_ArbolFlujo.setModal(true);
+        JD_ArbolFlujo.setLocationRelativeTo(this);
+        JD_ArbolFlujo.setVisible(true);
+    }//GEN-LAST:event_jButton53ActionPerformed
+
+    private void jt_FlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_FlujoMouseClicked
+        if (evt.isMetaDown()) {
+
+            selectedNode = (DefaultMutableTreeNode) jt_Flujo.getLastSelectedPathComponent();
+
+            try {
+                if (selectedNode.getUserObject().equals("Camino IF") || selectedNode.getUserObject().equals("Camino ELSE")) {
+                    pop_agregar.show(evt.getComponent(), evt.getX(), evt.getY());
+                } else {
+                    pop_eliminar.show(evt.getComponent(), evt.getX(), evt.getY());
+                }
+            } catch (NullPointerException e) {
+                //JOptionPane.showMessageDialog(this, "Seleccione un nodo adentro del bucle o condicional al que quiera agregar!");
+                e.printStackTrace();
+            }
+
+        }
+    }//GEN-LAST:event_jt_FlujoMouseClicked
+
+    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+    }//GEN-LAST:event_jButton52ActionPerformed
+
+    private void jButton52MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton52MouseClicked
+        if (evt.isMetaDown()) {
+            pop_addspecifically.show(evt.getComponent(), evt.getX(), evt.getY());
+        } else {
+            try {
+                FiguraFlujo ult = FiguraFlujo.getUltimoclickeado();
+                GenerarArb(ult);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }//GEN-LAST:event_jButton52MouseClicked
+
+    private void mi_agregarEspeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_agregarEspeActionPerformed
+        JD_ArbolFlujo.pack();
+        JD_ArbolFlujo.setModal(true);
+        JD_ArbolFlujo.setLocationRelativeTo(JD_Flujo);
+        JD_ArbolFlujo.setVisible(true);
+    }//GEN-LAST:event_mi_agregarEspeActionPerformed
+
+    private void mi_addNodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_addNodActionPerformed
+
+        DefaultTreeModel m = (DefaultTreeModel) jt_Flujo.getModel();
+        String figTit = "";
+
+        FiguraFlujo currentSel = FiguraFlujo.getUltimoclickeado();
+
+        if (selectedNode != null && currentSel != null) {
+            if (currentSel instanceof FiguraProceso) {
+                FiguraProceso temp = (FiguraProceso) currentSel;
+                figTit = "Proceso: " + temp.getTextArea().getText();
+                DefaultMutableTreeNode sigInstru = new DefaultMutableTreeNode(figTit);
+                selectedNode.add(sigInstru);
+
+            } else if (currentSel instanceof FiguraDecision) {
+                FiguraDecision temp = (FiguraDecision) currentSel;
+                generarIf(temp, selectedNode);
+                condiciones.add(temp);
+            } else if (currentSel instanceof FiguraData) {
+                FiguraData temp = (FiguraData) currentSel;
+                figTit = "Datos: " + temp.getTextArea().getText();
+                DefaultMutableTreeNode sigInstru = new DefaultMutableTreeNode(figTit);
+                selectedNode.add(sigInstru);
+            } else if (currentSel instanceof FiguraInicio) {
+                FiguraInicio temp = (FiguraInicio) currentSel;
+                figTit = "#" + temp.getText().getText();
+                DefaultMutableTreeNode sigInstru = new DefaultMutableTreeNode(figTit);
+                selectedNode.add(sigInstru);
+            }
+        }
+
+        m.reload();
+    }//GEN-LAST:event_mi_addNodActionPerformed
+
+    private void mi_deleteNodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_deleteNodActionPerformed
+        DefaultTreeModel m = (DefaultTreeModel) jt_Flujo.getModel();
+        FiguraFlujo currentSel = FiguraFlujo.getUltimoclickeado();
+
+        if (selectedNode != null && currentSel != null) {
+            int op = JOptionPane.showConfirmDialog(this, "Esta seguro que desea eliminar el nodo?");
+
+            if (op == JOptionPane.YES_OPTION) {
+                m.removeNodeFromParent(selectedNode);
+            }
+
+        }
+
+        m.reload();
+    }//GEN-LAST:event_mi_deleteNodActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        FiguraCiclo nciclo = new FiguraCiclo(jButton43.getFont(), MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), 100, 200);
+        MesaTrabajo.add(nciclo);
+        nciclo.revalidate();
+        MesaTrabajo.repaint();
+
+        clasesFlujo.add(nciclo);
+    }//GEN-LAST:event_jButton43ActionPerformed
 
     private void PrintRecord(JPanel panel) {
 
@@ -4429,36 +4888,36 @@ public class Menu extends javax.swing.JFrame {
         return new Point(x, y);
     }
 
-    public DatosUML genDatosCG (ClaseNormal abc){
-        System.out.println("Hijos del parametro: "+ abc.getHijos());
+    public DatosUML genDatosCG(ClaseNormal abc) {
+        System.out.println("Hijos del parametro: " + abc.getHijos());
         String nom = abc.getTitulo().getText();
         DatosUML temp = new DatosUML(nom, abc.getWidth(), abc.getHeight(), abc.getAtributos().getText(), abc.getMetodos().getText(), abc.getAtributos().getFont(), abc.getBackground());
         temp.setHijos(abc.getHijos());
-        System.out.println("Hijos del serializable: "+temp.getHijos());
+        System.out.println("Hijos del serializable: " + temp.getHijos());
         return temp;
     }
-    
-    public DatosAbstracta genDatosCA (ClaseAbstracta def){
+
+    public DatosAbstracta genDatosCA(ClaseAbstracta def) {
         DatosAbstracta temp = new DatosAbstracta(def.getNewLabel().getText(), def.getWidth(), def.getHeight(), def.getTextPane1().getText(), def.getTextPane1().getFont(), def.getBackground());
         temp.setHijos(def.getHijos());
         return temp;
     }
-    
-    public DatosHerencia genDatosCH (ClaseHeredada ghi){
+
+    public DatosHerencia genDatosCH(ClaseHeredada ghi) {
         DatosHerencia temp = new DatosHerencia(ghi.getTitulo().getText(), ghi.getWidth(), ghi.getHeight(), ghi.getAtributos().getText(), ghi.getMetodos().getText(), ghi.getAtributos().getFont(), ghi.getBackground(), ghi.getPadre());
         temp.setHijos(ghi.getHijos());
         return temp;
     }
-    
-    public DatosInterfaz genDatosIF (Interfaz jkl){
+
+    public DatosInterfaz genDatosIF(Interfaz jkl) {
         DatosInterfaz temp = new DatosInterfaz(jkl.getNominter().getText(), jkl.getWidth(), jkl.getHeight(), jkl.getTp_metodos().getText(), jkl.getTp_metodos().getFont(), jkl.getBackground());
         return temp;
     }
-    
-     public ClaseNormal DatostogenCG (DatosUML abc){
+
+    public ClaseNormal DatostogenCG(DatosUML abc) {
         String n = "";
-        System.out.println("Hijos del desempacador: "+abc.getHijos());
-        System.out.println(abc.getNombre()+" Hola");
+        System.out.println("Hijos del desempacador: " + abc.getHijos());
+        System.out.println(abc.getNombre() + " Hola");
         ClaseNormal temp = new ClaseNormal(abc.getFontt(), MesaUML.getWidth(), MesaUML.getHeight(), n, MesaUML);
         temp.getTitulo().setText(abc.getNombre());
         temp.getAtributos().setText(abc.getAtris());
@@ -4471,32 +4930,30 @@ public class Menu extends javax.swing.JFrame {
         temp.getPn_lblmetodos().setBackground(abc.getBgc());
         temp.setLocation(10, 10);
         temp.setHijos(abc.getHijos());
-        System.out.println("Hijos del nuevo clasegnrl: "+temp.getHijos());
-        
-        
+        System.out.println("Hijos del nuevo clasegnrl: " + temp.getHijos());
+
         return temp;
 
     }
-    
-    public ClaseAbstracta DatostogenCA (DatosAbstracta def){
+
+    public ClaseAbstracta DatostogenCA(DatosAbstracta def) {
         String n = "";
         ClaseAbstracta abs = new ClaseAbstracta(def.getFontt(), MesaUML.getWidth(), MesaUML.getHeight(), n, MesaUML);
         abs.getNewLabel().setText(def.getNombre());
         abs.getTextPane1().setText(def.getMetos());
         abs.getTextPane1().setFont(def.getFontt());
         abs.setHijos(def.getHijos());
-        
+
         abs.setBackground(def.getBgc());
         abs.getNewLabel().setBackground(def.getBgc());
         abs.getTextPane().setBackground(def.getBgc());
-        
-        abs.setLocation(10,10);
-        
-        
+
+        abs.setLocation(10, 10);
+
         return abs;
     }
-    
-    public ClaseHeredada DatostogenCH (DatosHerencia ghi){
+
+    public ClaseHeredada DatostogenCH(DatosHerencia ghi) {
         String n = "";
         ClaseHeredada her = new ClaseHeredada(ghi.getFontt(), MesaUML.getWidth(), MesaUML.getHeight(), n, MesaUML, ghi.getPadre());
         her.getNomclase().setText(ghi.getNombre());
@@ -4505,55 +4962,50 @@ public class Menu extends javax.swing.JFrame {
         her.getTp_metodos().setText(ghi.getMetos());
         her.getTp_metodos().setFont(ghi.getFontt());
         her.setHijos(ghi.getHijos());
-        
+
         her.setBackground(ghi.getBgc());
         her.getJp_extension().setBackground(ghi.getBgc());
         her.getJp_nomclase().setBackground(ghi.getBgc());
         her.getJp_atributos().setBackground(ghi.getBgc());
         her.getJp_metodos().setBackground(ghi.getBgc());
-        
+
         FiguraClase padre = ghi.getPadre();
-        
-        if (padre instanceof ClaseNormal){
+
+        if (padre instanceof ClaseNormal) {
             her.getExtension().setText("extends " + ((ClaseNormal) padre).getTitulo().getText());
-            
+
         }
-        if (padre instanceof ClaseAbstracta){
+        if (padre instanceof ClaseAbstracta) {
             her.getExtension().setText("extends " + ((ClaseAbstracta) padre).getNewLabel().getText());
-            
+
         }
-        if (padre instanceof ClaseHeredada){
+        if (padre instanceof ClaseHeredada) {
             her.getExtension().setText("extends " + ((ClaseHeredada) padre).getNomclase().getText());
-            
+
         }
-        
-        her.setLocation(200,10);
-        
-        
-        
+
+        her.setLocation(200, 10);
+
         return her;
     }
-    
-    public Interfaz DatostogenIF(DatosInterfaz jkl){
+
+    public Interfaz DatostogenIF(DatosInterfaz jkl) {
         String label = "";
         Interfaz inter = new Interfaz(jkl.getFontf(), MesaUML.getWidth(), MesaUML.getHeight(), label, MesaUML);
-        
+
         inter.getNominter().setText(jkl.getNombre());
         inter.getTp_metodos().setText(jkl.getMetos());
         inter.getTp_metodos().setFont(jkl.getFontf());
-        
-        
+
         inter.getJp_nominter().setBackground(jkl.getCol());
         inter.getJp_metodos().setBackground(jkl.getCol());
-        
+
         inter.setLocation(400, 10);
-        
-        
-        
+
         return inter;
-        
+
     }
-    
+
     public String codigoUML() {
         String codeinstr = "";
         for (FiguraClase instca : clasesUML) {
@@ -4829,6 +5281,260 @@ public class Menu extends javax.swing.JFrame {
         }
     }
 
+    public void generarWhile(FiguraDecision temp, DefaultMutableTreeNode c) {
+
+        String figTit = "while " + temp.getTextArea().getText() + ":";
+
+        DefaultMutableTreeNode figName = new DefaultMutableTreeNode(figTit);
+
+        DefaultMutableTreeNode verdadero = new DefaultMutableTreeNode("True");
+        DefaultMutableTreeNode falso = new DefaultMutableTreeNode("False");
+
+        figName.add(verdadero);
+        figName.add(falso);
+
+        c.add(figName);
+    }
+
+    public void generarIf(FiguraDecision temp, DefaultMutableTreeNode c) {
+
+        String figTit = "If " + temp.getTextArea().getText() + ":";
+
+        DefaultMutableTreeNode figName = new DefaultMutableTreeNode(figTit);
+
+        DefaultMutableTreeNode verdadero = new DefaultMutableTreeNode("True");
+        DefaultMutableTreeNode falso = new DefaultMutableTreeNode("False");
+
+        figName.add(verdadero);
+        figName.add(falso);
+
+        c.add(figName);
+    }
+
+    //metodo para generar arbol
+    public void GenerarArb(JPanel jp) {
+
+        DefaultTreeModel modelo = (DefaultTreeModel) jt_Flujo.getModel();
+
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) modelo.getRoot();
+
+        String figTit = "";
+
+        if (jp instanceof FiguraProceso) {
+            FiguraProceso temp = (FiguraProceso) jp;
+
+            figTit = "Proceso: " + temp.getTextArea().getText();
+
+            DefaultMutableTreeNode figName = new DefaultMutableTreeNode(figTit);
+
+            root.add(figName);
+
+            JOptionPane.showMessageDialog(JD_Flujo, "Se ha cargado la informacion exitosamente!");
+
+        }
+        if (jp instanceof FiguraDecision) {
+            FiguraDecision temp = (FiguraDecision) jp;
+
+            generarIf(temp, root);
+            JOptionPane.showMessageDialog(JD_Flujo, "Se ha cargado la informacion exitosamente!");
+
+        }
+
+        if (jp instanceof FiguraCiclo) {
+            FiguraCiclo temp = (FiguraCiclo) jp;
+            generarCiclo(temp, root);
+            JOptionPane.showMessageDialog(JD_Flujo, "Se ha cargado la informacion exitosamente!");
+
+        }
+        if (jp instanceof FiguraInicio) {
+            FiguraInicio temp = (FiguraInicio) jp;
+            figTit = "#" + temp.getText().getText();
+            DefaultMutableTreeNode figName = new DefaultMutableTreeNode(figTit);
+            root.add(figName);
+            JOptionPane.showMessageDialog(JD_Flujo, "Se ha cargado la informacion exitosamente!");
+
+        }
+        if (jp instanceof FiguraData) {
+            FiguraData temp = (FiguraData) jp;
+            figTit = "Datos: " + temp.getTextArea().getText();
+            DefaultMutableTreeNode figName = new DefaultMutableTreeNode(figTit);
+            root.add(figName);
+            JOptionPane.showMessageDialog(JD_Flujo, "Se ha cargado la informacion exitosamente!");
+
+        }
+
+        modelo.reload();
+
+    }
+
+    public void generarCiclo(FiguraCiclo temp, DefaultMutableTreeNode c) {
+        String figTit = "while " + temp.getTextA().getText() + ":";
+
+        DefaultMutableTreeNode figName = new DefaultMutableTreeNode(figTit);
+
+        DefaultMutableTreeNode verdadero = new DefaultMutableTreeNode("Camino TRUE");
+
+        figName.add(verdadero);
+
+        c.add(figName);
+    }
+
+    public void recorrer(DefaultMutableTreeNode node, StringBuilder code, String indent) {
+        String nodeValue = node.toString();
+
+        //si encuentra un primer bucle while
+        if (nodeValue.startsWith("while ")) {
+
+            code.append(indent).append(nodeValue).append("\n");
+            Enumeration<?> hijos = node.children();
+            while (hijos.hasMoreElements()) {
+                DefaultMutableTreeNode condVer = (DefaultMutableTreeNode) hijos.nextElement();
+                if (condVer.toString().equals("True")) {
+                    recorrer(condVer, code, indent + "    ");
+                }
+            }
+        } //si encuentra una condicional If
+        else if (nodeValue.startsWith("if ")) {
+            //JOptionPane.showMessageDialog(null, "Procesando nodo: " + nodeValue);
+            code.append(indent).append(nodeValue).append("\n");
+            Enumeration<?> hijos = node.children();
+
+            while (hijos.hasMoreElements()) {
+                DefaultMutableTreeNode condicion = (DefaultMutableTreeNode) hijos.nextElement();
+                if (condicion.toString().equals("True")) {
+
+                    recorrer(condicion, code, indent + "    ");
+                } else if (condicion.toString().equals("False")) {
+                    code.append(indent).append("else:\n");
+                    recorrer(condicion, code, indent + "    ");
+                }
+            }
+        } //en caso de encontrar un nodo que sea proceso o lectura de datos
+        else if (nodeValue.startsWith("Proceso: ")) {
+            String newNodeValue = nodeValue.replace("Proceso: ", "");
+            String newString = "";
+
+            if (newNodeValue.contains("imprimir ")) {
+                newString = newNodeValue.replace("imprimir ", "");
+                code.append(indent).append("print(").append(newString).append(")").append("\n");
+            } else {
+                code.append(indent).append(newNodeValue).append("\n");
+            }
+
+            Enumeration<?> hijos = node.children();
+
+            while (hijos.hasMoreElements()) {
+                DefaultMutableTreeNode condicion = (DefaultMutableTreeNode) hijos.nextElement();
+                recorrer(condicion, code, indent);
+            }
+        } else if (nodeValue.startsWith("Datos: ")) {
+            String newNodeValue = nodeValue.replace("Datos: ", "");
+            code.append(indent).append(newNodeValue).append(": ").append("Input(\"Ingrese el valor de ").append(newNodeValue).append(": \")").append("\n");
+            Enumeration<?> hijos = node.children();
+
+            while (hijos.hasMoreElements()) {
+                DefaultMutableTreeNode condicion = (DefaultMutableTreeNode) hijos.nextElement();
+                recorrer(condicion, code, indent);
+            }
+        } else if (nodeValue.startsWith("#")) {
+
+            code.append(indent).append(nodeValue).append("\n\n ");
+            Enumeration<?> hijos = node.children();
+
+            while (hijos.hasMoreElements()) {
+                DefaultMutableTreeNode condicion = (DefaultMutableTreeNode) hijos.nextElement();
+                recorrer(condicion, code, indent);
+            }
+        } else {
+
+            //code.append(indent).append(nodeValue).append("\n");
+            Enumeration<?> hijos = node.children();
+
+            while (hijos.hasMoreElements()) {
+                DefaultMutableTreeNode condicion = (DefaultMutableTreeNode) hijos.nextElement();
+                recorrer(condicion, code, indent);
+            }
+        }
+    }
+
+    public DatosInicio genDatosIniFin(FiguraInicio abc) {
+        DatosInicio temp = new DatosInicio(abc.getColor(), abc.getText().getFont(), abc.getText().getText(), abc.getWidth(), abc.getHeight());
+        return temp;
+    }
+
+    public DatosData genDatosLit(FiguraData def) {
+        DatosData temp = new DatosData(def.getColor(), def.getTextArea().getFont(), def.getTextArea().getText(), def.getWidth(), def.getHeight());
+        return temp;
+    }
+
+    public DatosProceso genDatosProceso(FiguraProceso ghi) {
+        DatosProceso temp = new DatosProceso(ghi.getColor(), ghi.getTextArea().getFont(), ghi.getTextArea().getText(), ghi.getWidth(), ghi.getHeight());
+        return temp;
+    }
+
+    public DatosDecision genDatosRombo(FiguraDecision jkl) {
+        DatosDecision temp = new DatosDecision(jkl.getColor(), jkl.getTextArea().getFont(), jkl.getTextArea().getText(), jkl.getWidth(), jkl.getHeight());
+        return temp;
+    }
+
+    public DatosCiclo genDatosCiclo(FiguraCiclo mno) {
+        DatosCiclo temp = new DatosCiclo(mno.getColor(), mno.getTextA().getFont(), mno.getTextA().getText(), mno.getWidth(), mno.getHeight());
+        return temp;
+    }
+
+    //Metodos para DeSerializar FLUJO
+    public FiguraInicio generarInicioFin(DatosInicio x) {
+        FiguraInicio temp = new FiguraInicio(fuente, MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), WIDTH, WIDTH);
+        temp.setColorBG(x.getBgc());
+        temp.getText().setText(x.getInst());
+        temp.getText().setFont(x.getFontf());
+        temp.setBounds(10, 10, x.getWidth(), x.getHeight());
+
+        return temp;
+
+    }
+
+    public FiguraData generarBlqDatos(DatosData ab) {
+        FiguraData temp = new FiguraData(fuente, MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), WIDTH, WIDTH);
+        temp.setColorBG(ab.getBgc());
+        temp.getTextArea().setText(ab.getInst());
+        temp.getTextArea().setFont(ab.getFontf());
+        temp.setBounds(100, 10, ab.getWidth(), ab.getHeight());
+
+        return temp;
+    }
+
+    public FiguraProceso generarProceso(DatosProceso x) {
+        FiguraProceso temp = new FiguraProceso(fuente, MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), WIDTH, WIDTH);
+        temp.setColorBG(x.getBgc());
+        temp.getTextArea().setText(x.getInst());
+        temp.getTextArea().setFont(x.getFontf());
+        temp.setBounds(200, 10, x.getWidth(), x.getHeight());
+
+        return temp;
+    }
+
+    public FiguraDecision generarRombo(DatosDecision ab) {
+        FiguraDecision temp = new FiguraDecision(fuente, MesaTrabajo.getWidth(), MesaTrabajo.getHeight(), WIDTH, WIDTH);
+        temp.setColorBG(ab.getBgc());
+        temp.getTextArea().setText(ab.getInst());
+        temp.getTextArea().setFont(ab.getFontf());
+        temp.setBounds(300, 10, ab.getWidth(), ab.getHeight());
+
+        return temp;
+
+    }
+
+    public FiguraCiclo generarCiclo(DatosCiclo x) {
+        FiguraCiclo temp = new FiguraCiclo(new Font("Arial", 4, 12), 12, 20, 30, 40);
+        temp.setColorBG(x.getBgc());
+        temp.getTextA().setText(x.getInst());
+        temp.getTextA().setFont(x.getFontf());
+        temp.setBounds(400, 10, x.getWidth(), x.getHeight());
+
+        return temp;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -4865,6 +5571,7 @@ public class Menu extends javax.swing.JFrame {
         });
     }
 
+    Font fuente = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Abrir;
@@ -4898,6 +5605,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem ImprimirUML;
     private javax.swing.JMenuItem ImprimirUML1;
     private javax.swing.JPanel Inicio;
+    private javax.swing.JDialog JD_ArbolFlujo;
     private javax.swing.JDialog JD_CodigoFlujo;
     private javax.swing.JDialog JD_CodigoUML;
     private javax.swing.JDialog JD_CrearFlujo;
@@ -4976,6 +5684,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton51;
+    private javax.swing.JButton jButton52;
+    private javax.swing.JButton jButton53;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -4994,6 +5704,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -5014,7 +5725,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -5033,6 +5746,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTree jTree1;
+    private javax.swing.JTree jt_Flujo;
+    private javax.swing.JMenuItem mi_addNod;
+    private javax.swing.JMenuItem mi_agregarEspe;
+    private javax.swing.JMenuItem mi_deleteNod;
+    private javax.swing.JPopupMenu pop_addspecifically;
+    private javax.swing.JPopupMenu pop_agregar;
+    private javax.swing.JPopupMenu pop_eliminar;
     private javax.swing.JPanel sideMenu;
     private javax.swing.JTextArea ta_codFinal;
     private javax.swing.JTextArea ta_codFinal1;
@@ -5043,6 +5763,11 @@ public class Menu extends javax.swing.JFrame {
     Style estilo1;
     public static ArrayList<FiguraClase> clasesUML = new ArrayList();
     public static ArrayList<FiguraFlujo> clasesFlujo = new ArrayList();
+    public static ArrayList<FiguraDecision> bucles = new ArrayList<>();
+    public static ArrayList<FiguraDecision> condicionales = new ArrayList<>();
     ArrayList<String> textPadre = new ArrayList<>();
+    ArrayList<FiguraDecision> condiciones = new ArrayList();
+    DefaultMutableTreeNode selectedNode = null;
+    JPanel currentSel = null;
 
 }

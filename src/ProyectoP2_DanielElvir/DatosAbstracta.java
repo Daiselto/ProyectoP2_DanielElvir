@@ -8,13 +8,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.GroupLayout;
 
 /**
  *
  * @author HP
  */
 public class DatosAbstracta implements Serializable {
-       private String nombre;
+    private transient GroupLayout nonSerializableField;
+    private String nombre;
     private int width, height;
     private String metos;
     private Font fontt;

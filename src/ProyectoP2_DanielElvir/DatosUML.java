@@ -8,15 +8,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.swing.JTextArea;
-import javax.swing.text.Style;
-import javax.swing.text.StyledDocument;
+import javax.swing.GroupLayout;
+
 
 /**
  *
  * @author HP
  */
 public class DatosUML implements Serializable {
+    private transient GroupLayout nonSerializableField;
     private String nombre;
     private int width, height;
     private String atris;
@@ -59,11 +59,7 @@ public class DatosUML implements Serializable {
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-    
-
-    
+    }       
 
     public int getWidth() {
         return width;

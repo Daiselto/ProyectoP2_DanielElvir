@@ -8,12 +8,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.GroupLayout;
 
 /**
  *
  * @author HP
  */
 public class DatosInterfaz implements Serializable{
+    private transient GroupLayout nonSerializableField;
     private String nombre;
     private int width, height;
     private String metos;

@@ -59,7 +59,7 @@ public class ClaseNormal extends FiguraClase {
 
     public ClaseNormal(Font fuente, int locx, int locy, String label, JPanel MesaUML) {
         super(fuente, locx, locy, label, MesaUML);
-        setBackground(Color.blue);
+        setBackground(new Color(100, 149, 237));
         setSize (220,190);
         //setLocation(10,10);
         
