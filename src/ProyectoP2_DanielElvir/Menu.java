@@ -236,9 +236,6 @@ public class Menu extends javax.swing.JFrame {
         NewBttn = new javax.swing.JPanel();
         NewTXT1 = new javax.swing.JLabel();
         NewTXT2 = new javax.swing.JLabel();
-        OpenBttn = new javax.swing.JPanel();
-        OpenTXT1 = new javax.swing.JLabel();
-        OpenTXT2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         Inicio = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -1859,50 +1856,6 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(NewTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        OpenBttn.setBackground(new java.awt.Color(204, 204, 255));
-
-        OpenTXT1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        OpenTXT1.setForeground(new java.awt.Color(0, 0, 0));
-        OpenTXT1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OpenTXT1.setText("Abrir");
-        OpenTXT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        OpenTXT1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                OpenTXT1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                OpenTXT1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                OpenTXT1MouseExited(evt);
-            }
-        });
-
-        OpenTXT2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/carpeta (1).png"))); // NOI18N
-        OpenTXT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        OpenTXT2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                OpenTXT2MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout OpenBttnLayout = new javax.swing.GroupLayout(OpenBttn);
-        OpenBttn.setLayout(OpenBttnLayout);
-        OpenBttnLayout.setHorizontalGroup(
-            OpenBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpenBttnLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(OpenTXT2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OpenTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        OpenBttnLayout.setVerticalGroup(
-            OpenBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OpenBttnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(OpenTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(OpenTXT2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/snakes_423066.png"))); // NOI18N
 
         javax.swing.GroupLayout sideMenuLayout = new javax.swing.GroupLayout(sideMenu);
@@ -1916,8 +1869,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideMenuLayout.createSequentialGroup()
                 .addGroup(sideMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(NewBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HomeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(OpenBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(HomeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(5, 5, 5))
         );
         sideMenuLayout.setVerticalGroup(
@@ -1926,9 +1878,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(HomeBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NewBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OpenBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(217, 217, 217)
+                .addGap(268, 268, 268)
                 .addComponent(jLabel9)
                 .addGap(169, 169, 169))
         );
@@ -2019,13 +1969,13 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         CrearNuevo.setBackground(new java.awt.Color(0, 51, 51));
@@ -2272,12 +2222,6 @@ public class Menu extends javax.swing.JFrame {
         Abrir.setVisible(false);
     }//GEN-LAST:event_NewTXT1MouseClicked
 
-    private void OpenTXT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OpenTXT1MouseClicked
-        Inicio.setVisible(false);
-        CrearNuevo.setVisible(false);
-        Abrir.setVisible(true);
-    }//GEN-LAST:event_OpenTXT1MouseClicked
-
     private void HomeTXT2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeTXT2MouseClicked
         Inicio.setVisible(true);
         CrearNuevo.setVisible(false);
@@ -2289,12 +2233,6 @@ public class Menu extends javax.swing.JFrame {
         CrearNuevo.setVisible(true);
         Abrir.setVisible(false);
     }//GEN-LAST:event_NewTXT2MouseClicked
-
-    private void OpenTXT2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OpenTXT2MouseClicked
-        Inicio.setVisible(false);
-        CrearNuevo.setVisible(true);
-        Abrir.setVisible(false);
-    }//GEN-LAST:event_OpenTXT2MouseClicked
 
     private void HomeTXT1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeTXT1MouseExited
         HomeTXT1.setBackground(Color.white);
@@ -2310,16 +2248,6 @@ public class Menu extends javax.swing.JFrame {
         NewTXT1.setBackground(Color.white);
         NewTXT1.setForeground(Color.black);
     }//GEN-LAST:event_NewTXT1MouseExited
-
-    private void OpenTXT1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OpenTXT1MouseEntered
-        OpenTXT1.setBackground(Color.cyan);
-        OpenTXT1.setForeground(Color.white);
-    }//GEN-LAST:event_OpenTXT1MouseEntered
-
-    private void OpenTXT1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OpenTXT1MouseExited
-        OpenTXT1.setBackground(Color.white);
-        OpenTXT1.setForeground(Color.black);
-    }//GEN-LAST:event_OpenTXT1MouseExited
 
     private void DFlujoImgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DFlujoImgMouseClicked
         JD_CrearFlujo.pack();
@@ -4712,11 +4640,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void jt_FlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_FlujoMouseClicked
         if (evt.isMetaDown()) {
-
             selectedNode = (DefaultMutableTreeNode) jt_Flujo.getLastSelectedPathComponent();
-
             try {
-                if (selectedNode.getUserObject().equals("Camino IF") || selectedNode.getUserObject().equals("Camino ELSE")) {
+                if (selectedNode.getUserObject().equals("True") || selectedNode.getUserObject().equals("False")) {
                     pop_agregar.show(evt.getComponent(), evt.getX(), evt.getY());
                 } else {
                     pop_eliminar.show(evt.getComponent(), evt.getX(), evt.getY());
@@ -5624,9 +5550,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel NewTXT2;
     private javax.swing.JButton NuevoBttn;
     private javax.swing.JMenu NuevoMenu;
-    private javax.swing.JPanel OpenBttn;
-    private javax.swing.JLabel OpenTXT1;
-    private javax.swing.JLabel OpenTXT2;
     private javax.swing.JMenuItem UMLMenu;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel bg1;

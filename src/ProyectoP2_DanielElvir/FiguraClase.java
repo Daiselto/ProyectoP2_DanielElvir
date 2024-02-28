@@ -62,7 +62,6 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
         Eliminar.setText("Eliminar clase");
         Modificar.setText("Modificar el nombre de la clase");
         MenuClases.add(CrearHijo);
-        MenuClases.add(CrearHijoAbstracto);
         MenuClases.add(Eliminar);
         MenuClases.add(Modificar);
 
@@ -80,7 +79,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     if (temppadre instanceof ClaseNormal) {
                         ((ClaseNormal) temppadre).getHijos().add(Heredero);
                     }
-                    Heredero.getNomclase().setText(nLabel);
+                    Heredero.getTitulo().setText(nLabel);
                     Heredero.getExtension().setText("extends " + padre);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
@@ -96,7 +95,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     if (temppadre instanceof ClaseAbstracta) {
                         ((ClaseAbstracta) temppadre).getHijos().add(Heredero);
                     }
-                    Heredero.getNomclase().setText(nLabel);
+                    Heredero.getTitulo().setText(nLabel);
                     Heredero.getExtension().setText("extends " + padre);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();
@@ -112,7 +111,7 @@ public class FiguraClase extends JPanel implements MouseListener, MouseMotionLis
                     if (temppadre instanceof ClaseHeredada) {
                         ((ClaseHeredada) temppadre).getHijos().add(Heredero);
                     }
-                    Heredero.getNomclase().setText(nLabel);
+                    Heredero.getTitulo().setText(nLabel);
                     Heredero.getExtension().setText("extends " + padre);
                     MesaUML.add(Heredero);
                     MesaUML.revalidate();

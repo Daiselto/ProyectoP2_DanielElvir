@@ -59,7 +59,7 @@ class AdminTreeFLujo {
                 }
             }
         } //si encuentra una condicional If
-        else if (nodeValue.startsWith("If ")) {
+        else if (nodeValue.startsWith("if ")) {
             //JOptionPane.showMessageDialog(null, "Procesando nodo: " + nodeValue);
             code.append(indent).append(nodeValue).append("\n");
             Enumeration<?> hijos = node.children();
